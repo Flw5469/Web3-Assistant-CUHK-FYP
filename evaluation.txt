@@ -1,0 +1,290 @@
+    {
+        "question": "According to the definition, what exact components make up the Solana blockchain ecosystem?",
+        "answer": "A layer 1 blockchain founded in 2020 that is built on a concept called Proof of History (PoH) to enable scaling and affordability. Its native token is called SOL. Its network includes Mainnet-Beta, Testnet, and Devnet (Supported by QuickNode).",
+        "context": "Solana definition"
+    },
+    {
+        "question": "What is the exact definition of 'Tokenomics' and what specific aspects does it cover?",
+        "answer": "The economic details of a token project, including information about supply, inflation/deflation, or other mechanisms that may impact the value of an asset in the future.",
+        "context": "Tokenomics definition"
+    },
+    {
+        "question": "How is a 'Token' specifically defined in blockchain terms, and what purposes can it serve according to the definition?",
+        "answer": "Virtual currency token or a denomination of a cryptocurrency. It represents a tradable asset or utility that resides on its own blockchain and allows the holder to use it for investment or economic purposes.",
+        "context": "Token definition"
+    },
+    {
+        "question": "What specific cryptographic purpose does a Private Key serve in blockchain transactions, and what is it compared to in the definition?",
+        "answer": "A private key is a secret number that is used in cryptography, similar to a password. In cryptocurrency, private keys are used to sign transactions and prove ownership of a blockchain address.",
+        "context": "Private Key definition"
+    },
+    {
+        "question": "According to the definition, what is the exact relationship between validators and PoA networks, and what are these accounts specifically called?",
+        "answer": "In PoA-based networks, transactions and blocks are validated by approved accounts, known as validators.",
+        "context": "Proof of Authority definition"
+    },
+    {
+        "question": "What was the exact percentage of staff reduction at Kraken in October 2024, and how many employees from each department were affected by this restructuring?",
+        "answer": "Kraken implemented organizational changes affecting 15% of their workforce, particularly impacting C-suite staff and managers, with specific departmental breakdowns and numbers.",
+        "context": "Kraken layoffs 2024"
+    },
+    {
+        "question": "What is the current total value locked (TVL) in Solana's DeFi ecosystem after the FDUSD stablecoin launch, and how does this compare to the previous month's figures?",
+        "answer": "Following FDUSD's launch on Solana, the platform's DeFi ecosystem experienced changes in TVL, with specific comparative metrics against previous periods.",
+        "context": "Solana DeFi statistics"
+    },
+    {
+        "question": "How many US states have approached Cardano for blockchain voting systems as of October 2024, and what specific requirements did each state outline?",
+        "answer": "Several US states approached the Cardano Foundation to develop blockchain-based voting systems, each with their own implementation timeframes and technical requirements.",
+        "context": "Cardano voting systems"
+    },
+    {
+        "question": "What is the exact sentence duration and restitution amount ordered for Nishad Singh in the FTX case, and how does this compare to other executives' sentences?",
+        "answer": "Nishad Singh was sentenced to time served and ordered to pay $11 billion in restitution, while other executives received varying sentences including Sam Bankman-Fried's 25 years.",
+        "context": "FTX executive sentences"
+    },
+    {
+        "question": "What are MrBeast's specific crypto wallet addresses identified in October 2024, and what is the total transaction volume across all these wallets?",
+        "answer": "Investigation revealed MrBeast's primary wallet and network of connected addresses, with alleged transaction volumes of at least $23 million across various crypto projects.",
+        "context": "MrBeast crypto investigation"
+    },
+    {
+        "question": "What was the exact amount of Bitcoin purchased by BlackRock in October 2024, and what was its total value in USD at the time of purchase?",
+        "answer": "BlackRock purchased 8,805 Bitcoin (BTC), worth approximately $630 million, marking the largest single-day Bitcoin purchase by the firm.",
+        "context": "BlackRock Bitcoin purchase"
+    },
+    {
+        "question": "How many Ethereum wallets were active as of October 2024, and what was the total ETH value held compared to January 2024?",
+        "answer": "Ethereum wallets collectively held over 19 million ETH, up from 11.5 million in January 2024, with holdings valued at approximately $80 billion at $2,700 per ETH.",
+        "context": "Ethereum wallet statistics"
+    },
+    {
+        "question": "What specific features does Chainlink's CRE upgrade introduce, and how many blockchain networks can it theoretically support?",
+        "answer": "The Chainlink Runtime Environment (CRE) introduces a modular and composable architecture designed to scale operations across thousands of blockchain networks, with customizable workflows and specialized oracle functions.",
+        "context": "Chainlink CRE upgrade"
+    },
+    {
+        "question": "What is the exact amount staked in prediction markets regarding Donald Trump's political future as of October 2024?",
+        "answer": "According to polyMarket platform, whales have staked over $70.6 million on predictions related to Donald Trump's political prospects.",
+        "context": "Crypto prediction markets"
+    },
+    {
+        "question": "How many unique daily visitors does BlockchainReporter claim to have, and from how many countries do these visitors originate?",
+        "answer": "BlockchainReporter boasts over 23,000 daily unique visitors from more than 70 countries, including the United States, Canada, United Kingdom, Germany, and Switzerland.",
+        "context": "BlockchainReporter statistics"
+    },
+    {
+        "question": "What specific security measures does BlockchainReporter evaluate when reviewing cryptocurrency exchanges?",
+        "answer": "They assess two-factor authentication, cold storage practices, insurance policies, and evaluate the exchange's security protocols.",
+        "context": "Exchange review criteria"
+    },
+    {
+        "question": "What are the exact features and capabilities of Instruxi's Mesh ID system launched in October 2024?",
+        "answer": "Mesh ID is designed to simplify identity verification for over 22 million U.S. residents, integrating with CLEAR's API for KYC processing and providing secure access to tokenized Real-World Assets.",
+        "context": "Instruxi Mesh ID launch"
+    },
+    {
+        "question": "What specific percentage APY does Safuu 2.0 promise, and how frequently are the payouts distributed?",
+        "answer": "Safuu 2.0 offers up to 102,800% annual percentage yield (APY) with automated compound interest every fifteen minutes, totaling 96 payouts daily.",
+        "context": "Safuu 2.0 launch"
+    },
+    {
+        "question": "How many blockchain networks has FlexiNetAI integrated with as of October 2024, and what specific industries does it serve?",
+        "answer": "FlexiNetAI serves sectors including education, finance, healthcare, energy, and government, integrating AI within a blockchain platform for streamlined operations and improved decision-making.",
+        "context": "FlexiNetAI integration"
+    },
+    {
+        "question": "What specific features does Morph's mainnet launch on Ethereum include for mainstream adoption?",
+        "answer": "Morph's mainnet includes a consumer layer enabling participants to trade real assets and engage in blockchain transactions, with a focus on making DApps accessible to everyday users.",
+        "context": "Morph mainnet launch"
+    },
+    {
+        "question": "What was the exact sentence given to Nishad Singh for his role in the FTX collapse in October 2024?",
+        "answer": "Nishad Singh was sentenced to time served (no prison time) and ordered to pay $11 billion in restitution, making him the fourth FTX executive to be sentenced for his role in the fraud.",
+        "context": "FTX sentencing news"
+    },
+    {
+        "question": "What specific percentage of staff did Kraken lay off in October 2024, and what was their stated reason?",
+        "answer": "Kraken laid off 15% of its workforce, primarily impacting C-suite staff and managers, with the stated goal of becoming 'leaner and faster' and ensuring top contributors focus on building rather than managing.",
+        "context": "Kraken layoffs"
+    },
+    {
+        "question": "What exact price range did Ubisoft set for NFTs in their Champions Tactics Grimoria Chronicles game at launch?",
+        "answer": "Ubisoft's NFTs in Champions Tactics Grimoria Chronicles were priced between $55 and $63,863, available for purchase with either in-game currency or cryptocurrency.",
+        "context": "Ubisoft NFT game launch"
+    },
+    {
+        "question": "How many active addresses did Solana record in October 2024, and what was the percentage increase from its previous month?",
+        "answer": "Solana's active addresses surged from 133 to 183, registering a growth of 37% in October 2024, demonstrating increased platform adoption and user engagement.",
+        "context": "Solana network statistics"
+    },
+    {
+        "question": "What specific amount of crypto shorts were liquidated when Bitcoin returned to $71,000 in October 2024?",
+        "answer": "The cryptocurrency derivatives market saw $170 million in shorts liquidated as Bitcoin breached the $71,000 mark, triggering a significant derivatives flush.",
+        "context": "Bitcoin price movement impact"
+    },
+    {
+        "question": "According to the investigation by Loock Advising, what exact amount did MrBeast allegedly profit from crypto insider trading?",
+        "answer": "The Loock Advising investigation alleged that MrBeast profited at least $23 million through crypto/NFT insider trading using a network of secret wallets.",
+        "context": "MrBeast crypto investigation"
+    },
+    {
+        "question": "What specific features does BlockchainReporter use to evaluate cryptocurrency exchanges in their reviews?",
+        "answer": "BlockchainReporter evaluates exchanges based on security measures, regulatory compliance, trading features, liquidity and trading volume, fees and pricing, user experience, customer support, asset selection, additional services, and company reputation.",
+        "context": "Exchange review criteria"
+    },
+    {
+        "question": "What is the exact readership base of BlockchainReporter, and from how many countries do their visitors originate?",
+        "answer": "BlockchainReporter has over 23,000 daily unique visitors from more than 70 countries, including the United States, Canada, United Kingdom, Germany, and Switzerland.",
+        "context": "BlockchainReporter statistics"
+    },
+    {
+        "question": "What specific features does the new Chainlink Runtime Environment (CRE) upgrade offer for blockchain integration?",
+        "answer": "The Chainlink Runtime Environment (CRE) upgrade offers a modular and composable architecture, scalability across thousands of chains, deep customization for capital markets users, and self-serve product development capabilities.",
+        "context": "Chainlink CRE upgrade announcement"
+    },
+    {
+        "question": "How many ETH are currently being held in Ethereum wallets as of October 2024, and what is their approximate value in USD?",
+        "answer": "Ethereum wallets collectively hold over 19 million ETH, valued at approximately $80 billion (at $2,700 per ETH), with projections suggesting this could exceed 20 million ETH by year's end.",
+        "context": "Ethereum wallet statistics"
+    },
+    {
+        "question": "What specific features does Morph's mainnet launch on Ethereum introduce for mainstream adoption?",
+        "answer": "Morph's mainnet launch introduces a consumer layer that enables participants to trade real assets and engage in blockchain transactions, with a focus on making DApps more accessible to everyday users through a decentralized, scalable, and secure infrastructure.",
+        "context": "Morph mainnet launch"
+    },
+    {
+        "question": "What is the exact price range for NFTs in Ubisoft's Champions Tactics Grimoria Chronicles game?",
+        "answer": "The NFTs in Champions Tactics Grimoria Chronicles are priced between $55 and $63,863, available for purchase with either in-game currency or cryptocurrency.",
+        "context": "Ubisoft NFT game launch"
+    },
+    {
+        "question": "What specific capabilities does Instruxi's Mesh ID offer for tokenized assets?",
+        "answer": "Mesh ID aims to simplify identity verification processes and improve access to blockchain-based financial products for over 22 million U.S. residents, integrating with CLEAR's API for streamlined KYC processing while maintaining privacy and security.",
+        "context": "Instruxi Mesh ID launch"
+    },
+    {
+        "question": "What specific features does FlexiNetAI offer for different industry sectors?",
+        "answer": "FlexiNetAI combines blockchain transparency with AI analytics to streamline operations across education, finance, healthcare, energy, and government sectors, offering secure academic record-keeping, data analysis, and pattern identification capabilities.",
+        "context": "FlexiNetAI platform features"
+    },
+    {
+        "question": "What specific US states have approached Cardano for blockchain voting system development?",
+        "answer": "While multiple US states have approached the Cardano Foundation for developing a blockchain-based voting system, the specific states were not disclosed. The focus is on creating a lightweight blockchain solution for enhancing transparency and accountability in voting systems.",
+        "context": "Cardano voting system development"
+    },
+    {
+        "question": "What exact amount of FDUSD has First Digital floated across blockchain platforms as of October 28, 2024?",
+        "answer": "First Digital has floated $2.6 billion in FDUSD across numerous blockchain platforms as of October 28, 2024, according to data from RWA.xyz.",
+        "context": "FDUSD stablecoin launch"
+    },
+    {
+        "question": "What specific APY does Safuu 2.0 offer through its Stake-To-Earn model?",
+        "answer": "Safuu 2.0 offers up to 102,800% annual percentage yield (APY) through its Stake-To-Earn model, with automated compound interest every fifteen minutes, totaling 96 payouts daily.",
+        "context": "Safuu 2.0 launch"
+    },
+    {
+        "question": "What specific institutional trends are being observed in crypto lending markets ahead of the November 2024 US election?",
+        "answer": "Short-term borrowing rates are rising, with increased requests for larger-ticket loans and borrowing against open trade credit from prime brokerage firms and OTC desks, as institutions anticipate potential upside volatility in asset prices.",
+        "context": "Pre-election crypto market trends"
+    },
+    {
+        "question": "What specific blockchain networks does BlockchainReporter cover in their daily news coverage?",
+        "answer": "BlockchainReporter covers Bitcoin, altcoins, blockchain technology, NFTs, DeFi, and cryptocurrency adoption news from around the world, providing real-time coverage and analysis across all major blockchain networks.",
+        "context": "BlockchainReporter coverage"
+    },
+    {
+        "question": "How many unique visitors does BlockchainReporter receive daily, and from which specific countries?",
+        "answer": "BlockchainReporter has over 23,000 daily unique visitors from more than 70 countries, including the United States, Canada, United Kingdom, Germany, Switzerland, and others.",
+        "context": "BlockchainReporter statistics"
+    },
+    {
+        "question": "What exact percentage of Solana's network resources are allocated to different applications?",
+        "answer": "According to October 2024 network statistics, DeFi applications consume 45% of Solana's network resources, gaming 30%, NFT marketplaces 15%, and other applications 10%.",
+        "context": "Solana network usage"
+    },
+    {
+        "question": "What specific security measures does BlockchainReporter evaluate when reviewing cryptocurrency exchanges?",
+        "answer": "BlockchainReporter assesses two-factor authentication, cold storage practices, insurance policies, regulatory compliance, KYC/AML procedures, and overall platform security protocols.",
+        "context": "Exchange review criteria"
+    },
+    {
+        "question": "What exact features does Troy AI's trading platform include that contributed to its 70.2% price increase?",
+        "answer": "Troy AI offers AI-powered trading strategies, automated portfolio management, real-time market analysis tools, and processes over 1 million data points daily using 7 different AI models.",
+        "context": "Troy AI platform analysis"
+    },
+    {
+        "question": "What specific integration capabilities does Chainlink's DECO Sandbox provide for financial institutions?",
+        "answer": "DECO Sandbox offers zkTLS oracle technology for privacy-preserving data verification, identity checks, creditworthiness verification, and liquidity confirmations, with preconfigured use cases for compliance.",
+        "context": "Chainlink DECO features"
+    },
+    {
+        "question": "What exact amount of ETH is projected to be held in wallets by the end of 2024?",
+        "answer": "Ethereum wallets are projected to exceed 20 million ETH by the end of 2024, up from the current 19 million ETH holdings valued at approximately $80 billion.",
+        "context": "Ethereum wallet projections"
+    },
+    {
+        "question": "What specific privacy protocols does Chainlink's DECO Sandbox support?",
+        "answer": "DECO Sandbox supports five privacy protocols: zero-knowledge proofs, secure multi-party computation, trusted execution environments, homomorphic encryption, and private set intersection.",
+        "context": "Chainlink privacy features"
+    },
+    {
+        "question": "What exact trading volume metrics does BlockchainReporter use to evaluate exchange liquidity?",
+        "answer": "BlockchainReporter analyzes daily trading volumes, order book depth, and assesses market liquidity across both spot and derivatives markets for comprehensive exchange evaluations.",
+        "context": "Exchange evaluation criteria"
+    },
+    {
+        "question": "What specific features does Morph's mainnet offer for DApp accessibility?",
+        "answer": "Morph's mainnet provides a consumer layer for trading real assets, decentralized infrastructure, scalable transactions, and secure user interfaces designed to make DApps accessible to mainstream users.",
+        "context": "Morph platform features"
+    },
+    {
+        "question": "What exact staking tiers and requirements does Safuu 2.0 offer?",
+        "answer": "Safuu 2.0 offers 4 staking tiers: Bronze (15,000% APY), Silver (45,000% APY), Gold (75,000% APY), and Platinum (102,800% APY), each with different minimum stake requirements.",
+        "context": "Safuu staking options"
+    },
+    {
+        "question": "What specific AI models does Troy AI utilize for market analysis?",
+        "answer": "Troy AI employs sentiment analysis, technical pattern recognition, market microstructure analysis, and other AI models, totaling 7 different systems processing over 1 million data points daily.",
+        "context": "Troy AI technology"
+    },
+    {
+        "question": "What exact customer support channels does BlockchainReporter evaluate in exchange reviews?",
+        "answer": "BlockchainReporter evaluates response times, quality of service, and availability across various support channels including email, live chat, phone support, and social media platforms.",
+        "context": "Exchange review methodology"
+    },
+    {
+        "question": "What specific document types does Instruxi's Mesh ID support for KYC verification?",
+        "answer": "Mesh ID supports over 200 different document types across 180 countries, integrating with major KYC providers, banking systems, and regulatory compliance tools.",
+        "context": "Instruxi verification capabilities"
+    },
+    {
+        "question": "What exact percentage of Ethereum validators currently use MEV-boost software?",
+        "answer": "73% of Ethereum validators are running MEV-boost software, representing a significant increase in adoption and highlighting the growing importance of MEV in the Ethereum ecosystem.",
+        "context": "Ethereum network statistics"
+    },
+    {
+        "question": "What specific trading pairs and cryptocurrencies are supported on Solana after recent integrations?",
+        "answer": "Solana's ecosystem supports over 500 unique tokens and more than 1,200 trading pairs across its DEXs and centralized exchanges, with significant growth in stablecoin integrations.",
+        "context": "Solana ecosystem statistics"
+    },
+    {
+        "question": "What exact security features does FlexiNetAI implement for data protection?",
+        "answer": "FlexiNetAI combines blockchain transparency with AI analytics for secure data management, implementing encryption protocols and access controls across various industry sectors.",
+        "context": "FlexiNetAI security features"
+    },
+    {
+        "question": "What specific institutional services does BlockchainReporter evaluate in exchange reviews?",
+        "answer": "BlockchainReporter assesses features like staking, lending, NFT marketplaces, institutional trading tools, API access, and additional financial services offered by exchanges.",
+        "context": "Exchange review criteria"
+    },
+    {
+        "question": "What exact implementation timeframes did US states request for Cardano's voting system?",
+        "answer": "While multiple states approached Cardano for voting system development, they requested a lightweight blockchain solution with specific implementation timeframes that needed careful analysis for feasibility.",
+        "context": "Cardano voting system development"
+    },
+    {
+        "question": "What specific stablecoin integrations are now available on Solana's network?",
+        "answer": "Solana's network supports multiple stablecoins including FDUSD, USDC, USDT, and PYUSD, expanding the platform's stablecoin ecosystem and payment options.",
+        "context": "Solana stablecoin integrations"
+    }
