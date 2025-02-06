@@ -140,11 +140,7 @@ streamlit run app.py
 - Cryptocurrency price data (coins_name.json)
 
 ## Neo4j Docker Image with Data
-  setup steps:
-  1.shared folder is used, please get the data for neo4j first
-  2.put the folder into home directory 
-  3.run docker-compose.yml file with command "docker-compose up -d"
-  4.login with username "neo4j" and password "staysovryn"
+  setup command: ./dockerized_neo4j.sh
 
 ## Contributing
 Contributions are welcome! Please feel free to submit pull requests.
