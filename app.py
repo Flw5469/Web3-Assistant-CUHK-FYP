@@ -147,8 +147,8 @@ st.sidebar.header("Select mode")
 chat_dict = {
     "baseline":"chat1",
     "enhanced":"chat2",
-    "tool":"chat3",
-    "simple query":"chat4"
+    # "tool":"chat3",
+    "simple query":"chat3"
 }
 
 model_key_list = models.model_list.keys()
