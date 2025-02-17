@@ -1,0 +1,1627 @@
+URL|news_title|news_content|date|coins_name
+https://www.reddit.com/r/cardano/comments/1gecfj2/cardano_is_getting_btc_before_usdc/|Cardano Is Getting BTC Before USDC|"Post: With the recent integration of Bitcoin liquidity into Cardano through the BTC bridge, we're witnessing BTC arrive on our network even before USDC. This is a significant milestone that puts us in a unique position. **The tables have turned**, and it's time we leverage this advantage to strengthen our ecosystem and assert our independence.
+
+Given this development, I propose a few alternatives to enhance our DeFi ecosystem:
+
+1. **Utilize Incoming BTC Liquidity:**
+   * By backing a stablecoin with Bitcoin, we can directly tap into the new BTC liquidity entering Cardano.
+   * This approach enhances our DeFi ecosystem without relying on external assets.
+   * A Bitcoin-backed stablecoin would provide a secure and decentralized option for users, increasing trust and adoption.
+2. **Use Profits to Generate Djed and Lock It On-Chain:**
+   * Channel the profits from our DeFi operations to generate **Djed** (Cardano's algorithmic stablecoin).
+   * Lock Djed on-chain exclusively for liquidity purposes.
+   * This strategy would bolster liquidity within our ecosystem, making it more robust and self-sustaining.
+3. **Reconsider USDC Integration:**
+   * **Make USDC Contribute to Join:**
+      * USDC has been a dominant stablecoin, but given our current trajectory, we should reassess its role.
+      * If USDC (or Circle) wants to be part of our growing DeFi landscape, they should contribute to our ecosystem.
+      * This could be in the form of development resources, funding for community projects, or other support mechanisms.
+   * **Equal Participation:**
+      * USDC should integrate under the terms set by our community governance, without any special privileges.
+      * This ensures that all participants are on a level playing field, promoting fairness and decentralization.
+
+By setting these terms, we assert our ecosystem's strength and ensure that any integration benefits the community as a whole. This move:
+
+* **Strengthens Our Independence:**
+   * We reduce reliance on external assets controlled by centralized entities.
+   * A Bitcoin-backed stablecoin aligns with our commitment to decentralization.
+* **Enhances Innovation and Competitive Edge:**
+   * Developing our own stablecoin solutions showcases Cardano's capability to innovate.
+   * It positions us competitively against other platforms by offering unique financial instruments.
+
+This proposal isn't just about stablecoins; it's about how we govern and make decisions moving forward:
+
+1. **Community-Led Decisions:**
+   * Let's reinforce that Cardano is led by its community.
+   * Major decisions impacting the ecosystem should be made collectively, with input from all stakeholders.
+2. **Setting Precedents:**
+   * How we handle the USDC situation can set a precedent for future collaborations and integrations.
+   * Ensuring that partnerships align with our values benefits the network and its participants.
+3. **Building a Robust Governance Model:**
+   * Develop clear guidelines for how external entities can integrate with Cardano.
+   * Encourage transparency and accountability in all governance processes.
+
+By creating our own Bitcoin-backed stablecoin and reassessing how we integrate external assets like USDC, we take control of our ecosystem's future. This strategy not only leverages our current strengths but also promotes a more decentralized and robust financial infrastructure.
+
+**I invite everyone to discuss this proposal and consider its implications for our governance system. Together, we can shape the future of Cardano to reflect our shared values and goals.**
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Slow down, man. The ink isn't even dry and people are already talking about how to ""spend the money"". Nobody has even a speculative idea on what such an inflow is/would look like. Maybe wait until there's an actual dataset to play with before getting all starry-eyed...
+Comment 2: Someone please ELI5
+Comment 3: Please no Djed, they still charge 1.5% mint and burn fee, which is crazy high, and have the ability to move the entire reserve which they did once so it is not that decentralized. Djed also hasn't grown in supply over the past half year, partly due to the high fees I suppose.
+
+Also, charging Circle to join sounds like a bad idea to me as it is pretty much discrimination against them compared to all the other projects on Cardano that we also don't charge. It isn't appropiate for an open decentralized protocol. Who wants to come, comes, who wants to leave, leaves.
+Comment 4: USDM is a great fiat-backed option, and DJED and IUSD are algorithmic options.
+
+No one cares about USDC except the short-term “pump my bags” people.
+Comment 5: I am not convinced that this is truely a huge deal. Seems like bitcoiners don‘t care at all, there’s literally not a single post or comment in the bitcoin sub about this.
+Comment 6: With how volatile btc is, how would such a stablecoin be viable?
+Comment 7: Remember the hype about Apex Fusion? I hope this BOS not going to be the same, not talk about much anymore. Completely different product, I know, I just hope that they will be able to deliver, also how resistant is this to btc core devs just removing the BOS ability to even allow the zk to happen, much like they did to poker lobby (the first dapp).
+Comment 8: Read this thread for info. Don’t listen to everyone saying “bridges/wrapped btc exists” [el raulito of fluidtokens tweet](https://x.com/ElRaulito_cnft/status/1850836034075988255)
+Comment 9: I don't really understand this news. Could someone please use plain English to break down what it means to have Bitcoin liquidity on the Cardano network?
+
+Is this a matter of having trading pairs (BTC and ADA, or BTC and DJED) locked up in liquidity pools to facilitate the trading/swapping of those assets?
+Comment 10: I kinda think another stablecoin is the last thing we need on Cardano. We have enough of them. 
+
+Love the high effort posting though…bringing back the good old days!
+Comment 11: Dapp Central does an interview with the BOS guy and explains it well enough for ELI5.
+
+https://youtu.be/UKRGtbk6Xus?si=eYBSia-ODrJJe7Gt
+Comment 12: There is Rosen Bridge, Wan bridge.. also some other wrapped BTC tokens.. Rosen already bridged, Bitcoin and Ethereum..  what's all this BiticonOS fuzz about?..
+Comment 13: what is ""the BTC bridge""?
+Comment 14: I have a question for you guys, how will this, if it does, affect COTI? Particularly with the points raised about djed
+Comment 15: Usdc will only come to cardano under the terms they offered.
+Comment 16: Stable coin on cardano backed by btc is genius
+Comment 17: [deleted]
+Comment 18: Also, we have rsBTC (from Rosen Bridge) and iBTC (algorithmic, backed by ADA I believe). 
+
+What you’re claiming is new is not actually new.
+Comment 19: This is hilarious. I've been a big supporter of this chain for a while but its apparent it's not going to catch up. So much has been spent on the ground work for too long but not much on the practical, utility/usability, marketing. I think its too much 'technical elitism' is its downfall. I think it's done. My ERGO is probably going to have to go it alone. Goodluck on y'all
+Comment 20: That's a lot of complicated steps just to underperform BTC.
+Comment 21: [removed]
+"|2024-10-29 04:34:21|['Cardano', 'Bitcoin', 'Market']
+https://www.reddit.com/r/cardano/comments/1gcvs7b/a_message_to_the_cardano_community/|A message to the Cardano community |"Post: A Message to the Cardano Community:
+
+It's time we address a critical aspect of transparency within the Cardano ecosystem. As holders of ADA, we are not just investors; we are stakeholders in the future of Cardano. However, there exists a significant gap in the information provided to us, particularly about the operations of Cardano's founding entities.
+
+Why Transparency Matters:
+
+1. Selling Schedules: Knowing when significant sell-offs might occur by founding entities could help us understand potential market impacts. Transparent sell schedules would allow us to make informed decisions about our investments.
+
+2. Treasury Management: Detailed insights into how Cardano's treasury is managed, including allocations and expenditures, are crucial. This knowledge ensures that funds are being used in alignment with community interests and project goals.
+
+3. Spending Details: Where and how funds are being spent should not be a mystery. Whether it's on development, marketing, or community initiatives, ADA holders deserve a clear breakdown. This transparency fosters trust and shows responsible governance.
+
+Our Role as ADA Holders:
+
+- Demand Clarity: We must collectively voice our need for clearer, more frequent updates. This isn't about micromanaging but about being informed participants in Cardano's journey.
+
+- Engagement: Engage with Cardano's governance structures. Participate in voting if available, or at least, stay informed about governance proposals and how they might affect the ecosystem.
+
+- Community Advocacy: Let's advocate for policies that ensure all stakeholders have access to basic operational data. This isn't just good governance; it's about building a robust, trustworthy blockchain ecosystem.
+
+ Call to Action:
+
+To the founding entities of Cardano
+@Cardano_CF @IOHKMedia @emurgo_io 
+
+- Open the Books: Provide regular, detailed reports on financials, project timelines, and strategic decisions. This transparency won't diminish your control but will enhance community support and trust.
+
+- Educate and Include: Use your platforms to educate ADA holders about the ecosystem's financial health and strategic directions. This inclusion will only strengthen our community.
+
+To fellow ADA holders:
+
+-  Stay Informed: Knowledge is power. Keep learning about Cardano, its technology, and its governance. The more knowledgeable we are, the more we can demand.
+
+- Be Vocal: Use forums, social media, and official channels to ask for transparency. Our collective voice can drive change.
+
+Let's push for a Cardano where transparency isn't just an ideal but a practiced norm.
+
+Discussing active on X https://x.com/rizzabeast/status/1850017082659971128?s=46
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: ...Or you (or anyone) could join Intersect and participate in any of the Discord channels where many of the issues you raised are actively being discussed and voted on (there was just an election for committee members and board seats a week ago).
+
+Anyone can participate in this blockchain to the extent they are motivated to.
+
+[https://www.intersectmbo.org/](https://www.intersectmbo.org/)
+Comment 2: Cardano foundation yes. I don’t expect Emurgo or IO to provide us info on their internals.
+
+They don’t control the chain now. We do.
+Comment 3: Much better post than the robotic YouTubers briefing us on the same dribble
+Comment 4: Following
+Comment 5: We should be using our time to build and inhabit this new digital ecosystem.
+
+We should not be using our time to try to hamstring the companies that have the most motivation to make Cardano successful.
+
+Giving other Financial Institutions that information puts them at a strategic disadvantage.
+
+We are owners of a commodity, if you don't like that those companies hold ADA and might sell some to fund themselves you should just sell and leave.
+Comment 6: Very well said 👍
+Comment 7: Good post
+Comment 8: Should we also disclose details of your personal finances?
+
+The distribution of Cardano was conducted transparently, allowing anyone interested to participate in the initial sale. Suggesting that private entities or individuals should be subject to arbitrary scrutiny is not aligned with why I—and many others—are in the crypto space.
+
+While I may not agree with every decision made by the Cardano Foundation or IOG, I am unconcerned about their holdings or their plans for them.
+
+If you truly believe that Cardano represents a future rooted in trust, security, and decentralization, individual holdings should not impact that vision.
+Comment 9: I think that this rant is just a FUD. Like someone mentioned
+
+ ""Deep bear market drives people to find things, even make up things to bitch about.""
+Comment 10: Odd, I don’t recall receiving a prospectus when I bought ADA. Turns out I’m a shareholder somehow.
+Comment 11: We aren’t shareholders so you cannot demand that other former owners of something do anything. They no longer control the chain.
+Comment 12: This plays straight into the hands of entities like the SEC.
+
+ADA is not an investment vehicle, selling schedules are irrelevant.
+Comment 13: Big Rizza in the hizzy! Awesome post man, cheers!
+Comment 14: Facts
+Comment 15: Charles is busy on twitter being an antivaxxer Trump supporter, courting all the right wing garbage people instead of investors, he can't talk right now.
+Comment 16: Ah, transparency in Cardano! More of a myth than reality, huh? I've been holding ADA since 2018, and it definitely feels like a secret club sometimes! I remember being blindsided by a sudden sell-off, and man, it stung bad. Can’t trust anyone if you don’t see what they’re up to. Once much of my investment evaporated overnight due to mystery transactions, I learned the hard way. That's when I stumbled upon aggregation tools like Redash for data transparency and found that platforms like Pulse for Reddit give insights on trending topics, which is pretty neat for staying on top of these discussions. Mix it up with using Reddit’s API for scraping discussions, could be a game-changer in keeping up with transparency cries! We gotta stay loud and keep pushing for those open books!
+Comment 17: silly post. ADA holders are not shareholders or stakeholders or anything. ALSO, no post is required, just join the governance happenings, no differing required, just act, this is all talk when action could have already happened, if you are serious about anything of this.
+"|2024-10-27 05:47:39|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fzrbq8/a_legally_enforceable_cardano_contract_was_signed/|A Legally Enforceable Cardano Contract Was Signed (article)|"Post: The first legally and judicially enforceable contract on Cardano has been signed, fully compliant with the laws of the Argentine Republic. Integrating blockchain technologies with traditional legal systems is crucial for the broader adoption of cryptocurrencies. Countries' legal systems vary in their readiness for blockchain transactions and smart contracts. Argentina has once again demonstrated its openness to adopting cryptocurrencies and Cardano.
+
+https://preview.redd.it/g1z7vei7fqtd1.jpg?width=587&amp;format=pjpg&amp;auto=webp&amp;s=22f210c2438d55fd245e5954a94c3ade9e4ce78b
+
+**Read the article**:
+
+[https://cexplorer.io/article/a-legally-enforceable-cardano-contract-was-signed](https://cexplorer.io/article/a-legally-enforceable-cardano-contract-was-signed)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Is this the first of its kind or has it been done on another platform? Would be nice publicity for cardano if it was
+Comment 2: Well well  well - if that isn't some fabulous news popping into the feed!
+Comment 3: Argentina has also double to triple digit inflation, an insane level of corruption and a poverty level higher than it’s been since the 80s. I be stoked about this tech when a functioning country implements it with actual laws to enforce those contracts if someone goes against them.
+Comment 4: Awesome news! So beneficial for Cardano.
+Comment 5: What's not being said is-Without legally enforceable contracts ADA can not become a recognized national medium of exchange in Argentina, ie.  legal tender, unless it follows the contoversial path El Salvador took with BTC. El Salvador's laws *force* merchants to accept BTC. By making the *contracts* enforceable Agentina would skirt the thorny issues surrounding forced acceptance of crypto.
+
+One wonders why a country would take this level of interest.
+Comment 6: Not being negative here, honestly trying to understand the benefits/implications of this. I saw it on Twitter as well and didn't quite understand. 
+
+What exactly is being done here that is relevant or different? Could I not sign a contract with someone that pays in ADA prior to this? Does IOG or CF not have contracts that are paid in ADA?
+
+And further, isnt this the opposite of why we are in crypto? They are signing a contract to lend 10,000 ADA over 4 months, and if the person doesn't pay it, then they can take them to court. Isn't the whole point of crypto that we avoid these things? We have lending apps in crypto, all the parameters are transparent and agreed upon at the start. You know exactly what each person is required to do and exactly what will happen depending on what different actions they take. If someone defaults, then the code will execute exactly what it should and both parties are left with what they agreed upon. How is this making it any better or different to be able to take them to court if they dont pay? Why even use crypto at all? Why not just sign a regular contract with someone and sue them if they dont pay?
+
+And wouldnt both people have to be in Argentina for this? Its not like someone in Argentina is going to take someone in Yemen to court if they dont pay. 
+
+Again, appreciate anyone who is doing anything for Cardano and not trying to be negative. Perhaps i'm just missing the point here so would like to understand what this means and why its good or what it implies.
+"|2024-10-09 21:24:12|['Cardano', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1g8qcyq/can_cardano_be_bigger_than_bitcoin_article/|Can Cardano Be Bigger Than Bitcoin? (article)|"Post: Charles Hoskinson recently met with Argentina's President Javier Milei to explore how blockchain technology can transform global economic and political systems. During his speech at Tech Forum Argentina, Hoskinson discussed the future of blockchain and expressed his belief that Cardano has the potential to surpass both Ethereum and Bitcoin. He shared an ambitious vision that many Bitcoin enthusiasts dismiss, not realizing they share a common goal but approach it differently. Rather than debating whether Cardano will outgrow Bitcoin, it's more productive to embrace big ideas and remain open to all possibilities.
+
+**Read the article:**
+
+https://cexplorer.io/article/can-cardano-be-bigger-than-bitcoin
+
+
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Anything’s possible…the beauty in blockchain tech is that it’s world wide &amp; not constrained by any one country. If it were to fill a niche to solve the unbanked or as an easy platform for failing economys to use, it could take off like wildfire…but so could any number of other blockchains. 
+
+Bitcoin can range from $1.20-$128 per transaction. Ethereum is much better currently around $0.79. Cardano about $0.06. Then you have projects like stellar xlm with a transaction fee of $0.00005 - moneygram already uses this network to send cash worldwide.
+
+All depends on what niche market cardano can get a hold of… although if you’ve watched the game unfold over the years, you quickly learn to be a pessimist. Either your totally correct &amp; the project goes nowhere or pleasantly surprised when it takes off.
+Comment 2: Anything can be possible, but it is as difficult or as easy as it is for Solana or any other project to be bigger than Bitcoin. Point is no one knows who will be the winner 10 or 20 years from now.
+Comment 3: Betamax was technically better yet VHS became the standard. Being better doesn't equal succes.
+Comment 4: No project will be bigger than Bitcoin until the network is able to generate fees from customers.  That’s it. That’s all that matters. 
+Proof of stake is sustained only through inflation right now (Solana, Cardano included) except for a few networks (Ethereum, Base come to mind).
+This idea that blockchains are good simply because they exist and people are speculating on the token will come to an end at some point.
+At some point, users will condense down to 10-15 blockchains that have real products on them, creating enough traffic/fees to be sustainable as a network.
+Comment 5: tldr; no
+Comment 6: No reason to trust BTC and ETH will be at the top forever. First mover advantage doesn't necessarily keep you first forever.
+Comment 7: Can it? Sure. Will it? Probably, most likely not.
+Comment 8: No. 
+
+If cardano becomes the future of internet itself it still can't be bigger than future of money.
+Comment 9: Yes, but it depends on adoption.
+Comment 10: Theoretically everything is possible. But where should that momentum come from if we can‘t even get VCs to invest in Cardano or struggle to even get USDC. Native tokens still aren‘t listed on major exchanges after several years.
+
+Growth has been pretty stagnant…
+Comment 11: Short answer: No.
+
+Long answer: Noooooooooooooooooooooooooooooooooooooooooooooo.
+Comment 12: Can it be? Anything is possible but reality I’ll say no. The great thing is we don’t need it to be. Cardano has solid fundamentals and is a top project in the space. I am a fanboy but that developed from years of research. I also see its weaknesses but ten years from now is a ton of time to do a lot of things right and I think we will be great
+Comment 13: Betteridge's law of headlines is an adage that states: ""**Any headline that ends in a question mark can be answered by the word no**.""
+Comment 14: it will never surpass bitcoin or even come close lol what a ridiculous question
+Comment 15: No.
+Comment 16: In theory yes. In terms of tech also yes. But is it realistic? BTC is the gold standard. Once there is a standard, it’s touch to dephrone
+Comment 17: Btc is gold. But the usecase for Ada is futureproof. I can imagine digital product passess, CO2 certificate concepts, circular economy concepts or something like that. Because it's stable with low fees and a truly decentralized structure. Technically it's just great.
+Comment 18: Nobody knows, but my magic 8 ball says “Probably not, now put me down and stop reading Reddit posts!”.
+Comment 19: no
+Comment 20: No way
+Comment 21: Been a fan for years. But I’ll believe it when I see it. Bet that same quote can be pulled up from 2017.
+Comment 22: No
+Comment 23: Well ADA solves the green issue by not using energy to stake it where BTC and Eth take energy to be mined.
+Comment 24: I forgot I’m even subbed here
+Comment 25: Charles was one of the creators of ETH.  I believe he knows the tech he is improving and doing it differently so it has world domination in every day aspect of life as the technology is understood heard of by the lay person. 
+
+It reminds me of Wi-Fi when that started out the lay person couldn’t get their head around internet without it being wired. This could be something similar.
+Comment 26: The main difference between Cardano and Eth and btc is that cardano will actually solve a problem... ETH and BTC are centralized blockchains. This means that they work the same way as the servers of big tech corporations. they operate with the sole intent of making profit for those said corporations or for few that can actually work in their chains. While Cardano will actually create the first open source server and be considered future type of infrastructure as it allows for peacefull transitions of power, adaptation on protocol's, access to internet and jobs to all as long as they can operate in a government system. btc was a prototype, eth was an upgrade in how to reduce consumption, ada is the first government, midnight will be the privacy within a government system. So yes ada can be the future biggest infrastructure :)
+Comment 27: Ask a thousand people all over the world which word they recognize, Bitcoin or Cardano; that's the one that will stay on top, and it certainly won't be Cardano.
+Comment 28: ![gif](giphy pD7YIQoUwgb9cnX3FJ)
+Comment 29: That Charles dude, he needs to stay off the internet for a min. He's making some bold ass claims.
+Comment 30: If ADA stays in the top 20 this cycle, then yes.
+
+  
+Staying power REALLY matters, because it creates fanatics that have dedicated years and years to it. The sunk cost fallacy will work in our favor the longer the truly committed people hold. 
+
+  
+The architecture is there, we just need the liquidity and the dapps. 
+
+  
+I mean look at rocket (dot) store right now - that should be CATAPULTING the chain into the stratosphere, but only like 100 people are using it instead of the tens of thousands that own ADA. If we can get 10k daily users on that dapp, its over, we've won.
+Comment 31: No
+Comment 32: Nothing promised BTC and ETH will stay the top coins as nothing promised cardano will not fail.
+Comment 33: I could definitely see it flipping ETH in maybe 10 to 15 years. But Bitcoin idk. Of course it's possible but with all the ETF's and institutions it's very unlikely.
+Comment 34: Possible. But also possibly not
+Comment 35: No.
+Comment 36: learn to identify zombie coins
+Comment 37: [removed]
+Comment 38: No.
+Comment 39: Any answer you get here is meaningless. You simply created a topic for people to kill time with.
+Comment 40: No
+Comment 41: Lol ive been in cardano for so long. Fuck no.
+Comment 42: Cardano's sh!tcoin has been at 50 cents the past three years. It will be at 50 cents three years from now.
+Comment 43: No
+Comment 44: I would highly doubt it.
+Comment 45: No it can't. Period .
+Comment 46: Lmao, cardano bigger than bitcoin.
+Comment 47: GTFO of here.  😅🤣😂
+Comment 48: lol
+Comment 49: This is hilarious. I've been a big supporter of this chain for a while but its apparent it's not going to catch up. So much has been spent on the ground work for too long but not much on the practical, utility/usability, marketing. I think its too much 'technical elitism' is its downfall. I think it's done. My ERGO is probably going to have to go it alone. Goodluck on y'all
+Comment 50: ETH was not a “upgrade” to BTC. Statement shows you don’t understand the 2 clearly!
+Comment 51: No.
+Comment 52: No
+Comment 53: Yes ..and it will attract far better solutions and projects due to its passion for secure Blockchains and creativity of decentralization.
+Comment 54: It's having a hard time hitting 60 cents.
+Comment 55: Simple answer no
+Comment 56: Short answer: No
+Long Answer: the only usecase of Blockchain technology is to move and store bytes of data that represents ownership, and that's what Bitcoin does. No memecoins, no NFTs, no bulls*it. Charles is trying to promote and sell it's coin to get rich. As Vitalik, and as every other Satoshi wannabe
+Comment 57: Yes
+Comment 58: Lol. No!
+Comment 59: I think ADA will easily surpass bitcoin eventually, but ETH will be a more difficult goal. bitcoin has first mover advantage but it's too slow and expensive.
+Comment 60: Please indulge me, for how many years have you been in the crypto space? 
+And why do you think ada or Eth has any chance against Btc?
+Comment 61: I'm definitely an amateur in the crypto space, but have been dabbling for almost 10 years now. I really struggle to see the value in ETH. Every time I have a use for it, I get boned by some outrageous ""gas fee""
+Comment 62: each blockchain has hurdles to mass adoption, but ETH and ADA can do the same job, so eventually to ordinary people it'll be like choosing Nike or Adidas, but both shoes will lace up the same and will you really notice the difference?
+
+I'm sure the designer of each brand's shoe would vehemently talk about how their technology is different and no one builds shoes the same way they do... but we don't notice 😅
+Comment 63: but won't ETH gas prices only get higher with bigger adoption? I'm going to buy the Nikes if the Adidas forces me to donate $30 to Adidas charity
+Comment 64:  no blockchain is sitting on their hands and doing nothing, it's foolish to think they would, so if high fees are hurdle, I'm sure they'll sort it out eventually, it's the same for Cardano, I'm sure the Ethereum subreddit has ""problems"" they think will prevent ADA's adoption, but cardano isn't sitting on its hands either, and it's foolish to think any true issues won't get sorted.
+Comment 65: It's more like choosing between an open source association(not a democracy because there is no army) or a private company where you trust the company will take care of the infrastructure(same as amazon web services, and others). ;) The biggest difference is that cardano hasn't been hacked once, neither stopped providing acess to the network once like eth. meaning more secure.
+Comment 66: Not a chance. Ada has max supply that will be reached in about 20 years, and btc will have emissions till the year 2140. So if all of ada went missing, game over. If btc went missing, there would be more to mine for years to come.
+Comment 67: Not sure where youre getting information from but that is incorrect, Cardano has the same exponential decline in rewards as BTC does, roughly halving every 4 years (though it's more linear as rewards decline by a minimal amount every epoch).
+
+Nor does that it mean staking rewards will stop when reserves are depleted, it will depend on more adoption and rewards though fees and other incentives.
+
+Non of this really means anything though in the context of the post, the technology and industry will likely be very different that far in the future and all blockchains will have to prove themselves far sooner than when reserves deplete.
+Comment 68: In your household? Yes…
+Comment 69: No lol, cardano wont even be as big as ethereum
+Comment 70: No
+Comment 71: Hell naw
+Comment 72: Lol no chance
+Comment 73: No
+Comment 74: It can not.
+Comment 75: I think cardano's moment has passed.  Solana replaced it.
+Comment 76: Hahahah! Good one.
+Comment 77: Do you like your transactions publicly available? Would you like me to check your brand of shampoo? or how much you spent on you kids? I mean. Sure, adopt whatever feels safe :) It will make you a bunch of money if you are lucky enough to not get hacked :D good luck :)
+Comment 78: Not going to happen
+Comment 79: [removed]
+Comment 80: Your content has been removed as it didn't fall within  the rule 3 guidelines - Prevent Misinformation &amp; FUD. 
+
+Credible discussions contribute to our community's integrity. Please ensure your content is supported by reliable sources and accurate information.
+
+Please review our [**guidelines**](https://www.reddit.com/r/cardano/wiki/rules) before your next submission.
+Comment 81: Cardano has 222m TVL of 88 billion total
+
+[https://defillama.com/](https://defillama.com/)
+
+  
+that's 1/4 of a %
+
+  
+call it FUD if you want, it's a dead chain by that fact
+"|2024-10-21 21:59:33|['Cardano', 'Bitcoin', 'Ethereum', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1gc7w5d/psa_btc_bridge_is_peak_altcoin_status_vcs_just/|PSA! BTC bridge is peak altcoin status. VCs just got shocked so they are going to try to find the best coins on Cardano. What are your favorite altcoins? I'm personally anti-meme coins. No disrespect.|"Post: I just want to say this: BTC bridging to Cardano is pretty much the peak of what any altcoin could achieve—and of course, Cardano is doing it first because science, bit\*\*. This is exactly why Cardano has been my main focus in crypto, and it all comes down to one thing: I only respect science. As an atheist, science is the closest thing I have to religion, and that gives me a unique perspective. I care about *how* things work in the reality of this universe, and it’s clear to me that Cardano is building something way beyond the hype cycles that others are stuck in.
+
+Here’s why this BTC bridge is a game-changer:
+
+* **Bridging BTC liquidity to Cardano’s DeFi ecosystem** unlocks a massive $1.3 trillion in liquidity, giving Cardano the chance to leverage Bitcoin while maintaining its superior infrastructure. This is happening through advanced cryptography (hello ZK proofs), making this integration both secure and scalable.
+* **Liquid staking** on Cardano is a whole different level. None of that locking-your-money-away crap that other platforms force on you. We, the people who actually *need* our money, don’t want to be stuck in some dumb lockup mechanism. Cardano’s staking is liquid, meaning your assets are flexible, and you’re not just sitting there watching the big boys move their money while you’re stuck waiting. This isn’t like scammy investment platforms where orders get prioritized over yours—you’re in control here.
+* **Decentralization FTW**: Unlike centralized systems, where institutions or even governments can manipulate or shut down networks, Cardano operates on a global decentralized scale. No single nation can take it down just because they don't like it. This is a system built to last, with nodes all around the world making it resilient to any attacks or attempts to suppress it.
+
+The *VCs are just learning!* They’re catching up, but Cardano is already light years ahead. **This is millionaire money.** You’ve got to find the best projects building on Cardano because this ecosystem is about to take over. It’s going to be a killer.
+
+VC-backed media might keep trashing Cardano, but here’s the reality: Cardano is becoming a financial and societal backbone. We’re witnessing the steps right now, and its roadmap isn’t just empty promises. The work scientists are doing on this project is building something that’s going to be essential for everyone in the future. Think of it like gas for your car: you’re not going to skip filling up your tank just because the price went up. You *need* it to function. That’s how Cardano will be.
+
+It's delivering on tech that’s years ahead, and today's price is irrelevant. The future is in the tech and usability—not in the price chart. This isn’t financial advice; it’s a PSA. Stay critical, stay informed, and keep an eye on the *real* innovations.
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Cardano Native Stablecoins USD and DJED needs more reserves of those.
+Comment 2: MIN (minswap) is one I like. The dex is maturing (now you can trade with Metamask on minswap! This will bring more liquidity)
+Comment 3: Liqwid is doing well. It will probably get better after another bridge being added.
+Comment 4: All you need is $IAG and $WMTX. $Snek for meme exposure
+Comment 5: Although $SNEK is in the category of memecoins it has done a lot for Cardano
+Comment 6: For anyone not familiar with Iagon, check it out! Decentralised storage &amp; compute. Storage already fully functional and an exciting pilot coming up with a Fortune 500 company. The community has been eagerly awaiting the reveal of this company, but a successful pilot should onboard millions (!)
+Comment 7: I guess it’s a good thing that I can see at least a part of this was written by chat GPT, but good effort nonetheless
+Comment 8: Now as much as I like that cardano did that, bridges are nothing new. 
+
+What actually would be groundbreaking would be if we had a possibility to get USDC onboard without selling our soul. But that ain't going to happen
+Comment 9: Excellent insights, thank you very much!
+Comment 10: Djed and iUSD for algorithmic stable coins. Usdm for fiat baked stable coin.
+
+ADA, IAG, GENS, AXO are my favorites.
+Comment 11: Absolutely, Cardano’s BTC bridge is the beginning of a whole new DeFi ecosystem with real liquidity—VCs can’t ignore it anymore.. btw have a look at a newbie Freedum fighterz, worth checkin out
+Comment 12: Uex.finance and their token $C4 is up and coming. Doing a SOL pre-sale soon and other chains planned. Neat ecosystem they're building.
+Comment 13: I like $DING as a token for the upcoming Deadpxlz game.  I like the $SNEK community, as it promotes cardano as the most active real people chain I find.   $HUNT perhaps and I wanna get into $WMT at some point.
+Comment 14: This is the kind of hype post I live for. 
+
+$STUFF should be the main token of the Cardano ecosystem tbh. It’s our best and most successful project by far.
+Comment 15: By far the best coin on cardano is $COPI Cornucopias, check out the website
+Comment 16: May someone ELI5? Is anyone else doing this or is Cardano the only one doing this right now
+Comment 17: $DANZO
+
+It's already changed the game, and it's still early.
+
+[All you need to know about Memefi and the DANZO Arena](https://medium.com/@danzocoinada/danzo-all-you-need-to-know-about-memefi-and-danzo-arena-657670f703bb)
+
+[Introduction to the DANZO Casino](https://medium.com/@danzocoinada/danzo-casino-games-550ae8956123)
+Comment 18: $fldt is basically what made this a thing
+Comment 19: Pardon me if I am wrong, but hasn't ICP had this ability for some time now through their Chain-Key technology?
+
+Although Chain-Key isn't technically a bridge, it is better than a bridge and they support more than just BTC. Eth, LINK, USDC, USDT, ect...
+
+I am a fan of Cardano, but saying Cardano is the first, is just adding to the hype cycle you mentioned and false. ICP is the blockchain that is light years ahead. 
+
+Will probably get down voted for this, so just to reiterate, I am a fan of ADA and at the end of the day, we’re all working toward the same goal: a decentralized future that empowers individuals over centralized systems. Cardano, ICP, and other platforms are each contributing valuable innovations to make that a reality. Let’s keep the focus on collaboration and advancing the technology that benefits us all. We’re on the same team here—decentralization and crypto for a better future!
+Comment 20: It's just hype.
+"|2024-10-26 07:34:21|['Cardano', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1g12mnk/dont_give_them_the_click/|Don't give them the click|"Post: Once again , the bloggers and ""analysts"" don't have a clue predicting gloom and doom for Ada . Crypto doesn't  move based on charts. CHARTS DON'T PREDICT THE FUTURE. Ada  and all other cryptos move when Bitcoin moves. Bitcoin moves on actual events like Fed news, CPI reports, elections, interests rated etc. if you been around a while you know that most of the tech analysis is bunk. If you use TA with real world events and it's tie with Bitcoin, then it can be a part of business outlook. But the majority of these so called analysts look at the charts in a vacuum void of actual  conditions making their predictions crap.
+
+Don't give them the click.  And many of us are tired of the crap reporting that is taking place.  As Ada supporters, we need to demand quality reporting from actual journalists and  actual analysts.  Not chart readers.  This will help the community, the reputation of crypto, and allow people to make smart decisions. 
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: &gt;Ada and all other cryptos move when Bitcoin moves.
+
+Most of the time, that's true. Every once in a while, Ada will go on its own tear. It's important to watch the BTC/ADA pair to see how ADA is tracking BTC. I wouldn't completely rely on BTC price action when considering ADA. 
+
+As for charts predicting the future, I'll say this: the crypto market is a self-fulfilling prophecy. All the TA guys look at the same patterns, so they buy or sell accordingly and the price ends up moving in the direction they predicted. It's obviously not foolproof, but it works a lot of the time for a lot of people.
+Comment 2: I try to avoid the articles as much as possible. It's always the same dumb shit.
+
+""Hoskinson says..."" – fill in something negative or positive. But it doesn't matter, it will be downvoted to oblivion on r/cc anyway.
+
+""Cardano price could..."" – fill in rise or fall, combined with an imaginary number. Yes, we know it could go both ways.
+
+None of these articles bother with telling the truth. It's all just speculation and causing drama.
+Comment 3: The most important advise I read, is, don't read the news - be the news. Read only about what helps you grow and accomplish more. Become the expert, define the future, the news will follow.
+
+
+With Cardano we are on a great track. But journalists are not gonna help, if there is no news to report. Sure, we may hard-fork, sure the TPS might double, but when is the last time you saw a report on horsepowered cars on the front-page?
+
+What Cardano needs, is adoption, globally. I'm still waiting for a reliant plugin for e-commerce platforms. Still waiting for seamless transactions with euro.
+
+The power is not holding, to sell. There is no point and economically its even bad. There should be an incentive to put your ADA to use, to get real world items. A bycicle, a home, a car. Not an NFT, some Game character or lotery.
+
+That's what defines economic value.
+Comment 4: Honestly if you look at a majority of investments they tend to take a long downtrend before a huge increase. Remember the people that move the markets have so much money they can afford to push the market down in order to discourage investors and squeeze people out. This is why DCA works, ignore the market movements and realise that they quite often represent the opposite of what the reality is
+Comment 5: In the meantime, I just keep accumulating more Ada 😀
+Comment 6: &gt;CHARTS DON'T PREDICT THE FUTURE
+
+Unless they are predicting doom and gloom for competitor coins
+Comment 7: If you create a portfolio on CoinGecko with BTC, ETH, SOL, ADA, SHIB and many other tokens you will see the graphs shown are almost identical. While the amounts vary they all move up and down at the same time which confirms what you say.
+Comment 8: ADA is fine as a coin but the “community” sucks ass and is so, incredibly toxic that it *will* kill the token eventually.
+Comment 9: I agree that most crypto articles are either AI generated nonsense or paid for advertisements featuring hit pieces on mire reputable coins. 
+
+But I have to fundamentally disagree about the value of watching the charts. Particularly in a market like crypto which whilst volatile can at times be exceptionally predictable.
+
+I'm happy to watch Dan gambardello talk about the cardano charts because ultimately whilst I understand charts I don't want to watch them.
+Comment 10: All in do time…. let people play the stock market ,run here and there ,but when your talking about your real hard earned money security is number one.. whats  nice is the total market cap 45 billion. It’s hard for big players to take control over its price and perfect for real world use with a twist of Scearcy..
+"|2024-10-11 13:27:30|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1gew3nm/cardano_opportunity_time/|Cardano opportunity time?|"Post: Think its a good time to get in? If so, why?
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: When the sub can surpass 700k for the second time that's the sign you're looking for.
+Comment 2: Cardano is a powerhouse and is only like 30% off from a 3 year low. If you believe in the project, yes, now is a good time to buy in.
+Comment 3: I DCA because Cardano is a long term investment for me. That being said i do throw a little more money at it when the price is this low and we are likely to see the bull market swings in due course. 
+
+I'd say if you aren't already DCAing then now is a pretty good time to invest.
+Comment 4: Always has been. Welcome aboard. Don’t forget to stake.
+Comment 5: Cardano moves slow but that's a good thing. If we pump a ton I'll sell a bit but I reallllly wanna see where Cardano is in 10 years or so. I think it'll truly be amazing.
+Comment 6: My guess is it will 10x if btc can hit 150k
+Comment 7: just dca like me every third month or so
+Comment 8: I can tell you but it depends how much do you willing to pay, my future sight technique is not cheap...
+
+Seriously though, asking something like that in a sub of cardano will be biased unless you only interested to hear why it is a good time.  
+Besides that I hope that you are aware that asking about hitting the market is almost possible, we might tell you why the project has benefit technology but even that can't promise that a project will succeed, you always need some luck in life.
+
+Investing for long term we might help you more but if you try to hit the market so no one knows that answer but we can guess.
+Comment 9: someday it will inconceivable that it was ever below
+Comment 10: Yes
+Comment 11: Yes
+Comment 12: Opportunity for what?
+Comment 13: Are you aiming to have a specific number of ADA or just keep buying till moon time?
+Comment 14: ADA CARDANO LIVE TRADING CHART 24/7   [https://youtube.com/live/h20Pzsg2\_Ug?feature=share](https://youtube.com/live/h20Pzsg2_Ug?feature=share)
+Comment 15: Even if you don't believe on the potential up side of ADA price, you can just swap it for stables and put them to work on a DeFi protocol.
+Comment 16: I've dca'd cardano for the last two years. Now after accumulating over 220k ada, all I need is to be patient.  They've got collaboration with NASA, now BTC integration for cross chain capabilities plus so much more.  It's good enough for me.  I see it like this, it's the next big thing to hit the globe after the dot com/ Internet. Defy, proxy voting and tracking products.  it's the next Internet before our eyes.  Nothing compares to Cardano.  Price will catch up. There's nothing stopping this freight train
+Comment 17: People still believe in this? 😂. Think about the opportunity cost. Move out of these old cycle coins and in to the current if you actually want to make profit
+Comment 18: Wait for the ADA BOGO sale...
+Comment 19: It's like 10% of ATH when btcoin just hit its new. Not sure it will make it. It's development and practical adoption is too slow
+Comment 20: hell no
+"|2024-10-29 22:34:25|['Cardano', 'Market']
+https://www.reddit.com/r/cardano/comments/1g2yxdf/cardano_community/|Cardano Community|"Post: People keep telling me about the Cardano community. Where is that community? I barely see any activity here on Reddit besides the people that post those funny YouTube news videos about Ada that seems like AI generated content for the most of it. 
+
+I can barely find any meaningful info on X too. So am I looking in the wrong places?
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Please check out the Cardano projects here: https://www.cardanocube.com/cardano-ecosystem-interactive-map . There are so many great projects doing amazing things.
+
+Next, you gotta join some project Discord servers. Get on Discord, the go to the home page of Cardano projects and click the Discord icon to join the servers. There’s tons of stuff going on, ISPOs, staking and token drops. 
+
+We just had the Chang hardfork on the main Cardano blockchain. There’s privacy chain Midnight that will be built off of Cardano and dropping tokens for ADA holders. Then the scaling improvements with Leios Ouroboros protocol is almost ready.
+
+Cardano has some of the best Dexes around with Taptools, Dexhunter, Minswap and WingRiders. Awesome DeFi with Indigo, Liqwid, and Lenfi. Token projects like Iagon $IAG has cloud storage and compute services. World Mobile Token $WMT has cellular plans available on the US west and many underserved parts in Africa. 
+
+Nuvola is providing physical infrastructure (servers) for other projects and holders of the token get a share of the rewards. Nunet $NTX and Dedium $DEDI are projects that provide decentralized computing of GPU hardware. Palm economy $PALM is a real world supply chain project to help connect agricultural sellers and buyers utilizing the blockchain for transparency and trust. TVVIN and Finest Investments are tokenizing real world assets like gold. Gokey $GOKEY for real estate purchases. Book.io / Stuff.io provides a platform to sell books and other media.
+
+DJED, Mynth MyUSD and USDM are relatively new stablecoins that look great. Also tons of cross-chain development including Apex Fusion, and Meld for fiat banking. There are web3 gaming platforms like Cornucopias and really cool NFT projects like $SNEK that have great utility. 
+
+I could go on, there are SOOO many innovative projects developing on Cardano, you just need to explore more. Check out Cardano Cube map and pick something that looks interesting and start reading! https://www.cardanocube.com/cardano-ecosystem-interactive-map
+Comment 2: Here is the community:
+
+https://x.com/IOHK_Charles/status/1845550338176348389?t=Scd0wGhJ8rQmGVEpForkuA&amp;s=19
+
+https://x.com/cardano_whale?t=8cCzy3X6gCcsgPoLC8fZtA&amp;s=09
+
+https://x.com/JaromirTesar?t=PBau6ZSp4Ut0DnHffis5yw&amp;s=09
+
+
+Also don't forget to educate yourself with AOS videos!
+
+https://youtube.com/@armyofspies?si=DAUKDuCUx0bfIUmE
+Comment 3: Cardano is decentralized scaffolding for numerous projects. We're way past sitting in one place watching grass grows. 😄 We are all over the map. Pick your interest and find community for it.
+
+I don't have enough time to check 10 discord servers for projects using Cardano that I following. 
+
+Time when you could get nice daily summary on Cardano development in 3 short paragraphs is long gone.
+Comment 4: It's all on X.
+Comment 5: English speaking Cardano communities on  youtube:
+
+DappCentral
+LearnCardano
+Army of Spies
+S-PIEN
+AngryCryptoShow
+CryptoCrowOfficial
+LateGameCrypto
+CryptoCapitalVenture
+CardanoWithPaul
+Cryptofluencyio
+
+And if you dont mind less in depth insight into Cardano and need hopium:
+
+LuckSideCrypto
+Cryptomoose
+Comment 6: There's also the official community forums. I find it more educational than Twitter following and the Reddit channels. [https://forum.cardano.org/](https://forum.cardano.org/)
+Comment 7: ?social
+Comment 8: This sub only truly pops off for the peak bull market
+Comment 9: the reddit is dead. 
+
+the community is spread across a dozen forums and discords, twitter etc.
+
+Reddit is too restrictive to organise people in any meaningful way.
+Comment 10: Massive community on X, posted a short list of people to follow a bit ago.
+
+  
+[https://www.reddit.com/r/cardano/comments/1cbk6wl/comment/l11t3s0/?utm\_source=share&amp;utm\_medium=web3x&amp;utm\_name=web3xcss&amp;utm\_term=1&amp;utm\_content=share\_button](https://www.reddit.com/r/cardano/comments/1cbk6wl/comment/l11t3s0/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button)
+
+  
+Also a few great youtube content creators that you must follow. Always coming out with new updates.
+Comment 11: There are tons of content creators on YouTube that do nothing but Cardano content. 
+
+As far as actual interaction and discussion, we are mostly active on X. We literally win every poll we are in. 
+
+I would love to see more activity on Reddit like in the olden days, and I’m sure it will pick up again once retail comes back. 
+
+We can start the trend back up, it only takes a few interesting posts per day and we’ll have a lot more activity. 
+
+You should definitely be on X though.
+Comment 12: Maybe they all busy in Intersect. [https://www.intersectmbo.org](https://www.intersectmbo.org)
+Comment 13: 95% on X
+Comment 14: Lots of cardano users on X and discord
+Comment 15: It's getting a bit more active a year ago. I haven't seen that many posts
+"|2024-10-14 04:24:19|['Cardano', 'Market']
+https://www.reddit.com/r/cardano/comments/1gbtdqy/why_is_there_no_coverage_on_cc_about_bitcoin_and/|Why is there no coverage on cc about Bitcoin and cardano ?|"Post: 
+
+Comment 0: They care not for Cardano. All is downvoted to oblivion.
+
+r/cc is comprised of the following:
+
+* Solana
+* Solana memecoins
+* Solana fake news to pump numbers
+* Ethereum
+* More bs articles
+* Useless articles predicting either doom or a supercycle, nothing in between
+* People who lost their tokens on a hard drive
+* People who found the next 1000x token
+* People who got scammed
+* People digging up shit from 10+ years ago to prove some point
+* People conducting random experiments and reporting about it
+* Drama articles purely for the sake of drama
+* I could go on...
+Comment 1: They hate Charles... period. And Charles to them is Cardano, they're stubborn that way. 😆
+Comment 2: cc is hype driven and overflowing with gamblers.
+
+And a lot of these moron gamblers are butthurt because they got burned on ada.
+
+But the gamble on sol worked for them so ada bad, sol good.
+
+And thats cc in a nutshell.
+
+Once the bullrun hits and if ada does that moonshot move it likes to do from time to time rest assured it'll be covered on r/cc again - alot
+
+As for Bitcoin, the mods limit posts regarding that because every fart got spammed there a gazillion times. (Good move btw, the whole article spam is still annoying as hell. But well we can't have it all I guess)
+Comment 3: They mostly talk about 10x already pumped stuff
+Comment 4: There was
+Comment 5: gives more time to accumulate more wares from Cardano companies
+Comment 6: There has been. It was posted Friday (aust time)
+Comment 7: Because their opinion is sh**. That's why they don't make money with crypto 😂
+Comment 8: Because CC is not a leading indicator. It's a lagging indicator. They will swear up and down they always loved Cardano *after* it pulls of the steal of a century.
+
+If Cardano really *does* become the BTC smart contract Chain, all other chains are in serious jeopardy... But no one will believe that until after it happens.
+Comment 9: It has been like that for the very first day I got into cc, only changed the Moons fomo for memes I guess...
+Comment 10: Where is the price reflection?
+"|2024-10-25 20:45:27|['Cardano', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1g45g8q/wanchain_bridges_cardano_to_12_blockchains_unlock/|Wanchain Bridges Cardano to 12 Blockchains! Unlock Cross-Chain Interoperability with 15+ Assets|"Post: **Wanchain** has integrated with Cardano, directly connecting us to **12 blockchains**. 🚀 This brings **true cross-chain interoperability**, allowing you to transfer **15+ assets** across chains, including major tokens like $ADA, $ETH, $BTC, and $USDT.
+
+https://preview.redd.it/g6hhvyg0owud1.png?width=1600&amp;format=png&amp;auto=webp&amp;s=6f40ea83edae3330be5cbce627d9a6c43bf99899
+
+# Why This is Huge for Cardano:
+
+1. **Effortless Asset Transfers**: You can now seamlessly move assets between Cardano and other blockchains, unlocking broader liquidity and utility for $ADA and beyond.
+2. **Expanded DeFi Possibilities**: By bridging Cardano to Ethereum, Binance Smart Chain, Polkadot, and more, we’re opening up new DeFi opportunities for staking, lending, DEXs, and more.
+3. **Fully Decentralized**: Wanchain’s cross-chain bridges are decentralized and secure, offering trustless transfers that stay true to blockchain’s core principles.
+
+# What Does This Mean for Cardano’s Growth?
+
+* **More Liquidity**: The integration allows Cardano to tap into liquidity across multiple chains, fueling DeFi projects and platforms like Minswap.
+* **New Use Cases**: Developers can now build DApps that leverage multi-chain interoperability, expanding Cardano’s functionality and user base.
+* **Long-Term Ecosystem Expansion**: Interoperability is key to future blockchain growth, and this bridge positions Cardano as a key player in the evolving cross-chain world.
+
+🔗 **Learn more about this integration at** [Wanchain.org](https://wanchain.org) **and unchain your assets via** [Wanchain Bridge](https://bridge.wanchain.org/)!
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: High interoperability is so important in the Crypto sphere .Thousands of tokens to choose from and more coming online , amazing cool and simple wallets but don't support Cardano chain needs to be bridged .good work guys
+Comment 2: Which 12
+Comment 3: I have been using it for USDC with WANCHAIN it worked for me instead of me swapping my damn ADA all the time. Well hopefully USDA solves this issue as well.
+Comment 4: Now you can bridge from one dead blockchain to another!
+"|2024-10-15 19:30:24|['Cardano']
+https://www.reddit.com/r/cardano/comments/1fv1y5c/midnight_testnet_is_live_article/|Midnight Testnet Is Live (article)|"Post: Midnight, Cardano's partner chain, empowers developers to swiftly and securely create regulation-compliant applications that protect both personal and commercial data. The project has achieved a significant milestone by launching a publicly accessible testnet, enabling developers to begin building data-protective applications. The public launch of the testnet indicates that a significant portion of the project is well into its advanced development stages. While the mainnet launch date hasn't been announced yet, we can anticipate an update within the next year or so.
+
+**Read the article**: [https://cexplorer.io/article/midnight-testnet-is-live](https://cexplorer.io/article/midnight-testnet-is-live)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: I like that the announcement for Midnight testnet came at midnight PST lol.
+Comment 2: So how do we get on the testnet?
+Comment 3: Could someone explain how I can get some $NIGHT tokens as I’m a newbie, thanks.
+Comment 4: Awesome partner chain! More about midnight in AOS video:
+
+https://youtu.be/CwYvLzh5OkA?si=Zb5RdP4seyVn4xPi
+"|2024-10-03 15:04:32|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g8oc9g/found_a_situation_where_only_crypto_was_able_to/|Found a situation where only crypto was able to help|"Post: I’m a game developer in the US and I pay a developer in Sri Lanka to help. 
+
+We’ve quickly noticed that a lot of places will accept rupees but they won’t let you make an account in Sri Lanka. 
+
+Then we noticed that the places that do let you make an account, don’t let you exchange rupees. 
+
+He was skeptical at first to use crypto, so we tried everything else. I eventually got him to trust me and try it out and we ended up using cardano due to gas fees of other places. 
+
+We did Coinbase to binance. It worked great! I’m so glad it exists even if it’s a mediocre task. 
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Cardanians do love those real world use cases
+Comment 2: Good choice. The fundamentals of cardano are better than the other chains. And BNB, Sol, Ton, are quite centralized compared to Cardano in some way or another (how much control the founders have).
+
+But at Cardano, the community owns it!
+Comment 3: 2 years in this sub, you’re the first person I heard use cardano other than investing
+Comment 4: Awesome.
+
+How much did the whole process take from your local currency to his local currency?
+Comment 5: &gt;We did Coinbase to binance. It worked great! I’m so glad it exists even if it’s a mediocre task.
+
+You sent from CeX to CeX? :-)
+Comment 6: This high gas fees of other places, is Ettherum in the room with us now?
+Comment 7: Coinbase to binance? exchange to exchange transactions are very much never recommended.
+Comment 8: Why not PayPal? Tho I suppose that's slightly more expensive
+"|2024-10-21 20:21:23|['Cardano', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fzhq7n/midnight_how_will_cardanoada_holders_profit_from/|Midnight: How will Cardano/ADA holders profit from?|"Post: Charles just gave a short pitch about the main features of Midnight and why it is so essential, which I fully agree on.
+
+https://m.youtube.com/watch?v=Q1B348FP458&amp;pp=ygUXQ2hhcmxlcyB0b2tlbmltaWNzIDIwNDk%3D
+
+But ultimately is Midnight a own and self sustaining chain independent from Cardano tech and most importantly Cardano tokenomics meaning that Midnight will not benefit Cardano (as in increasing usage/traffic nor ADA holders at all as having its own tokens and consensus mechanism??? I wonder. 
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Midnight is an L1 connected to Cardano. The relationship between them is primarily security based. 
+
+Midnight Validators are sourced from existing Cardano SPOs.
+
+Treasury management contracts live on Cardano as well as registration contracts and a few others as well.
+
+Basically, Midnight (or any Partner Chain) will require a certain amount of transactions on the main chain (Cardano)
+Comment 2: When midnight airdrop for ada holders?
+Comment 3: This is actually something I was looking into yesterday because I thought I fully understood what a “partner chain” was and how it benefitted the Cardano ecosystem. I understand that partner chains will be able to leverage our validation nodes / SPOs, but It’s difficult to see how it will directly benefit stakers.
+
+For example, Cosmos utilizes Tendermint across blockchains, but outside of its utility to secure the network, ATOM has no real value for stakers.
+
+Unlike Cardano though… the tokenomics for ATOM are awful.
+Comment 4: Dapps will be multi chain in the future. You’ll be able to participate by buying and staking mightnights tokens. Dapps that use midnight will also likely use Cardano or other Cardano side chains resulting in transactions on Cardano or side chains.
+Comment 5: They won’t directly. But indirectly it proves the concept of partner chains. Interoperability between chains has been sold in various ways (L2s, roll ups, EVMs on BTC, parachains, etc). Whoever manages to prove interoperability between chains works in a fairly decentralized &amp; composable way will likely experience some hype which would likely result in a pump.
+Comment 6: one way I think about it is it makes cardano part of the foundation of the broader ecosystem. it's already the foundation of its own dapps and transactions, and now with partner chains it becomes ""too big too fail"",  i.e. more people rooting for it and depending on it, which is kinda the definition of adoption I think.
+Comment 7: I hold ADA in my iTrust, will I qualify for Midnight airdrop? If there was to be an air drop for ADA?
+Comment 8: Can governance in ADA be copied/ plagiarized by other block chains? Why or why not?
+Comment 9: [removed]
+Comment 10: Midnight is partially a new way for Charles to make a bunch more money with a new coin.
+Comment 11: [deleted]
+Comment 12: iirc, early on it was mentioned that Midnight would have to convert (""burn"") ADA to create both Midnight and Dust tokens. That's a *lot* of ADA to be eaten up by Midnight. In addition, the amount to be converted by end-users, as well, benefits both parties...win-win. Those hellbent on burning ADA get their wish fulfilled...
+"|2024-10-09 10:52:31|['Cardano']
+https://www.reddit.com/r/cardano/comments/1fx65by/bestsafest_cardano_passive_income/|Best/safest Cardano passive income?|"Post: Hi all,
+
+Ive been invested in cardano now since early 2018 and been staking for the past couple of years. Im looking for options to make passive income on top of my staking rewards.
+
+  
+Ive been doing a bit of reading about yield farming, peer to peer lending. still getting my head around that stuff and how to do it/what it is, but open to other options.
+
+  
+I have quite a substantial amount of ada so would ideally like a very safe option, and if you can even recommend any good youtubers that have these kinds of videos to guide me through it, id be very grateful!
+
+thanks all! :) 
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: As others have said I don’t trust anything but the staking. If I did it would be with a small or moderate at most amount of ADA. I’ve been buying for years. I wouldn’t want to lose it all now while being greedy.
+Comment 2: Unless you are very familiar with impermanent loss, I would stick to staking. You can get upside down pretty quickly on yield farming and lending. Speaking from experience, you have to be willing to risk your ADA and it’s not something I’d recommend to the average investor.
+Comment 3: With ADA, supplying ADA to Fluid's boosted staking gets you the most at no risk.
+
+Second is loaning out ADA on liqwid finance. 
+
+With these 2 methods, the risk is in the smart contracts. Otherwise risk free.
+Comment 4: * Lend ADA on Lenfi for about 6-7% from the SNEK and IAG pools.
+* Swap ADA for OADA on Optim Finance and stake it (getting sOADA). The return is around 5% at the moment.
+* Supply ADA on Fluid's boosted staking, but competition has pushed the return to below 5% if you want it to be taken up.
+
+  
+I do all the above and it beats the current sub 3% normal staking rewards. They are all solid protocols, but there is no return without risk DYOR.
+Comment 5: Staking is the safest.
+Comment 6: There is no 'safest' yield farming. There are many inherent risks associated with it. Most important of all is impermanent loss, but there is also risk of hacking of the underlying protocol which might result in complete loss of funds.
+
+But whatever you do, never ever use a centralised platform for yield farming.
+Comment 7: Nuvola is great for passive rewards and gets you exposure to depin tokens.  If you do yield farming I would recommend looking into the correlation between the two tokens you are providing liquidity for as if they move together your risk of impermanent loss is reduced.  You can check the correlation on defillama.  I personally provide liquidity for ADA/MIN.
+Comment 8: Maybe Optim. I haven’t tried it but people seem to like it
+Comment 9: Look into Nuvola
+Comment 10: Levvy Fi is where it's at rn.  I'm hitting over 100%-300%+ apy on my Ada with extremely low risk.
+Comment 11: Ive made better returns when Ive staked in ISPOs and got the tokens of a project instead of Ada rewards.
+
+It is a limited risk inasmuch as you cant lose your Ada, only the staking rewards in case the project is a rug pull or fails to deliver (has happened to me).
+
+It requires some amount of research and staying informed about the projects youve invested in, but when I sold on some successful projects I got multiple times the ordinary rewards in Ada.
+Comment 12: I've been providing liquidity for the  rsERG/ADA pool on Splash (formerly Spectrum) since Rosen Bridge went live and it's been pretty successful so far as the assets correlate fairly closely.  I believe you also accrue staking rewards for the portion of the LP that is ADA.
+Comment 13: https://handle.me/w_
+Comment 14: For a pretty safe option, you can lend your ada as stake to another wallet on fluidtokens. Say for instance they wanted more tokens for an ISPO, they could use the feature to have an increase in stake. I don't believe your ada is ever at risk save for the fluidtoken contract itself. https://app.fluidtokens.com/ada/boostedstake
+Comment 15: As someone who's worked on one of the defi platforms, I strongly suggest you stick with ONLY staking for the majority of your funds. Only play with defi with the money you don't mindt losing, think of it like going to a casino, but worse. I'm not saying defi projects all have bad intentions, some are really going for it but the reality of it is that it's a pure gamble ground on many levels
+
+If you want something reliable: real estate &gt; gold &gt; silver &gt; Bitcoin or just spend to enjoy life which is what ultimately matters
+Comment 16: Youtubers:
+
+[Dapp Central](https://www.youtube.com/@DappCentral)
+
+[Learn Cardano](https://www.youtube.com/c/LearnCardano)
+
+[Cardano With Paul](https://www.youtube.com/c/CardanoWithPaul)
+Comment 17: $ANGELS
+Comment 18: My Cardano is 100% staked on coinbase 🤷‍♀️
+ I'm a senior what do I really know, seemed easy peasy to me lol
+"|2024-10-06 10:05:21|['Cardano', 'Tron']
+https://www.reddit.com/r/cardano/comments/1gf8qih/now_that_bitcoinos_is_here_and_was_easily/|Now that bitcoinOS is here and was easily implemented because Cardano uses eUTXO, we’re gonna see all kinds of other UTXO coins shifting their liquidity as well|"Post: Other coins that use UTXO including but not limited to:
+- Litecoin ($5.57 Billion)
+- Dogecoin ($25.6 Billion)
+- Bitcoin Cash ($7.6 Billion)
+- Monero ($3 Billion)
+
+Bitcoin is obviously the biggest one of them all, but some bitcoin maxis don’t like to do anything other than hold. I think these altcoin holders might be much more open to using Cardano, but I digress. 
+
+I don’t see why developers aren’t going to implement the OS solution to these coins as well.
+
+I think Cardano is going to be one of the best performing assets in the upcoming bull run. 
+
+Better hold on tight. I plan on only selling my stake for a while, I would hate to sell my bag at $8 when we are possibly looking at a double digit coin. 
+
+Comment 0: Doing the same kind of cross compatibility between Cardano and Doge might be as big or even bigger than BTC. Imagine using your doge to provide liquidity on Cardano. 99% of doge holders do nothing with it, I’m sure they would love to earn a yield.
+Comment 1: Fuck dude, a double digit Cardano would change my life…
+Comment 2: Let's gooooo!
+Comment 3: There are already at least two ways in which BTC can come to Cardano: Wanchain, AnetaBTC, Rosen Bridge
+
+I don't think too much is comeing through either of these bridges to date.
+
+I don't think BOS will change that.
+
+What i find interesting however is Bitcoiners apparantly being able to pay for transactions using bitcoin when babble fees approach - i assume using the bridged BTC.  
+
+But i've also heard that smart contracts on cardano will be able to impact the BTC chain.  I've heard it in different ways, such as bitcoiners will be able to have their bitcoin on BTC chain interact with cardano smart contracts.  Not sure how that's going to work, because, to pay for that execution they're going to need some ADA or bridged BTC to pay for it.
+
+So yer, i feel like details have been muddied in the reporting and those reporting havn't been super clear.
+Comment 4: There isn't any bridge yet tho
+"|2024-10-30 07:28:59|['Cardano', 'Bitcoin']
+https://www.reddit.com/r/cardano/comments/1gfd1oe/playing_the_devils_advocate_on_cardano_fud/|Playing the Devil’s advocate on Cardano FUD|"Post: Pointing out some obvious challenges that I’ve been asking myself about Cardano as the years went on.
+
+It’s got barely any activity or utility despite having had smart contracts for years, barely any DeFi to speak of (besides a few primitive dApps to swap Cardano shitcoins around) compared to even the smaller blockchains;
+
+Most of its promising projects from back in the day turned out to be overhyped duds if not ISPO scams;
+
+Ada already has a monstrously oversized market cap for a blockchain that has so little activity or utility thus far;
+
+It may be secure but is now ridiculously slow and costly to transact on compared to most of its competitors, as it’s no longer enough in 2024 to simply try to one-up ETH and BTC;
+
+I’m afraid the window of opportunity is closing on Cardano by the day as its competition leaves it farther and farther behind in development;
+
+The landscape in 2024 is simply much more different than in 2020 or 2017, back when crypto tech was far less developed on the ground and Ada could balloon just by Cardano’s lofty promises and ideals;
+
+Decentralized governance could easily backfire by putting the future of this blockchain in the hands of an ignorant mob who could take actions to hinder its development;
+
+It’s hard to imagine why large corporations or corrupt third-world governments would want to use Cardano, or any other blockchain, for things like identification or voting or immutable records, when it’s hardly a problem to begin with for them that couldn’t be remedied by irl solutions or even desirable to be remedied.
+
+Maybe I’m just pessimistic and letting the Cardano FUD trinity of ghostchain, dinosaur chain, and stablecoin get to me, but aren’t these legitimate concerns too? Could anyone help me refute these points so I could actually rationalize my hope that Cardano would be able to keep up with the crypto world? In my opinion, Cardano needs to act fast— rolling out killer dApps quickly; developing a full suite of DeFi with liquidity and expansion beyond the Cardano ecosystem; and improving scalability to allow near instant transactions at fractions of a penny should take major priority over things like decentralized governance and whatnot if we truly want to be competitive and have a functional and useful blockchain to show.
+
+Comment 0: 
+**Constructive Criticism Post Rules**
+
+The aim of these posts are to identify areas of potential weakness in any aspect of Cardano or project which can result in actionable improvement where possible. Open and fair criticism should be welcomed here and discussion should be respectful and civil. The goal is for the community to find solutions and positive outcome. 
+
+Posts and comments must be as detailed as possible with issues elaborated on. **You must** backup any arguments and statements with reason and justification, evidence, and sources (hence being **constructive** criticism).
+
+Destructive criticism, Price/Market Discussion, FUD and any shilling will be removed, as will any comments being tribal and disrespectful.
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: I am going to be brutally honest here. If you think there is another chain that is as secure as Cardano and as decentralized as Cardano, you are mistaken. You can find all kinds of chains that are “a million TPS” that are just centralized servers calling them selves a blockchain to make money. Cardano is true decentralization with a price point anyone in the world can run a node. 
+
+There is a reason why many other chains use our research in their projects. You know NiPoPoWs? Yes that was Cardano. Oroborus that Polkadot uses? Yea that was Cardano. 
+
+The chain may be slow in development, but it is in no way being “left behind”. It is the only blockchain that is doing things right to have corporations and governments adopt it.
+
+You always hear when will crypto be used in real world use cases, well, there isn’t a chain in place that meets all the demands to be practical, but Cardano has an entire plan to get there.
+Comment 2: Why would governance suck? You don't think the Dreps that we vote for will be that intellectual? We are the most science based protocol, this + the decentralization philosophy runs through our core principles. The Dreps know liquidity, scaling and stablecoins are a priority, and make sure to delegate to someone who values this too. We are currently ~nr. 10 by market cap. I think we are undervalued, and cannot comprehend why chains like doge and xrp are so high while you can't even do defi on them. 
+
+Anyway, there is plenty to look forward to. There is a lot of research and development going on behind the scenes. And within a few months, full governance turns on, and maybe the Dreps can attract USDC, make more partnerships, increase marketing, etc. In a couple of months BitcoinOS is fully implementing infrastructure on Cardano which allows for DeFi possibilities for Btc like never seen before https://youtu.be/UKRGtbk6Xus . Zkrollups are in development making smart contracts scale a lot more, faster and cheaper. Ouroboros Leios is in development making the chain equally as fast as Solana, while we keep our decentralization and security.
+
+Wheter you believe it or not, Cardano is the most decentralized chain and here for the long term. We're  building cool things and it'll pay off massively at some point. The FUD mostly comes from shitcoiners. In a few years from now we have incredibly high scalability + we'll be the most secure and decentralized still + way higher TVL (also because of Btc on our network), and a more attractive price. We will do very well in altseason, just wait for it.
+Comment 3: I discovered Cardano in 2021 after experimenting with Ethereum for a while. The Ethereum network consumed about $200 worth of Ether that I was trying to use to create a new shitcoin. I thought to myself, ""This cannot be the future."" After some more research, I found Cardano and haven't looked back since.
+
+Cardano seems to live rent-free in the minds of those who spread FUD about it. It receives so much criticism—perhaps because people dislike its scientific approach? I'm not sure. Personally, I prefer progress that is slow, steady, and done right the first time.
+
+Cardano is like a Zen Shaolin Monk: calm and in deep meditation while everything around it is blowing up and crashing. Even Bitcoin has taken notice and is trying to collaborate with us.
+Comment 4: I want to play devils advocate on the volume of other chains.
+
+Some large bot farms approached Emurgo and said they can get high volume like they are currently doing on Solana and Sui if Emurgo pay $1 million a month for the service. Emurgo obviously said no.
+
+This Chinese bot farm openly said they are doing this on Solana and Sui as well as smaller operations on other popular chains.
+
+We need to clean up the blockchain space so we know what the true active daily users are.
+Comment 5: Do you know that 90% trading volume comes from shitcoins?
+Comment 6: Ya know, .35 is still a good entry price ~ I don't think you're gonna get it in the twenties anymore...
+Comment 7: &gt;I’m afraid the window of opportunity is closing on Cardano by the day as its competition leaves it farther and farther behind in development;
+
+What competition and what development?  Truly, please show me a chain that has anything like Cardano's development cycle.
+
+If ""development"" means artificially inflated transaction volumes on projects that are pumped by central vested interests; sure Cardano is behind, but why would we want any of that?  What problems is that actually solving?
+
+Cardano is a serious endeavour, it's taking the hard path to truly solving real problems.  That doesn't lead to fiat gains, but if we are into crypto, why do we care about fiat anyway.
+
+Sorry OP you will have to be much more specific about what problems you see, before we can have a substantial conversation.
+Comment 8: From this I can conclude that you haven't been following Cardano development for a while. It's just straight up FUD as always.
+Comment 9: Late Game Crypto and Dapp Central on youtube have a couple of videos addressing various Cardano fud that might answer some of your questions.
+
+CardanoWhale on X also have alot of tweets regarding the subject in various forms.
+
+I can see how someone who doesnt follow the Cardano space closely would have your impression. IMO it is really obvious to me (that follow the cardano ecosystem closely) that most of your fears are unfounded, but there is no way of transferring my hours of reading and following the space into you to alleviate the FUD.
+
+It would be like telling someone who just started their crypto journey yesterday what to buy today and sell towards the end of the bull run. They will without fail fall prey to influencers, FUD and their own greed getting caught up in the coming hype. It takes a cycle and continuous commitment to learn from ones own mistakes to be impervious to FUD.
+
+TLDR: its not something thats easily learned by someone telling you something on a reddit post, its something you have to do for yourself following the developments and reading about the subject in question.
+Comment 10: People keep on throwing out buzzwords like killer dapp. What makes a killer dapp and how do you make one? Why not share your idea of a killer dapp. And everyone that complains just asks for things without contributing anything. Like duh we have Defi, and obviously we need liquidity pointing out the obvious without contributing a solution.
+
+At this point it's a broken record of people just repeating the same thing but don't have anything to contribute.
+
+Edit: We have a lot to offer on Cardano except speed. But everyone is still afraid to venture out to other ecosystems. It's not that we're slow or have no dapps. It's nobody dares because of how crypto is so volatile.
+Comment 11: After so many years of development, I came to the conclusion that the only use case of Blockchain technology is to move around bytes of data that represents ownership, which is what Bitcoin does.
+
+I am afraid all the dApp ideas are better off, using AWS or cloud computing. Games in the Blockchain, Real state in the Blockchain, none of them make sense. Do you really need to store your game scores in a complicated and costly data structure like a Blockchain?  
+
+Time will tell but so far not a single dApp has been massively adopted not make an impact on the tech industry. 
+
+Reality check
+Comment 12: Have you used Solana? UX sucks and every other transaction I send fails. Major slippage problems as well. 
+
+We aren’t as behind as you think we are. 
+
+If I was a Solana native and I just found Cardano defi, it would be a godsend. 
+
+Solana doesn’t even have a Taptools.
+Comment 13: What’s so funny is that there is so much Cardano FUD, and all these holders are worried about it, but it could all be fixed if they would just dump their ADA into rocket store or book io and blast these apps into the stratosphere. It’s not hard.
+
+We have the apps, just no one is using them.
+Comment 14: simply envision how a bright future would have to look like in terms of economy politics and society. then imagine what kind of role crypto will play there and which chain will likely still exist and have the required properties within the next two decades or so.
+
+dyor and then tell me if you find a chain better suited than Cardano.
+
+just focusing on this should calm you down - it always does for me. if you instead decide to focus on FUD and a dystopian future you are free to do so, and little surprisingly Cardano plays no role in it. instead we have CBDCs and perverted pseudo cryptos obeying to abusive centralized authorities, WW3 and Sauron.
+Comment 15: What's Eth's killer app? Every chain has dexes, CDPs, lending, etc. But they are all basically the same with different amounts of liquidity.
+Comment 16: I don't follow Cardano daily and I don't understand 90% of the tech lingo. But I do know Blockchain is here to stay and will be the future of information processing, and likely as a currency. I'm close to idiot level when it comes to computers and code and whatnot. But I am a production manager for a Fortune 500 company,and I can tell the difference between bull crap and solid legit. So while the global eliteists might hate Charles, IDGAF because they're going to have to come to us eventually. If you need an ass kicker and there's only one company that makes ass kickers that work, kick the right asses,and kick them every time, then they will use your ass kicker. And quite frankly, I think we have a really great Blockchain ass kicker.
+Comment 17: Slow and steady works. Ask your... 😉
+Comment 18: [removed]
+Comment 19: OP these are all excellent points.
+Comment 20: OP, you are 100% correct. No point having a stellar network if folks have no clue what Cardano is and what it means. For the truly decentralized and truly secure block chain it sure leaves to be desired cuz the price action is not reflective of its superiority.
+
+The founder has no intention to force ada to go up and in my view it is just a matter of time for some to call it quits .
+Comment 21: don’t worry, Ada will stay. It’s a special breed.
+Comment 22: I'm worried for you Cardano fam. If it falls outside top 15, it's probably it's slide to oblivion. Do you think the chain has got enough going for it with the backdrop of lackluster blockchain adoption in general. As well as strong competition in an already lackluster tech?
+Comment 23: Btw this criticism comes from arrogance brick as “bigger chain” who thinks they are more deserving than that.
+"|2024-10-30 11:03:39|['Cardano', 'Tron', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fyu8zz/ada_staking_rewards_kinda_suck/|ADA Staking Rewards kinda suck?|"Post: Curious to hear other people's thoughts on this.   
+I wasn't expecting something crazy lucrative, but it under performs rather notably compared to pretty much any other crypto staking route? 
+
+For reference, over 15% of my crypto folio is staked ADA. 
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1:  It doesn’t work like this. A token which has a 1% inflation and gives 2% rewards is better (when it comes to tokenomics) than a token which gives 10% return but has a 20% inflation
+Comment 2: I think you might be a bit fooled when it comes to APY. If it is over 10 percent it's too good to be true. APY is basically inflation, the extra money is created out of thin air. 
+
+The people who stakes is eating the cake from the people who don't stake. Value just don't come from thin air.
+Comment 3: You cant really compare Cardano staking with anything else because if you are staking, you are earning rewards absolutly riskfree while most other activities like DeFi has risks involved.
+Comment 4: Time to search out yield through Defi.  
+
+I’m a fan of diminishing returns through staking if no other reason to get people to participate in using the blockchain.
+
+Staking imo should be the rfr and not equal to much more than inflation
+Comment 5: Cardano has the best staking protocol. It's liquid, and it's 101% safe.
+Comment 6: It's either defi yield with impermanent loss and or high risk or just another chain with very high inflation for more % in staking. E.g. solana or polkadot.
+
+3.5% is more than I would have gotten with my bank account. (also my fiat will never grow in value on its own). 
+
+tldr: imho it does not suck. You are just comparing it to high inflateable other chains.
+Comment 7: People are not happy with dot or atom high inflation and people are not happy with low inflation 
+Comment 8: It's a much more realistic percentage. More like a bank account, and less like a weird defi thing that only lasts a month
+Comment 9: Discussion for everybody:
+
+**If you were to change the staking incentives on Cardano, what would you change?** 
+
+**At what point is the current staking incentive too low for you that might make you stop staking altogether - or does it merely depend on ADA's price and whether you hold it as an asset?**
+
+To correct some misinformation in the thread, rewards will work out to be roughly half every 4 years like Bitcoin (if transaction fees don't increase as rewards come from those too), as the staking reserve pot has an **exponential** decay. I means you'll still get rewards from the reserve pot decades from not, but they will be small. You can track the amount in the reserve here: [Pots   Cardano Explorer (cexplorer.io)](https://cexplorer.io/pot)
+
+Staking rewards are merely an incentive for people to get them to do something, stake, as that's how Cardano's protocol functions. They're not designed to make you wealthy. Currently 61% of ADA is being staked, which suggests the incentive is still working.
+
+Now that we have governance, we can consider changes that might be made in the future and discuss them, and these are important conversations to have, however it's also important to consider:
+
+**Impact of Inflation**
+
+Large % rewards come at a cost of high inflation. I know it feels good to ""get the numbers"" especially big numbers, we can see the immediate effect on our wallets and you feel wealthier for it - it's just how the human brain works. However, high inflation tends to come at the cost of a lot of selling pressure and thus it lowers the price since everyone has more to sell.
+
+If you had your money in fiat and you're not in a savings account, you're actually constantly loosing money. A savings account merely offsets the cost of inflation (assuming its high enough), your not really saving or making money if the interest is lower or equal to inflation. Of course we're in crypto because of the high volatility, high risk and high rewards, but we have to endure the bad with the good.
+
+**Future Rewards**
+
+Something will have to be done if the incentive is too small to get people to stake their ADA, but I largely think this will come down to the future price of ADA and of course adoption (and rewards from more transactions). However there is no harm in discussing what changes you might like to see in the future. 
+
+You might also consider that holders will also receive rewards from partner chains, perhaps soon (the [toolkit ](https://iohk.io/en/blog/posts/2024/08/01/announcing-the-alpha-v1-release-of-the-partner-chains-toolkit/)was release in August). Midnight is on testnet right now and it might not be too long before it's released. Let's hope the summit is exciting.
+Comment 10: Invest in CNTs.  The rewards are much better in the longbrun if you pick the right one. Of course there is risk involved. I went all in on Snek over a year ago and it was a good move. Not financial advice, but it is working out well for me. I have gone from 30,000 ada to 80,000 ada. I anticipate it is going to keep going through next year.
+Comment 11: Tell me you don’t understand liquid risk free staking without telling me you don’t understand liquid risk free staking.
+Comment 12: Looking at some other replies you seem to be looking at staking ADA as an investment to be measured against other forms of investment returns.  While you can view it that way if you want to (who am I to say), in my opinion that's wrong.
+
+Staking ADA or any other native L1 coin is not an investment, the return is not the proceeds of investing.
+
+You stake your ADA to **secure the protocol that, in turn gives your ADA value in the first place**.  That in itself should be sufficient, as in Cardano you are basically taking zero risk through staking (no lockup, no slashing etc.), on a hard cap supply commodity.
+
+The additional staking rewards in the form of ADA is a way to issue ADA broadly to a wide section of the community and to recycle the transaction fees that are a spam prevention mechanism. At the maximum, the rewards are a payment from the protocol itself for security services provided to the protocol.  By choosing a stake pool and helping that pool create blocks, you are using your judgement to decentralise and secure the protocol.
+
+We hold ADA because we want to use it for activities within the Cardano ecosystem, and to some extent because we believe that the unique value proposition of Cardano will give us more opportunities to interact within the protocol in valuable ways in the future.
+
+The whole crypto space has been infected by the idea of investing, but if you look at the Bitcoin Whitepaper or the homepage of any legitimate L1 protocol, you won't find anything about investing anywhere.  To say crypto is an investment and staking/mining is an ROI, is to suggest that the whole space is a security.
+Comment 13: ISPOs
+Comment 14: They suck during a bear market, but the staking rewards I gathered through the bear covered my initial investment in the bull
+Comment 15: Those rookie numbers lol
+
+Yes, it is low. It does not subscribe to the notion “too good to be true.”
+
+Thank God!!
+Comment 16: The higher the APR, the higher the sell pressure on a token.
+
+Why don't you go throw $10 into a 1000% APR farm and see how that goes lol
+Comment 17: I am getting 5% on my ADA.  I stake it on Nexo exchange. Been doing it for past 3 years. I have racked up so many ADA.
+Comment 18: It kinda does, yes. But there's much worse too... At least it is safe and your ADA remains liquid.
+Comment 19: It should be around 4-5% apy Which is okay. Much more is not sustainable
+Comment 20: I’m a traveler from the year 2050, and let me tell you, the world has completely changed. The entire fiat system collapsed a long time ago, and scammy cryptos like SOL, ETH, and HBAR are ancient history. The world now runs on ADA as the real, stable currency. It's the safe haven everyone needed.
+
+Back in 2020, I started staking my ADA, having no idea it would eventually reach the value of a gold bar! Getting at least 1 ADA per epoch has turned out to be the smartest decision anyone could make. If only people knew what was coming back then!
+Comment 21: Yeah. I bought ADA in 2021 to learn about staking and its pretty much been rubbish returns.
+Comment 22: You cant judge interest on its own. Its interest + change in asset price that matters. High interest will typically imply dilution and put downward pressure on asset price
+Comment 23: You can use optim protocol that gives double the rewards around 5% APY.
+Comment 24: Was good before.
+Comment 25: Instead of a halving the rewards drop every 5 days but in tiny increments. So it is like a logarithmic lowering of the rewards.
+
+A year ago the average was closer to 4 % now we are around the 3%.
+Comment 26: I think the current set up is a reflection of a sustainable system. Currencies offering much above current ADA staking are due for an inflation problem. Sure you could get higher at a bank/fiat but then you’re in fiat.
+
+I for one didn’t realize the rate would slowly fall when I first staked. That’s on me. Still glad to be earning anything while holding something I believe could (and should) blow the socks off the financial world.
+
+I will say over the last year I’ve put less into ADA due to better return in a HYSA. As much as I’d like to go all in I gotta maintain some practicality with a wife kids &amp; mortgage.
+Comment 27: It's secure and safe. So far YOY I've compounded around 1,200-1,400 ADA. Not a huge amount but I am happy with my long term investment. Especially when it goes parabolic. At 10$ that's an extra 12-14k per year for nothing.
+
+
+If you put it in a savings account you're yielding negative purchasing power due to inflation. So to me Principal on Asset is amazing.
+Comment 28: I couldn't advise you one way or the other, but I am sure the crypto market will or could change drastically in the next 90 days due to the election and rumors of China lifting its ban on Mining crypto.
+Comment 29: Rewards are always a trap
+Comment 30: I’ve felt the same way about $ADA staking—it just doesn’t seem to deliver as much compared to other options.
+
+If you’re open to exploring alternatives, I’d recommend checking out FLock’s AI Arena. I’ve been delegating $FML and customizing my reward ratios, plus you can withdraw after just 1 day. The flexibility and returns have been a big plus for me!
+Comment 31: Agree, we are approaching 2%… will it drop lower and lower or will it balance out somewhere? At the rate it‘s declining currently we‘ll be below 2% in a year. 
+At that point you can get better yields with safer options.
+Comment 32: Your ADA staked is never locked - you are free to do whatever with it at any time.
+
+2)  Check the pool you stake to; some SPOs claw back several percent before the payout, versus some take none or maybe 1%...huge difference.
+
+3) Over the long haul, those rewards will be worth significantly more than they are now; think long term.
+Comment 33: Ada in general kind of sucks, very little price action, other cryptos see good growth and price increases, Ada more stagnant than a pond
+Comment 34: Get downvoted to oblivion, but you're right lol.   
+Not sure if it's just a marketing and positioning problem - as Twitter seems very active for ADA with lots of devs doing stuff.   
+But generally, not much seems to be going on.  
+Concepts that were being discussed in 2017/2018 are still being discussed now.   
+Doesn't seem like ANY real movement has happened, at least to me.
+"|2024-10-08 15:33:49|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1gcwgeh/cardano_the_music_industry/|Cardano &amp; The Music Industry|"Post: Hey y'all -- I've been an artist manager for 5 years and have been fed w/ how musicians earn from streaming platforms -- artists earn fractions of a penny per stream. YIKES.
+
+Thats why I'm building SESS\_NS to help artists increase their revenue, own their fan data and form deeper connections with their fans.
+
+We have aligned major partnerships already with record labels &amp; other music platform tools for artists. We will bring Cardano to the entertainment industry unlike any other project/company has before. We are going to do it in the least 2021 web3 way possible. With a huge focus on familiar user experience while being as empathetic to the user journey as possible. No training manual required!
+
+Cardano Fam --- I  need your help! I need you to vote for Sess\_ns, we are seeking a Catalyst Grant in the current fund cycle.
+
+ \-- please vote for our project proposal here -- [https://cardano.ideascale.com/c/cardano/idea/133932](https://cardano.ideascale.com/c/cardano/idea/133932)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: How does it differ from NEWM / Sick City?
+"|2024-10-27 06:19:49|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g9cfrq/i_need_a_quick_pick_me_up/|I need a quick pick me up..|"Post: Hey 
+
+  
+So FYI i have been in with Cardano since before covid so my average entry price im not complaining about. 
+
+Im more of a passive follower overtime but i still believe the underlying principals are great and backed by someone who is invested in the project but i what i need right now is some quick highlights to look forward to over the next 6 months.. 
+
+I am just having one of those days where you feel cloudy and i need some IT ppl to explain to a non IT person whats on the highlights calendar to look forward to
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Within 2 months all dRep functionality gets turned on. Meaning from that point around 500 dReps (currently registered) can make proposals and vote about it and control half a billion dollars in value that is locked in the treasury right now and gets opened after those couple of months. That's massive.
+
+At that point, Cardano will have the most advance governance system in the entire crypto industry.
+
+Also, within a couple years or so our scalability will 100x because of zkrollups and ouroboros leios. Worth reading about.
+Comment 2: The bullrun…… we are all waiting …
+Comment 3: Follow Cardano whale on twitter bro
+Comment 4: Cardano and other alts always lag behind Bitcoin. Bitcoin has gone crazy so alts won’t be far behind. The market likes to go sideways for so long to shake out impatient investors. You shouldn’t be down, you should be so excited that the biggest most face melting pumps are coming over the next 12 months. Price goes down for so long that people forget what happens when the bulls go on a charge. Be ready and be excited !!!!!!
+Comment 5: the next big step will be the release of midnight. probably early next year I'd say.
+
+otherwise there are just lots of small upgrades coming that will add up slowly.
+Comment 6: In no particular order:
+- Argentina 
+- hydra
+- leios
+- Chang hard fork pt 2
+- midnight
+- betting market dapp
+- other various dapps making waves
+- just signed another MOU 
+
+Those are just off the top of my head, I’m sure I’m missing things to look forward to. Hopefully you’ve been staking your Ada, it takes about 5 mins to do.
+Comment 7: Post from 2 weeks ago: [Need some reassurance](https://www.reddit.com/r/cardano/comments/1fz9x79/need_some_reassurance/)
+
+2 months ago: [Is cardano dead?](https://www.reddit.com/r/cardano/comments/1f4a5s2/is_cardano_dead/)
+Comment 8: The Cardano Summit is literally this week!
+
+Surely lots to be announced throughout this week. You can watch the stream here: https://summit.cardano.org/virtual-attendance/
+Comment 9: Christmas 🎅
+Comment 10: Nobody listened to your request to keep the jargon out of it lol. 
+
+That’s the problem isn’t it, which maybe you are trying to prove. Great product, too technical, normies won’t use what they can’t understand. 
+Comment 11: When these conversations emerge, it is a good sign to hold on for longer. I admit, I have been feeling a bit impatient myself after continuing to DCA for the last few years. This is my queue to hunker down for longer and be patient.
+
+We will be rewarded for our patience!
+Comment 12: Have a significant pre-covid bit of ADA.  I've averaged down to a less embarrassing level, but I don't know how I justify holding an investment that hasn't yielded anything in years.   Seems like the speculation boom has deflated.    We need adoption or it's going nowhere.
+Comment 13: Great week to ask. Cardano Summit happening in Dubai this week - probably lots of announcements there. Plus CH is in Venezuela &amp; signing MOUs over there
+"|2024-10-22 15:24:14|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1gamzcf/yoroi_50_launches_w_mobile_dapp_connector/|Yoroi 5.0 Launches w/ Mobile DApp Connector, Portfolio, and More!|"Post: # Yoroi Mobile 5.0 is here! 
+
+
+
+Yoroi Mobile v5.0 New Release! We’re excited to unveil Yoroi Mobile v.5.0, which includes several highly requested features - like Dark Mode and DApp Explorer - that will take your interaction with Cardano to new heights.  Let’s check out some highlights in the release:
+
+# DApp Explorer 
+
+Browse and discover Cardano DApps with ease in our new “Discover” tab.  You can search using the search bar, filter DApps through categories, like “NFT” and “Trading” or scroll through our curated selection.  Connect your wallet and transact with your selected DApp.  Browsing, connecting, and transacting with DApps made simple. 
+
+https://reddit.com/link/1gamzcf/video/e7ojwha9ykwd1/player
+
+# Portfolio Manager
+
+https://reddit.com/link/1gamzcf/video/oixqgwkbykwd1/player
+
+  
+Sort and browse through your assets quickly and easily with Yoroi’s brand new Portfolio Manager. 
+
+# Dark Mode
+
+https://reddit.com/link/1gamzcf/video/m4u9rbwjykwd1/player
+
+Say hello to dark mode!  Our mobile users can enable this easy-on-the-eyes option in the Menu tab. Click “Settings” “Application” and “Theme” to select your preferred mode.  Light or Dark - what’s your preferred mode?
+
+# Network Selection and Deep Links
+
+https://reddit.com/link/1gamzcf/video/6mzt1bhlykwd1/player
+
+Attention, developers: Yoroi’s production wallet now supports testnet environments, offering a new “Preprod” network option.  This allows you and the community to test products and environments safely - without risking real funds on mainnet. 
+
+Additionally, we’re excited to introduce Yoroi deep link v2! You can use our deep link package to seamlessly launch your DApp directly within Yoroi - enhancing the security and overall experience of users. Our update also contains fixes that enhance Yoroi’s functionality. Check out the full release on our github.  
+
+# Governance Features
+
+https://preview.redd.it/l86ujlizxkwd1.jpg?width=1080&amp;format=pjpg&amp;auto=webp&amp;s=54ce4edf9d4885d4d48095007a6dcdd170aad347
+
+Quickly and easily delegate to your favorite DRep, or participate in governance - either through the mobile app, or GovTools.
+
+# So What Feature Will You Be Checking Out?
+
+# 
+
+Comment 0: Looks great and we finally have mobile dApp functionality! I think eternl provided that but I don’t want a new software for different purposes!
+
+Yoroi is now perhaps the best wallet out there agin!
+Comment 1: Dark mode doesnt work in ""auto"" had to manually turn it on, even tho my phone settings is in dark mode. 
+
+Also the button bar in the bottom doesn't go black, it stay white which kinda ruins it.
+
+Would also love a way to see my last epoch rewards so i can quickly see if my pool is still alive or not. Cheers!
+
+Phone: Samsung S23 Ultra
+Software: oneui 6.1
+Comment 2: didn’t know i woke up in 2019
+Comment 3: Finally
+Comment 4: A clear improvement with more utility. I like it.
+
+
+One issue regarding the dApp connections (""disvover"" tab): The app developers should also take into account small screens, the Android toolbar at the bottom and any enlargement of text/icons via Android Settings. So some users almost cannot connect their wallets to dApps because the blue button, you have finally to tap for confirmation/connection, is barely visible at the bottom of the screen.
+Comment 5: Easier access to stake info would be great also history of withdrawals. Some kind of stake pool comparer would be great to have
+Comment 6: Yoroi always worked. Now the app won’t open on my iPhone. Everything updated. Just won’t even open.
+"|2024-10-24 06:14:50|['Cardano']
+https://www.reddit.com/r/cardano/comments/1gecijm/dont_miss_the_latest_cardano_news_stay_up_to_date/|🚨 Don't miss the latest Cardano news! Stay up to date on all of the projects being built on the ecosystem.🚨 |"Post: https://preview.redd.it/3nu2evwj5kxd1.png?width=1200&amp;format=png&amp;auto=webp&amp;s=66bb285f3ee727738a2352046793d6600be56852
+
+🤓 In today's edition, we covered...
+
+🔑 Cardano Integrates BitcoinOS Grail Bridge
+
+🔑 Midnight Network Makes Strategic Alliances to Accelerate Zero-Knowledge dApp Development with Maestro, Paima Studios, and Sindri Labs
+
+🔑 Minswap Labs Partners with Atrium Lab to Enhance User Experience
+
+🔑 EMURGO Partners with Axelar Network to Develop Cardano's Interoperability
+
+🔑 TxPipe makes dApp-building simple with Demeter
+
+🗣️ This week's newsletter spotlights TxPipe's Demeter project, a platform that provides all of the resources needed to to interact with the Cardano blockchain in a fast, simple, and cost-effective manner 🛠️ 
+
+➡️ More information on [https://demeter.run](https://demeter.run/)
+
+🔻 🔻 🔻 🔻 🔻 🔻
+
+Among other stories...
+
+🔴 LCX Exchange announces 5 CNT listings
+
+🔴 Minswap Labs partners with Jellycubes NFT
+
+🔴 Yoroi Wallet launches Yoroi mobile 5.0
+
+🔴 Dedium Network launches $DEDI staking
+
+🔴 Nuvola Digital LLC &amp; Cornucopias Game announce partnership
+
+🔴 Botanix Labs &amp; Chainlink Labs alliance
+
+Our weekly newsletter 🗞️ provides a concise overview of the most important developments on the Cardano ecosystem🌎 
+
+Don't miss out ‼️ 
+
+We send out our weekly digest every Monday morning ☀️ straight to your inbox 📥 
+
+Subscribe below ⏬ 
+
+[https://www.cardanonewsletter.com/](https://www.cardanonewsletter.com/)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+"|2024-10-29 04:37:48|['Cardano']
+https://www.reddit.com/r/cardano/comments/1ga3vk3/did_opportunity_lost/|DID opportunity lost|"Post: [https://unchainedcrypto.com/buenos-aires-launches-first-blockchain-based-digital-identity-for-its-3-6-million-citizens/](https://unchainedcrypto.com/buenos-aires-launches-first-blockchain-based-digital-identity-for-its-3-6-million-citizens/)
+
+With all the fanfare surrounding the efforts in Argentina why did we lose this? Does anyone know?
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Drama much? We didn't lose any deal. The city of Buenos Aires is independent of the federal government, this particular deal was negotiated between the mayor and ZKSync last year prior to IOG even entering the market, and Midnight hasn't even launched so Identus wouldn't be suitable in 2024. 
+
+
+Government procurement of deals takes long than 12 months especially in places like Argentina where the government is shutting things down. Our goals aren't profitless vanity announcements with cities. It's adoption. There is 100 billion dollars of cryptocurrency assets in Argentina. It's a massive RealFi and Lace market. 
+Comment 2: Isn't there a Cardona platform info and ID product being integrated into New Zealand's health care system?
+
+If that product performs as well as it should would it be a long stretch to adapt and implement the same with NZ's Ministry of Social Development?  A whole nation joining the Cardano ecosystem is a much better story than the expirimentation of one municipal district, isn't it?
+Comment 3: Probably because federal, provincial and municipal authorities are all separate entities and are not part of a uniform structure.
+
+For outsiders it is all Argentina, however that is an oversimplification of the situation in any country.
+Comment 4: I too want an answer to this
+Comment 5: I'm so tired of all of these grandiose schemes that promise to revolutionise everything.  
+
+Charles just needs to hire a bunch of young, trendy developers and pay them to just copy all the fun stuff all the other top 10 coins are churning out. 
+
+He can do all this almighty genius stuff in the background and then surprise us in 20 years when his visionary ideals finally bear fruit. 
+
+Crypto investors are childish and greedy. We just want to see bright and flashy things now, and big price pumps. 
+
+We couldn't care two hoots about the unbanked and starving ppl in the developing world. Not sexy.
+Comment 6: Midnight couldn’t come soon enough !!
+
+This looks like it was a missed opportunity, but it’s also proof of concept that governments will be open to using this tech, especially in Argentina.
+
+We do have to be happy about this as sad as it is to say that midnight wasn’t here fast enough for this decision.
+
+I do believe midnight will be the catalyst for governments using Cardano. Once we have ID’s on Cardano/midnight, it’s game over.
+Comment 7: You thought that Cardano could be the solution for them!!!
+Comment 8: With quantum computing + AI maturing, I really don't think personal records of any sort online is a good idea...
+Comment 9: As always, unfortunately Charles and company talk a lot and don't deliver what they say. They've been talking about Atala Prism for DID for years, and so far no product has been delivered or finished.
+Comment 10: Cuz Cardano doesn't have the technology production ready (ZKPs DID) az far as I know.
+Comment 11: Wow.
+Comment 12: The real question is - why not IAMX?
+"|2024-10-23 14:25:51|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1g5twjn/frederik_gregaard_at_cnbc_arabia/|Frederik Gregaard At CNBC Arabia|"Post: Hi, I was surprised seeing Frederik at CNBC Arabia in Dubai, live in in our show!! (me as sound Eng)
+
+https://preview.redd.it/7mrcje547cvd1.jpg?width=5712&amp;format=pjpg&amp;auto=webp&amp;s=28ac1b71eed112470f23c5477a363a305173e0eb
+
+
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Cool. What was he talking about?
+Comment 2: Freddy sharing his love for rockets and NASA ?  ;)
+Comment 3: Nice pic!
+"|2024-10-17 23:43:39|['Cardano']
+https://www.reddit.com/r/cardano/comments/1fzpvrj/announcing_the_lets_talk_cardano_podcast/|Announcing the Let’s Talk Cardano Podcast! 🎙️|"Post: The Cardano Foundation is excited to launch our new podcast series, [Let’s Talk Cardano](https://open.spotify.com/show/6bLMheFsIP1dyZjW71g6br), and its debut episode, [An Introduction to Tokenomics](https://open.spotify.com/episode/2cMgc8x5xENLA93SqIBNmU) on Spotify. 🎙️
+
+Join CTO [Giorgio Zinetti](https://www.linkedin.com/in/giorgio-zinetti-51423753/) as he interviews blockchain expert [Massimo Morini](https://www.linkedin.com/in/massimo-morini-37a3246/) to explore the fundamentals of tokenomics and its vital role in decentralized finance. In this episode, you will discover:
+
+* What tokenomics is and why it matters for blockchain technology.
+* The origins of tokenomics and its connection to cryptocurrency.
+* How token supply affects value and the basics of market capitalization.
+* Insights on inflation, price volatility, and the impacts of token burning.
+* Massimo's perspectives on the tokenomics of Bitcoin, Ethereum, and Cardano.
+
+[Listen to the debut episode](https://open.spotify.com/episode/2cMgc8x5xENLA93SqIBNmU) on Spotify today!
+
+https://preview.redd.it/ionqtb982qtd1.jpg?width=3000&amp;format=pjpg&amp;auto=webp&amp;s=7105447d373b1930ca903ccab46712a175885159
+
+  
+
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+"|2024-10-09 20:10:24|['Cardano', 'Market', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fzo3vo/happy_ada_lovelace_day_everyone/|Happy Ada Lovelace Day Everyone!|"Post: Happy Ada Lovelace Day Everyone!    
+  
+Ada Lovelace, the brilliant mathematician who worked on the Analytical Engine, is widely regarded as the first computer programmer.   
+  
+The Cardano token—ada—was named in her honor to celebrate her groundbreaking contributions to technology.
+
+https://preview.redd.it/imi4uzz9iptd1.jpg?width=750&amp;format=pjpg&amp;auto=webp&amp;s=6145d426bfd81929355b415c6018d43d68a1df07
+
+  
+To learn more about Ada Lovelace’s impact on technology and Cardano, click here:   
+[https://forum.cardano.org/t/the-impact-of-ada-lovelace-on-technology-and-cardano/42957/1](https://forum.cardano.org/t/the-impact-of-ada-lovelace-on-technology-and-cardano/42957/1)
+
+  
+
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Love!
+"|2024-10-09 18:20:44|['Cardano']
+https://www.reddit.com/r/cardano/comments/1geqo97/newbie_questions_regarding_the_cardanobitcoin/|Newbie questions regarding the Cardano-Bitcoin Bridge|"Post: How does a bridge technically work?   
+  
+How is it possible that one's BTC can be on the blockchain, while loaning it out on the cardano network?   
+  
+What would happen if you loaned out your BTC and the loan is not being payed? How can that be communicated to the bitcoin network? Also - creating this loan necessarily demands ADA, where is that ADA coming from? If the user only has BTC. 
+
+Finally - doesn't already existing cryptocurrencies like ETH or Solana already have bridges to bitcoin? Or does this specific bridge have something special that I am missing?  
+  
+Now, if we suppose that the above statements are true - wouldnt this result in a huge demand for both BTC and ADA?  
+  
+Furthermore, since we already have a bridge between ADA and ERGO (please, correct me if I am wrong) - wouldnt this result in that ERGO would have an increase in demand as well?  
+
+Comment 0: To my understanding is that fees can also be paid in BTC (""babel fees"") so the user doesn't even need Ada, and the user also won't necessarily know that they're using Cardano.
+
+If a user would borrow an asset on Cardano, then their Btc could be collateral, and if the user can't repay the loan, the btc would be liquidated on a Cardano dex.
+
+To my understanding, the difference with other bridges is that our bridge will be natively implemented and you don't need some other entity to manage the Btc for you. So Btc holders stay in control of their funds in their own Btc wallet. It's not WBTC on Eth for example. They can instead interact with smart contracts in a Btc wallet.
+
+I'm very curious how this all will unfold. I'm a non-technie and had/have trouble understanding some parts too, so maybe someone else can answer your questions more extensively than I can or provide more insight.
+
+EDIT: you should really watch this interview that just released with Bitcoin OS CEO https://youtu.be/UKRGtbk6Xus super informative
+Comment 1: My understanding. Will be more than a bridge. ADA will be more like an interstate highway collecting toll fees.
+Comment 2: In UTXO chains, each UTXO is locked by the private key that can sign the transaction to unlock it with a valid signature.
+
+Cardano extends UTXO by allowing other things to lock a UTXO, like a smart contract, you have to satisfy that smart contracts logic to unlock the UTXO.
+
+From what I can tell the BitcoinOS on the Bitcoin chain, is allowing zk proofs to confirm that basic conditions are met so that UTXOs can be unlocked.
+
+So you would lock BTC inside a Bitcoin UTXO, and Cardano eUTXO could see that lock and represent that locked BTC inside Cardano.  To unlock the BTC in Bitcoin again, you need to send the ZK proof back to Bitcoin, and to do that you have to do something on Cardano that satisfies a smart contract that locks or destroys the BTC on Cardano.
+
+My explanation is almost certainly wrong in some regard, but I expect that's the general principle.
+"|2024-10-29 17:43:15|['Cardano', 'Bitcoin', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fy2c1s/the_cips_github_repository_needs_11_more_stars/|The CIPs GitHub repository needs 11 more stars|"Post: *This is a follow-up to the Cardano Forum post:* [*The CIPs GitHub repository needs 26 more stars*](https://forum.cardano.org/t/the-cips-github-repository-needs-26-more-stars/136237)
+
+The [cardano-foundation/CIPs GitHub repository](https://github.com/cardano-foundation/CIPs) is the home for Cardano’s standards (Cardano Improvement Proposals): a growing archive of documents authored by Cardano organisations, developers, and community members.
+
+It represents 4 years of work to maintain a standards archive on par with those of other leading cryptocurrencies, while including community participation, engagement and audit as a top priority. This year has produced a Wiki detailing how individuals can participate in the process, from a simple level of understanding up through reviewing others’ CIPs and perhaps writing their own:
+
+[**https://github.com/cardano-foundation/CIPs/wiki**](https://github.com/cardano-foundation/CIPs/wiki)
+
+The content here is essential knowledge for Cardano advocates — especially with the crucial role CIPs will play in the governance process: to produce governance propositions that stand up to community audit. Yet during our governance launch, the content remains excluded from Internet search due to its GitHub repository not having 500 stars yet (see [GitHub Docs &gt; About Wikis](https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis)):
+
+&gt;**Note:** Search engines will only index wikis with 500 or more stars that you configure to prevent public editing.
+
+At the time of this writing the repository only has 489 stars, so we are very close to the CIP Wiki being enabled for search engines. Please read Wiki content to your satisfaction and star the repository, and we will be at 500 stars soon… and feel free to follow the links to the Discord for the meetings &amp; discussions that have always been open to public participation and enquiry. 🙂
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: only 7 more to go 🤟😁
+Comment 2: Cool, just added a star!
+Comment 3: 501 stars, good job fellas
+Comment 4: 🫡
+"|2024-10-07 15:52:20|['Cardano', 'Crypto']
+https://www.reddit.com/r/cardano/comments/1fto3cm/one_of_the_biggest_problems_of_cardano_and_the/|one of the biggest problems of cardano and the solution created by a company TXpipe|"Post: At the moment, the number of developers working on Cardano is limited, which in turn leads to fewer projects being developed. This limits the creation of innovative solutions and products for users and companies, ultimately hindering broader adoption of the blockchain.
+
+[read article](https://x.com/ADA_Newsletter/status/1840872624374620284)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: I’m just having trouble with the concept that Ada has so many projects built on it. It has not been broken, but the value has dropped? Its value should by all rights soared. I’m at a loss.
+Comment 2: Looks like clickbait to me 
+
+[https://stack.money/asset/cardano](https://stack.money/asset/cardano)
+Comment 3: the ""Article"" is on twitter/X.  No real stuff on a real web page anywhere?
+"|2024-10-01 21:27:50|['Cardano']
+https://www.reddit.com/r/cardano/comments/1fuixib/gimbalabs_the_suite_of_courses_you_need_to_build/|Gimbalabs: the suite of courses you need to build scalable, production-grade Cardano apps.|"Post: https://preview.redd.it/qt8718mg2dsd1.png?width=1200&amp;format=png&amp;auto=webp&amp;s=7fa5f9f229b7d942fd83e289dd5df99118deb47f
+
+We are creating a suite of courses about Cardano development for building scalable, production-grade apps for a variety of new use cases and stakeholders, including:
+
+* Plutus Project-Based Learning: [https://andamio.io/course/ppbl2024](https://andamio.io/course/ppbl2024)
+* Mesh Project-Based Learning: [https://andamio.io/course/mesh](https://andamio.io/course/mesh)
+* Cardano Go Project-Based Learning (in collaboration with [@blinklabs\_io](https://x.com/blinklabs_io)): [https://andamio.io/course/gpbl2024](https://andamio.io/course/gpbl2024)
+* Aiken Project-Based Learning (in collaboration with [@sidan\_lab](https://x.com/sidan_lab)- launching October 2024)
+* Marlowe Project-Based Learning (in collab with [@marlowe\_io](https://x.com/marlowe_io) core team — launching November 2024)
+
+We are able to take a holistic view of Cardano developer education. Each of the courses listed above will feature common projects. One course must link to another in a way that supports developers to understand the big picture.
+
+All our courses at: [https://andamio.io/courses](https://andamio.io/courses)
+
+  
+---
+
+https://preview.redd.it/dycc5esw2dsd1.png?width=1365&amp;format=png&amp;auto=webp&amp;s=f24fd3d9cc4fd66fba413e2007b3d8e67864ed34
+
+Did you know that [@gimbalabs](https://x.com/gimbalabs) is nominated for the Cardano Summit 2024 awards in the category “Educational Influencer”? We count on your vote. Thanks in advance: [https://voting.summit.cardano.org/categories](https://voting.summit.cardano.org/categories)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Looks awesome. Where would I start as a beginner? Are there some recommended prerequisites? Currently taking the Cardano academy classes and working my way through the Cardano developer docs
+Comment 2: I've really gotta find some time to sit down and do this
+"|2024-10-02 23:28:03|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g5pu1s/calling_all_cardano_devs_only_2_days_left_to/|Calling all Cardano Devs! Only 2 Days Left to Complete the 2024 Developer Ecosystem Survey!|"Post: Hey Cardano Developers!
+
+Time is running out! You have **only 2 days left** to participate in the  [State of the Cardano Developer Ecosystem Survey](https://cardanofoundation.outgrow.us/cardano-developer-ecosystem-survey-2024). Your insights are crucial for shaping the future of Cardano’s digital infrastructure.
+
+Since its inception in 2022, this survey has provided essential insights into our developer landscape, helping identify preferences, challenges, and opportunities. Your input has already influenced the development of key tools and technologies, and it will continue to shape our ecosystem.
+
+Whether you’re a seasoned Cardano developer or just curious about blockchain development, we want to hear from you! It takes only **15-20 minutes** to complete, and your voice matters in making Cardano even stronger.
+
+[**Take the survey here!**](https://cardanofoundation.outgrow.us/cardano-developer-ecosystem-survey-2024)
+
+Let’s keep driving innovation and building a resilient Cardano ecosystem together.
+
+https://preview.redd.it/ikych34k9bvd1.jpg?width=3840&amp;format=pjpg&amp;auto=webp&amp;s=ebe4b0355d988950db753f68124a48cca6c3c95b
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+"|2024-10-17 20:35:43|['Cardano', 'Tron']
+https://www.reddit.com/r/cardano/comments/1g0flfq/most_stable_cardano_based_stablecoin/|Most stable cardano based stablecoin|"Post: Hello! I was wondering what would be the best cardano based stablecoin, ones i have in mind are DJED and USDM, my worries are currently : how stable are those two, how is it likely that there will be an anomaly that just dumps them.
+
+Sorry for such a rookie question im still a noob.
+
+I appreciate every information.
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: between those two, USDM is better. If the djed reserve ratio falls below 400% - it can no longer be minted, which can cause it to depeg upward.  DJED should be safe from a downward depeg, barring a major catastrophe.
+Comment 2: Guy who wrote the contracts for USDM here.
+
+USDM is very stable. The burn fee is 1.5% so its redeemable any day for kyc'd business users to redeem any day.
+
+The money is delivered to them if they burn USDM as soon as banking transactions allow.
+
+Depegs tend to happen on volatile weekends when arbitrage is difficult because banks are closed on the weekend, but tend to repeg at the beginning of the week.
+
+DJED has the advantage of being always redeemable for .985 cents, which puts it as an equivalent for someone buying on a decentralized exchange, but its also a synthetic algorithmic asset not backed directly by dollars. If they price of ADA went to 0 (still unlikely) it would be worthless.
+
+Obviously I'm biased towards USDM, I made the contract and deployed it to mainnet, but it's personally my favorite stablecoin and is my biggest position in my portfolio. I'm lending it out on liqwid personally for some yield.
+Comment 3: USDM ""should"" be the most stable being it is 100% backed by USD.  It is still an ""up and comer"" though, AKA pretty new.
+Comment 4: I dont have a definitive answer (who has?) but this guy has some thoughts on this subject : [https://www.youtube.com/watch?v=htVl6pBuzhw](https://www.youtube.com/watch?v=htVl6pBuzhw)
+Comment 5: Both aren't stable. Check out MyUSD
+"|2024-10-10 18:22:25|['Cardano']
+https://www.reddit.com/r/cardano/comments/1gfccew/next_stop_buenos_aires/|Next stop: Buenos Aires!|"Post: https://preview.redd.it/igdyktlv0txd1.png?width=1620&amp;format=png&amp;auto=webp&amp;s=a446470e93d2a4b93a5a0f5a23afd5a219d8a554
+
+Just weeks ahead of the Constitutional Convention in Buenos Aires (Argentina), some of the elected community delegates will join the next *Gimbalabs Playground session* to discuss their journey in the collaborative process of ratifying the Cardano Constitution. They’ll share insights into how they carry the responsibility of representing the voices of those who elected them.
+
+This session has been organized for those deeply committed to Cardano governance as a core part of their role within the community. Don’t miss this opportunity to connect with your delegates, ask questions, and gain a firsthand look at this pivotal work.
+
+And if you are a delegate, come and have a sit.
+
+Date: November 5th, 2024, 18:00 UTC  
+Session Link: [https://gimbalabs.com/calendar](https://gimbalabs.com/calendar)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: View in your timezone:  
+[November 5th, 2024, 18:00 UTC][0]  
+
+[0]: https://timee.io/20241105T1800?tl=Next%20stop%3A%20Buenos%20Aires!
+Comment 2: Whoever planned this has some real nads, I'll say that much...
+"|2024-10-30 10:26:06|['Cardano']
+https://www.reddit.com/r/cardano/comments/1gai2h5/are_you_looking_to_assemble_a_highlevel_technical/|Are you looking to assemble a high-level technical team? Follow the steps below.|"Post: 1. Define a task related to the project to be implemented. Assign to that task a compensation (100 Ada, 200 Ada, or something in that range will get the job done and add credibility to the request made).
+
+2. Make it public so that potential contributors start interacting with it.
+
+3. Collect and analyze data on the results.
+
+4. Based on the results, select the contributors that best fit what you are looking for.
+
+5. Create a series of modules and lessons that allow those selected to get into the specific details of your project.
+
+6. Once step 5 has been executed by potential contributors to completion, release to them the entire list of tasks your project needs to execute, along with their related compensations.
+
+
+
+**How to make this process not only simple but also robust?**
+
+https://preview.redd.it/fjr90o6hwjwd1.png?width=1365&amp;format=png&amp;auto=webp&amp;s=87e1607ae690b8e35105518a9a2dcc47e49d2373
+
+[Andamio platform](https://www.andamio.io/), with its Content Creation, and Treasury and Contribution scaffolding, will enable organizations:
+
+* launch that first piece of bread from step 1 and gradually increase their efforts to cultivate a team of contributors that fits their project needs.
+* publish tasks linked to compensations.
+* create credential-linked content that attests that contributors have understood the details of the project and that in tandem, builds the contributor’s reputation as the project progresses in its execution.
+
+Visit us: [http://andamio.io](http://andamio.io/)
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: Interesting idea. Good luck with this.
+"|2024-10-24 02:41:39|['Cardano']
+https://www.reddit.com/r/cardano/comments/1gd6qx3/are_babel_fees_the_answer_to_the_lower_staking/|Are babel fees the answer to the lower staking rewards|"Post: The recent announcement that Bitcoin is going to use the Cardano blockchain as the layer for them to enable smart contracts makes me realise how big the rise in transactions on the Cardano blockchain might be. 
+If BTC holders can use smart contracts and under the hood ADA fees are paid the staking rewards in the long term might rise significantly. 💪💪
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: One part of the answer, yes.
+Comment 2: Theres a way to know more about this?
+Comment 3: We need to release at least the Ouroboros Leios to get the throughput ability that could sustain reasonable rewards. Babel fees would not have any direct effect on rewards, that's just a way to allow people without ADA to make transaction, where they pay with other tokens (that get sold on dexes for ADA to pay the fees later).
+Comment 4: When Babel Fees ?
+Comment 5: Don't Brak3 anything. My fear is Season 1 of 24 with Node operators and programmers against an unwanted fork 😉
+Comment 6: Is this confirmed that they are? Or are they considering using Cardano?
+
+Considering is very different from developers actually going to use it.
+Comment 7: What about Corechain, Stacks, and all of the other networks supporting Bitcoin programmability
+Comment 8: The announcement of what? You are not serious people.
+"|2024-10-27 16:55:57|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g7f3hl/bringing_inheritance_firms_and_professionals_to/|Bringing Inheritance Firms and Professionals to Manage Assets on Cardano|"Post: Cardano needs its Dapps and Projects to make an effort to onboard more firms and individuals into Cardano and even to help onboard more real-world assets to be managed on Blockchain. 
+
+That is what GenWealth is searching to do. From conversations with Inheritance professionals, GenWealth has a plan and initiatives to make it possible to Onboard Inheritance Firms and Professionals for them to manage assets and estates using the Cardano Blockchain. 
+
+You can find more about this plan here: [https://www.youtube.com/watch?v=zI-S1l6Uxm4](https://www.youtube.com/watch?v=zI-S1l6Uxm4) 
+
+Considering the trillions of dollars managed by the Inheritance Industry, this is definitely an initiative with high potential.
+
+
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+"|2024-10-20 02:18:07|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g5ybmj/ada_staking_reward_trackers/|ADA Staking Reward Trackers |"Post: ADA Staking Reward Trackers are a game-changer! They allow us to easily keep tabs on our staking rewards to maximize our passive income. Some also include graphs showing rewards over time, and export features and make tax time a breeze. 🙌
+
+The websites below have useful features for tracking rewards! 👇
+
+http://cexplorer.io: Reward history and graph 
+
+http://WhenAda.com: Reward history and graph 
+
+http://CardanoCountdown.com: Reward history 
+
+http://beta.explorer.cardano.org: Rewards and staking lifecycle 
+
+http://cardanoscan.io: Reward balance
+
+Did we miss any? Comment them below!
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+Comment 1: [https://pooltool.io/](https://pooltool.io/)
+"|2024-10-18 02:51:44|['Cardano']
+https://www.reddit.com/r/cardano/comments/1g1ja15/on_being_successful_in_getting_catalyst_funding/|"On being successful in getting Catalyst funding:
+""Know your big picture, yes, but don't try to do the whole thing at once ..."""|"Post: ""*Know your big picture, yes, but don't try to do the whole thing at once. Find the one little piece and show how it connects to other work. And we do see that is where successful proposals come from*"" - [Gimbalabs](https://x.com/gimbalabs) Open Spaces, Oct 10, 2024.
+
+https://reddit.com/link/1g1ja15/video/uviymum5s6ud1/player
+
+Full session's recording: [https://www.youtube.com/live/60UzHdoMHbg?si=ai2yC\_L18vDKOOhv](https://www.youtube.com/live/60UzHdoMHbg?si=ai2yC_L18vDKOOhv)
+
+[Gimbalabs](https://x.com/gimbalabs) Open Spaces, every Thursday, 14:30 UTC. Link to the session: [https://gimbalabs.com/calendar](https://gimbalabs.com/calendar)
+
+https://preview.redd.it/c1diypqhs6ud1.png?width=1920&amp;format=png&amp;auto=webp&amp;s=e633da35b60cf07a9059fb59cc17574256459849
+
+Comment 0: * ⚠️ [**PSA - SCAMS**](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) *Please read our warnings about [SCAMS](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3) and [SCAM tokens](https://www.reddit.com/r/cardano/comments/1ba4c90/comment/kuqf55k/?utm_source=share&amp;utm_medium=web2x&amp;context=3)!*
+* [**NEWBIES GUIDE**](https://www.reddit.com/r/cardano/comments/lnj5ne/getting_started_guide_a_newbies_guide_to_cardano/) *Start here*
+* [**PROJECT CATALYST**](https://projectcatalyst.io/) *Propose and vote on projects*
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/cardano) if you have any questions or concerns.*
+"|2024-10-12 04:28:07|['Cardano']
