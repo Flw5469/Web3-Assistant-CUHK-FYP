@@ -1,0 +1,26 @@
+# values.yaml for standalone Neo4j deployment on Kubernetes via Helm
+
+# Neo4j credentials and license agreement
+neo4jPassword: "staysovryn"
+neo4jUsername: "neo4j"               # (Optional, if needed by the chart; default is usually neo4j)
+acceptLicenseAgreement: "yes"
+
+# Deployment settings
+coreCount: 1                       # Single core node for standalone instance
+readReplicaCount: 0                # No read replicas
+
+# Edition configuration: choose "community" or "enterprise"
+neo4jEdition: community
+
+# Optional: Service configuration (uncomment and adjust as needed)
+service:
+  type: ClusterIP
+  boltPort: 7687
+  httpPort: 7474
+
+# Optional: Persistence configuration for production deployments (uncomment if persistent storage is required)
+persistence:
+  enabled: true
+  storageClass: "standard"         # Set according to your Kubernetes storage class
+  accessMode: ReadWriteOnce
+  size: 10Gi
