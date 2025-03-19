@@ -1,0 +1,33 @@
+# Copy the live data and plugins into backup directories within the running container.
+# Set full read/write permissions on the source directories
+docker exec 0b711e42a8c0 chmod -R a+rw /data
+docker exec 0b711e42a8c0 chmod -R a+rw /plugins
+
+# Copy the live data and plugins into backup directories within the running container.
+docker exec 0b711e42a8c0 cp -r /data /data_copy
+docker exec 0b711e42a8c0 cp -r /plugins /plugins_copy
+
+# Commit the running container to create a new image that includes the backup directories.
+# (Replace "neo4j" with your container's name or ID if different.)
+docker commit 0b711e42a8c0 neo4j_with_data_auto_final
+
+# (Optional) Tag and push the image to your Docker registry.
+docker tag neo4j_with_data_auto_final noahtsang/neo4j_w_crypto_data:latest
+docker push noah_tsang/neo4j_w_crypto_data:latest
+
+# Run a new container from the committed image.
+# The command overrides the container’s default startup to copy the backup data into the volumes,
+# then starts the Neo4j server.
+docker run -d --name neo4j_new_auto \
+  -p 7474:7474 -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/staysovryn \
+  -e NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.* \
+  -v neo4j_data:/data \
+  -v neo4j_plugins:/plugins \
+  noahtsang/neo4j_w_crypto_data 
+
+#put backup data into volumes(which the container has mapped) and delete the backups
+docker exec neo4j_new_auto  sh -c "cp -r /data_copy/* /data && cp -r /plugins_copy/* /plugins && rm -rf /data_copy /plugins_copy"
+
+################################################################################
+.gitignore didnt ignore .env => git rm --cached .env

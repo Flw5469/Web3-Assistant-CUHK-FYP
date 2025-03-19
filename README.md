@@ -139,12 +139,8 @@ streamlit run app.py
 - Curated background knowledge base (context_qa2.csv)
 - Cryptocurrency price data (coins_name.json)
 
-## Neo4j Docker Image with Data
-  setup command: ./dockerized_neo4j.sh
-
 ## Contributing
 Contributions are welcome! Please feel free to submit pull requests.
 
 ## License
 This project is part of a Final Year Project at The Chinese University of Hong Kong.
-

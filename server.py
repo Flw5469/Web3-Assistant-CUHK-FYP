@@ -5,8 +5,6 @@ import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 from typing import List
-from dotenv import load_dotenv
-import os
 
 ################################################# Imported functions from notebooks
 #################################################
@@ -21,28 +19,16 @@ import pandas as pd
 from langchain_core.documents import Document
 from langchain_community.graphs import Neo4jGraph
 from langchain_openai import OpenAIEmbeddings
+import os
 import openai
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Use environment variables instead of hardcoded values
-os.environ["NEO4J_URI"] = os.getenv("NEO4J_URI")
-os.environ["NEO4J_USERNAME"] = os.getenv("NEO4J_USERNAME") 
-os.environ["NEO4J_PASSWORD"] = os.getenv("NEO4J_PASSWORD")
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-os.environ["OPENAI_BASE_URL"] = os.getenv("OPENAI_BASE_URL")
-os.environ["OPENROUTER_API_KEY"] = os.getenv("OPENROUTER_API_KEY")
-os.environ["OPENROUTER_BASE_URL"] = os.getenv("OPENROUTER_BASE_URL")
-os.environ["OLLAMA_BASE_URL"] = os.getenv("OLLAMA_BASE_URL")
-
+os.environ["NEO4J_URI"] = "bolt://localhost:7687"
+os.environ["NEO4J_USERNAME"] = "neo4j"
+os.environ["NEO4J_PASSWORD"] = "staysovryn"
+os.environ["OPENAI_API_KEY"] = "sk-sJAILfYY4hF8aVTM73A26fB09c834c7b8c41D4CeB652Fe95"
 graph = Neo4jGraph()
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL")
-)
-#client = OpenAI(api_key = "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" ,base_url="https://openrouter.ai/api/v1")
-emb = OpenAIEmbeddings(base_url=os.getenv("OPENAI_BASE_URL"))
+# client = OpenAI(api_key = "sk-sJAILfYY4hF8aVTM73A26fB09c834c7b8c41D4CeB652Fe95",base_url="https://openai.ss-gpt.com/v1")
+client = OpenAI(api_key = "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" ,base_url="https://openrouter.ai/api/v1")
+emb = OpenAIEmbeddings(base_url="https://openai.ss-gpt.com/v1")
 
 
 def load_background():
@@ -160,31 +146,34 @@ def baseline(query, coin_list, model = "3.5") -> tuple[str,list,list, str]:
   return total_result
 
 
-def enhanced(query, coin_list, model="3.5"):
-    """
-    Incorporates contextual and background information to form a detailed question for the LLM.
-    """
-    context, source = context_retrival(query, coin_list)
-    background = background_retrival(vector_store, query)
-    formatted_question = (
-        "You are a professional web3 analyst. Please answer questions for other web3 analyst strictly according to the below context.\n"
-        "############### Context ###########\n"
-        f"{background}\n\n"
-        f"{context}\n"
-        "################ Question ##########\n"
-        f"{query}\n"
-        "################# Answer ###########\n"
-    )
-    
-    # Map shorthand model names to full names.
-    model = {"3.5": "gpt-3.5-turbo", "4o": "gpt-4o"}.get(model, model)
+def enhanced(query, coin_list, model = "3.5"):
+  context, source = context_retrival(query, coin_list)
+  background = background_retrival(vector_store,query)
+  formatted_question = f"""You are a professional web3 analyst. Please answer questions for other web3 analyst strictly according to the below context.
+############### Context ###########
+{background}
 
-    answer = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": formatted_question}],
-    )
-    result = answer.choices[0].message.content
-    return result, formatted_question, source
+{context}
+################ Question ##########
+{query}
+################# Answer ###########
+"""
+  
+  #print(formatted_question)
+
+  if model == "3.5":
+    model = "gpt-3.5-turbo"
+  if model == "4o":
+    model = "gpt-4o"
+
+  answer = client.chat.completions.create(
+    model=model,
+    messages=[
+      {"role": "user", "content": formatted_question}
+    ])
+  result = answer.choices[0].message.content
+  #print(result)
+  return (result, formatted_question, source)
 
 
 def get_coin_info(input):
@@ -227,123 +216,117 @@ def normalQuery(query, model = "3.5"):
 #   print(total_result)
   return total_result
 
-#subquery is the subquestion from the query breakdown
-def tool_search(query, coin_list) -> tuple[str, list, list]:
-    """
-    Executes context retrieval based on the subquery's type and returns a combined query,
-    along with any source and node data.
-    """
-    subquery_text = query.get("subquestion")
-    if subquery_text is None:
-        return "", [], []
+def tool_search(query, coin_list) -> tuple[str,list,list]:
+  subquery:str = query["subquestion"]
+  if subquery==None:
+    return ("",[],[])
+  subquery_type = query["type"]
+  retrieved_context = ""
+  source_list = []
+  node_list = []
 
-    query_type = query.get("type")
-    retrieved_context = ""
-    source_list = []
-    node_list = []
+  if query is not None:
 
-    if query_type == "structured_data":
-        price = get_current_price_wrapper(query)
-        retrieved_context += f"{price}\n"
-    elif query_type == "news":
-        news_info = context_retrival(subquery_text, coin_list)
-        # Join individual news items since news_info[0] is a list.
-        news_text = "\n".join(news_info[0]) if isinstance(news_info[0], list) else news_info[0]
-        retrieved_context += f"{news_text}\n"
-        source_list.extend(news_info[1])
-        node_list.extend(news_info[2])
-    elif query_type == "general":
-        general_info = context_and_community_retrival(subquery_text)
-        retrieved_context += f"{general_info}\n"
-        # Removed extending source_list and node_list because context_and_community_retrival returns a string.
-    elif query_type == "domain_knowledge":
-        domain_info = background_retrival(vector_store, subquery_text)
-        retrieved_context += f"{domain_info}\n"
+    if subquery_type == "structured_data":
+      price = get_current_price_wrapper(query)
+      retrieved_context+=str(price)+"\n"
+
+    elif subquery_type == "news":
+      news_info = context_retrival(subquery, coin_list)
+      # news_info = format_context(normalQuery(str(subquery)),subquery)
+      retrieved_context += str(news_info[0])+"\n"
+      source_list += news_info[1]
+      node_list += news_info[2]
+
+
+    elif subquery_type == "general":
+      general_info = context_and_community_retrival(subquery)
+      retrieved_context+=str(general_info[0])+"\n"
+      source_list += general_info[1]
+      node_list += general_info[2]
+
+    elif subquery_type == "domain_knowledge":
+      # domain_info = format_context(enhanced(query),subquery)
+      domain_info = background_retrival(vector_store,subquery)
+      retrieved_context+=str(domain_info)+"\n"
+
     else:
-        print("Unexpected subquery_type:", query_type)
-    
-    print("retrieved_context:", retrieved_context)
-    combined_query = subquery_text + retrieved_context
-    return combined_query, source_list, node_list
+      print("Unexpected subquery_type",subquery_type)
 
-def query_breakdown(question_text):
-    """
-    Breaks down the input question into subquestions with type classification.
-    """
-    prompt = (
-        "You are a query classifier. Break down the question into subquestions if needed.\n"
-        "Classify each subquestion into one of these types:\n"
-        "- news (requires recent news/events data)\n"
-        "- domain_knowledge (requires technical definitions/concepts)\n"
-        "- structured_data (requires current market data/statistics)\n"
-        "- general (only when not classified in the above types)\n\n"
-        "Return your response in JSON format with the following structure:\n"
-        "{\n"
-        '  "subquestions": [\n'
-        "    {\n"
-        '      "subquestion": "the structured representation of the subquestion",\n'
-        '      "type": "news|domain_knowledge|structured_data|general",\n'
-        '      "explanation": "Brief explanation of why this type was chosen",\n'
-        '      "coin_name": "the coin name if it is a coin price question"\n'
-        "    }\n"
-        "  ]\n"
-        "}"
-    )
+  else:
+    print("No subquery_type found.")
+    
+  print("retrieved_context: ",retrieved_context)
+  # Combine all tool outputs with the original query
+  combined_query = subquery + retrieved_context
+  # print("combined_query: ",combined_query)
+  return (combined_query, source_list, node_list)
+
+def query_breakdown(input):
+    prompt = """You are a query classifier. Break down the question into subquestions if needed.
+    Classify each subquestion into one of these types:
+    - news (requires recent news/events data)
+    - domain_knowledge (requires technical definitions/concepts) 
+    - structured_data (requires current market data/statistics)
+    - general (only when not classified in the above types)
+    
+    Return your response in JSON format with the following structure:
+    {
+      "subquestions": [
+        {
+          "subquestion": "the structured representation of the subquestion",
+          "type": "news|domain_knowledge|structured_data|general",
+          "explanation": "Brief explanation of why this type was chosen",
+          "coin_name": "the coin name if it is a coin price question"
+        }
+      ]
+    }"""
     try:
         completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": prompt},
-                {"role": "user", "content": question_text},
+                {"role": "user", "content": input}
             ],
-            response_format={"type": "json_object"},
+            response_format={"type": "json_object"}
         )
+        
         result = completion.choices[0].message.content
         parsed_result = json.loads(result)
         return parsed_result.get("subquestions", [])
+        
     except Exception as e:
         print(f"Error in query breakdown: {str(e)}")
-        # Return the original question as a single subquestion if parsing fails.
-        return [{"subquestion": question_text, "type": "general"}]
+        # Return the original query as a single subquestion if parsing fails
+        return [{
+            "text": input,
+            "type": "general"
+        }]
 
-def tool_search_wrapper(original_query, coin_list=None, model="3.5") -> tuple[str, list, list]:
-    """
-    Integrates query breakdown and tool search to build a combined query processed by a baseline model.
-    """
-    final_answer = []
-    source_list = []
-    node_list = []
-    
-    sub_questions = query_breakdown(original_query)
-    print("subQuestionList:", len(sub_questions))
+def tool_search_wrapper(input, coin_list = None, model = "3.5") -> tuple[str,list,list]:
+  final_answer = []
+  source_list = []
+  node_list = []
+  
+  subQuestionList = query_breakdown(input)
+  print("subQuestionList: ",len(subQuestionList))
 
-    if not sub_questions:
-        # Create a fallback subquestion dictionary if query breakdown fails.
-        fallback_dict = {"subquestion": original_query, "type": "general"}
-        tool_output, sources, nodes = tool_search(fallback_dict, coin_list)
-        final_answer.append(tool_output)
-        source_list.extend(sources)
-        node_list.extend(nodes)
-    else:
-        for subq in sub_questions:
-            print(subq.get("subquestion"), subq.get("type"))
-            tool_output, sources, nodes = tool_search(subq, coin_list)
-            final_answer.append(tool_output)
-            source_list.extend(sources)
-            node_list.extend(nodes)
-    
-    combined_answer = "\n".join(final_answer)
-    complete_query = (
-        f"question: {original_query}\n"
-        f"answer: {combined_answer}\n"
-        "please give a concise answer"
-    )
-    # This baseline should eventually convert to pure LLM operation.
-    baseline_answer = normalQuery(complete_query, model)
-    return baseline_answer[0], source_list, node_list
+  if len(subQuestionList) == 0:
+    return (tool_search(input, coin_list)[0],[],[])
+  
+  for input in subQuestionList:
+    print(input["subquestion"],input["type"])
+    toolsComplete:tuple[str,list,list] = tool_search(input, coin_list)
+    final_answer.append(toolsComplete[0])
+    source_list += toolsComplete[1]
+    node_list += toolsComplete[2]
 
-#end of subquery part
-
+  combined_answer = "\n".join(final_answer)
+  complete_query = f"""question:{input} \n answer: {combined_answer}
+  please give a concise answer"""
+  # this baseline should convert to pure llm 
+  baseline_answer = normalQuery(complete_query, model)
+  return (baseline_answer[0], source_list, node_list)
 #################################################
 #################################################
 ###################################################
@@ -368,7 +351,7 @@ app.add_middleware(
 # )
 
 client = OpenAI(
-    base_url=os.getenv("OLLAMA_BASE_URL")
+    base_url="http://58.176.61.174:11434"
 )
 
 class ChatRequest(BaseModel):
@@ -414,6 +397,7 @@ async def chat(request: ChatRequest):
 
     formatted_response = ai_response[0]+f"\n\nSource from the recent news:\n\n"+source
     print(formatted_response)
+    print("formatted_response")
     return ChatResponse(response=formatted_response, node_list=ai_response[2])
 
 @app.post("/api/chat2", response_model=ChatResponse)
