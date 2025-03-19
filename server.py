@@ -26,8 +26,8 @@ os.environ["NEO4J_USERNAME"] = "neo4j"
 os.environ["NEO4J_PASSWORD"] = "staysovryn"
 os.environ["OPENAI_API_KEY"] = "sk-sJAILfYY4hF8aVTM73A26fB09c834c7b8c41D4CeB652Fe95"
 graph = Neo4jGraph()
-client = OpenAI(api_key = "sk-sJAILfYY4hF8aVTM73A26fB09c834c7b8c41D4CeB652Fe95",base_url="https://openai.ss-gpt.com/v1")
-#client = OpenAI(api_key = "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" ,base_url="https://openrouter.ai/api/v1")
+# client = OpenAI(api_key = "sk-sJAILfYY4hF8aVTM73A26fB09c834c7b8c41D4CeB652Fe95",base_url="https://openai.ss-gpt.com/v1")
+client = OpenAI(api_key = "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" ,base_url="https://openrouter.ai/api/v1")
 emb = OpenAIEmbeddings(base_url="https://openai.ss-gpt.com/v1")
 
 
@@ -397,6 +397,7 @@ async def chat(request: ChatRequest):
 
     formatted_response = ai_response[0]+f"\n\nSource from the recent news:\n\n"+source
     print(formatted_response)
+    print("formatted_response")
     return ChatResponse(response=formatted_response, node_list=ai_response[2])
 
 @app.post("/api/chat2", response_model=ChatResponse)
