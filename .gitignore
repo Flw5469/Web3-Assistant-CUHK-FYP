@@ -1,3 +1,4 @@
 .env
 venv
 commands.txt
+.install_python39.sh
