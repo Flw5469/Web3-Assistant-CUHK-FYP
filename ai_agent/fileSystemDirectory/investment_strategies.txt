@@ -1,0 +1,32 @@
+# Investment Strategies
+
+## 1. Diversification  
+Diversifying your investment portfolio can help minimize risk by spreading investments across various asset classes such as stocks, bonds, real estate, and cash.
+- **Source:** Markowitz, H. (1952). Portfolio Selection. The Journal of Finance, 7(1), 77-91.
+
+## 2. Dollar-Cost Averaging  
+Investing a fixed amount of money at regular intervals, regardless of market conditions can reduce the impact of volatility.
+- **Source:** J. K. Litterman (2003). Modern Portfolio Construction. Financial Analysts Journal.
+
+## 3. Value Investing  
+This strategy involves picking stocks that appear to be trading for less than their intrinsic or book value. 
+- **Source:** Graham, B., & Dodd, D. L. (1934). Security Analysis. New York: Whittlesey House.
+
+## 4. Growth Investing  
+Focusing on companies with potential for substantial growth and capital gains, often at the expense of dividends. 
+- **Source:** Fisher, P. A. (1958). Common Stocks and Uncommon Profits. 
+
+## 5. Index Fund Investment  
+Investing in index funds that track the performance of a particular index allows for a low-cost, passive investment strategy. 
+- **Source:** Bogle, J. C. (1997). The Little Book of Common Sense Investing.
+
+## 6. Real Estate Investment  
+Investing in residential or commercial properties for rental income or capital appreciation.  
+- **Source:** T. Wright (2002). Real Estate Investment Trusts. 
+
+## 7. Impact Investing  
+Investing in companies or organizations that aim to generate social or environmental impact alongside a financial return.
+- **Source:** J. D. McKinsey (2010). Impact Investing: Transforming How We Make Money While Doing Good.
+
+## Conclusion  
+Investing comes with risks, and it's essential to conduct thorough research and consult with financial advisors. Each strategy has its advantages and should align with your financial goals and risk tolerance.

@@ -1,4 +1,6 @@
 .env
 venv
-commands.txt
+commands.
+.venv
+node_modules
 .install_python39.sh

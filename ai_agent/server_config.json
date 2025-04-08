@@ -1,0 +1,25 @@
+{
+  "servers": [
+    {
+      "name": "File System Server",
+      "path": "./server/file_system_server.js",
+      "type": "node",
+      "description": "Secure file system access service",
+      "args": ["./fileSystemDirectory"]
+    },
+    {
+      "name": "Firecrawl Server",
+      "path": "./server/firecrawlTool.js",
+      "type": "node",
+      "description": "firecrawl server for web crawling",
+      "args": [""]
+    },
+    {
+      "name": "brave-search",
+      "path": "server/braveSearch.js",
+      "type": "node",
+      "description": "Brave Search API service"
+    }
+  ],
+  "default_server": "Weather Server"
+}
