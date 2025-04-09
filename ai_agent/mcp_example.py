@@ -39,7 +39,27 @@ async def process_query(platform: MCPPlatform, query: str):
                 elif step["role"] == "tool":
                     print(f"\n[Tool: {step['name']}]")
                 elif step["role"] == "tool_result":
-                    print(f"[Result received]")
+                    # Safely display tool result with error handling for various formats
+                    try:
+                        result_data = step.get('result', {})
+                        
+                        # Try different possible structures for the result
+                        if isinstance(result_data, dict):
+                            # Try to access content.text path
+                            if 'content' in result_data and isinstance(result_data['content'], dict) and 'text' in result_data['content']:
+                                print(f"Tool call result: {result_data['content']['text']}")
+                            # Try to access text directly
+                            elif 'text' in result_data:
+                                print(f"Tool call result: {result_data['text']}")
+                            # If it's a simple dict, show it as JSON
+                            else:
+                                result_str = json.dumps(result_data, indent=2)
+                                print(f"Tool call result: {result_str[:500]}...")
+                        # For non-dict results, display as is
+                        else:
+                            print(f"Tool call result: {str(result_data)[:500]}...")
+                    except Exception as e:
+                        print(f"Tool call result: [Complex data structure - {type(e).__name__}]")
                 elif step["role"] == "error":
                     print(f"\nError: {step['content']}")
         
@@ -84,9 +104,10 @@ async def main():
     
     # Example queries to demonstrate tool use
     example_queries = [
-        "What information can you provide about Bitcoin?",
-        "Search for the latest news about AI advancements.",
-        "What's the current price of Ethereum?",
+        # "What information can you provide about Bitcoin?",
+        # "Search for the latest news about AI advancements.",
+        # "What's the current price of Ethereum?",
+        "Crawl some stock market news and summarize them in a file, cite the source"
     ]
     
     try:

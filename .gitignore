@@ -1,6 +1,7 @@
 .env
-venv
 commands.
 .venv
 node_modules
 .install_python39.sh
+__pycache__
+*.pyc
