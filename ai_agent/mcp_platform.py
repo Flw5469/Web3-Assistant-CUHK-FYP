@@ -9,7 +9,7 @@ import logging
 from openai import AsyncOpenAI
 from contextlib import AsyncExitStack
 
-from client import MCPClient
+from .client import MCPClient
 
 # Simple logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

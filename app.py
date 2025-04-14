@@ -108,12 +108,13 @@ def render_graph(input):
 # Function to fetch MCP tools from backend
 def fetch_mcp_tools():
     try:
-        response = requests.get("http://localhost:8000/api/mcp/tools")
+        response = requests.get("http://localhost:8000/api/mcp/tools", timeout=5)
         if response.status_code == 200:
             return response.json()
         else:
+            print(f"Error fetching MCP tools: Status code {response.status_code}")
             return {"initialized": False, "tools": [], "servers": []}
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         print(f"Error fetching MCP tools: {str(e)}")
         return {"initialized": False, "tools": [], "servers": []}
 

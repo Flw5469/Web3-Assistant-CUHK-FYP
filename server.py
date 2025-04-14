@@ -18,7 +18,12 @@ import os
 from dotenv import load_dotenv
 
 # Import MCPPlatform
-from ai_agent.mcp_platform import MCPPlatform
+try:
+    from ai_agent.mcp_platform import MCPPlatform
+    mcp_available = True
+except ImportError as e:
+    print(f"Warning: MCP Platform not available: {e}")
+    mcp_available = False
 
 # Load environment variables from .env file
 load_dotenv()
@@ -38,8 +43,15 @@ emb = OpenAIEmbeddings(
     base_url=os.getenv("OPENAI_BASE_URL")
 )
 
-# Initialize MCP Platform
-mcp_platform = MCPPlatform()
+# Initialize MCP Platform if available
+mcp_platform = None
+if mcp_available:
+    try:
+        mcp_platform = MCPPlatform()
+        print("MCP Platform initialized successfully")
+    except Exception as e:
+        print(f"Error initializing MCP Platform: {e}")
+        mcp_available = False
 
 # Constants
 LIMIT = 2
@@ -50,7 +62,11 @@ available_mcp_tools = []
 
 async def initialize_mcp():
     """Initialize the MCP platform and connect to all configured servers"""
-    global mcp_initialized, available_mcp_tools
+    global mcp_initialized, available_mcp_tools, mcp_platform, mcp_available
+    
+    if not mcp_available or mcp_platform is None:
+        print("MCP Platform is not available")
+        return False
     
     try:
         await mcp_platform.initialize_all_servers()
@@ -367,7 +383,15 @@ class MCPToolsResponse(BaseModel):
 @app.get("/api/mcp/tools", response_model=MCPToolsResponse)
 async def get_mcp_tools():
     """Get available MCP tools and server status"""
-    global mcp_initialized, available_mcp_tools
+    global mcp_initialized, available_mcp_tools, mcp_available, mcp_platform
+    
+    # Check if MCP is available
+    if not mcp_available or mcp_platform is None:
+        return MCPToolsResponse(
+            initialized=False,
+            tools=[],
+            servers=[]
+        )
     
     # Initialize MCP if not already initialized
     if not mcp_initialized:
@@ -384,14 +408,17 @@ async def get_mcp_tools():
 
 async def process_with_mcp(prompt: str, model: str) -> Tuple[str, List[str]]:
     """Process a query using MCP Platform"""
-    global mcp_initialized, mcp_platform
+    global mcp_initialized, mcp_platform, mcp_available
+    
+    # Check if MCP is available at all
+    if not mcp_available or mcp_platform is None:
+        return "MCP Platform is not available on this server.", []
     
     # Initialize MCP if not already initialized
     if not mcp_initialized:
-        await initialize_mcp()
-    
-    if not mcp_initialized:
-        return "MCP Platform is not initialized. Please check server logs.", []
+        success = await initialize_mcp()
+        if not success:
+            return "Failed to initialize MCP Platform. Please check server logs.", []
     
     try:
         # Set the model to use
@@ -457,16 +484,26 @@ async def chat(request: ChatRequest):
 @app.on_event("shutdown")
 async def shutdown_event():
     """Clean up resources when FastAPI server is shutting down"""
-    global mcp_platform
-    try:
-        await mcp_platform.cleanup()
-        print("MCP Platform resources cleaned up")
-    except Exception as e:
-        print(f"Error during MCP cleanup: {str(e)}")
+    global mcp_platform, mcp_available
+    
+    if mcp_available and mcp_platform is not None:
+        try:
+            await mcp_platform.cleanup()
+            print("MCP Platform resources cleaned up")
+        except Exception as e:
+            print(f"Error during MCP cleanup: {str(e)}")
 
 if __name__ == "__main__":
-    # Initialize MCP platform in the background
-    asyncio.create_task(initialize_mcp())
+    # Create and run an async function to initialize MCP and start the server
+    async def startup():
+        # Initialize MCP platform if available
+        if mcp_available and mcp_platform is not None:
+            await initialize_mcp()
+        
+        # Use uvicorn programmatically with lifespan="on"
+        config = uvicorn.Config(app, host="0.0.0.0", port=8000, lifespan="on")
+        server = uvicorn.Server(config)
+        await server.serve()
     
-    # Start the server
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Run the async startup function
+    asyncio.run(startup())
