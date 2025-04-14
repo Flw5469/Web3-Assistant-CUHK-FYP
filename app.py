@@ -5,7 +5,7 @@ import requests
 from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
-
+import pandas as pd
 # Load environment variables for Neo4j connection
 load_dotenv()
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
@@ -154,6 +154,19 @@ mode = mode_dict[selected_mode]
 
 # Model selection
 version = st.sidebar.selectbox("Choose a version:", ["3.5", "4o"])
+
+# Dropzone to input file for Graph Database
+file_input = st.sidebar.file_uploader("Upload your input file", type=["csv"], key="uploaded_file")
+print("fileinput", file_input)
+
+# Optimized file reading
+if file_input is not None:
+    iris = pd.read_table(st.session_state["uploaded_file"] , sep=",",  header=0)
+    print("iris", iris)
+else:
+    iris = None
+
+print("iris",iris)
 
 st.title("Web3 Assistant")
 

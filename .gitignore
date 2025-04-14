@@ -5,3 +5,4 @@ node_modules
 .install_python39.sh
 __pycache__
 *.pyc
+update_python_ver.sh
