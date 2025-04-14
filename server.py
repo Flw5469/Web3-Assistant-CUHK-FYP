@@ -1,11 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict, Any
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
 import json
 import faiss
+import asyncio
 from uuid import uuid4
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain_community.vectorstores import FAISS
@@ -15,6 +16,9 @@ from langchain_community.graphs import Neo4jGraph
 from langchain_openai import OpenAIEmbeddings
 import os
 from dotenv import load_dotenv
+
+# Import MCPPlatform
+from ai_agent.mcp_platform import MCPPlatform
 
 # Load environment variables from .env file
 load_dotenv()
@@ -34,8 +38,30 @@ emb = OpenAIEmbeddings(
     base_url=os.getenv("OPENAI_BASE_URL")
 )
 
+# Initialize MCP Platform
+mcp_platform = MCPPlatform()
+
 # Constants
 LIMIT = 2
+
+# Track MCP platform status
+mcp_initialized = False
+available_mcp_tools = []
+
+async def initialize_mcp():
+    """Initialize the MCP platform and connect to all configured servers"""
+    global mcp_initialized, available_mcp_tools
+    
+    try:
+        await mcp_platform.initialize_all_servers()
+        available_mcp_tools = mcp_platform.get_all_tools()
+        mcp_initialized = True
+        print(f"MCP Platform initialized with {len(available_mcp_tools)} tools")
+        return True
+    except Exception as e:
+        print(f"Failed to initialize MCP Platform: {str(e)}")
+        mcp_initialized = False
+        return False
 
 def load_background():
     """Load background knowledge from CSV file into vector store"""
@@ -325,19 +351,78 @@ class ChatRequest(BaseModel):
     prompt: str
     coin_name: List[str]
     model: str = "3.5"
-    mode: str = "baseline"  # 'baseline', 'tool_search', 'direct', 'enhanced'
-
+    mode: str = "baseline"  # 'baseline', 'tool_search', 'direct', 'enhanced', 'mcp'
+    use_mcp: bool = False
 
 class ChatResponse(BaseModel):
     response: str
     node_list: Optional[list] = None
+    mcp_tools_used: Optional[List[str]] = None
+
+class MCPToolsResponse(BaseModel):
+    initialized: bool
+    tools: List[Dict[str, Any]]
+    servers: List[str]
+
+@app.get("/api/mcp/tools", response_model=MCPToolsResponse)
+async def get_mcp_tools():
+    """Get available MCP tools and server status"""
+    global mcp_initialized, available_mcp_tools
+    
+    # Initialize MCP if not already initialized
+    if not mcp_initialized:
+        await initialize_mcp()
+    
+    # Get unique server names
+    servers = list(set(tool.get("server", "") for tool in available_mcp_tools if "server" in tool))
+    
+    return MCPToolsResponse(
+        initialized=mcp_initialized,
+        tools=available_mcp_tools,
+        servers=servers
+    )
+
+async def process_with_mcp(prompt: str, model: str) -> Tuple[str, List[str]]:
+    """Process a query using MCP Platform"""
+    global mcp_initialized, mcp_platform
+    
+    # Initialize MCP if not already initialized
+    if not mcp_initialized:
+        await initialize_mcp()
+    
+    if not mcp_initialized:
+        return "MCP Platform is not initialized. Please check server logs.", []
+    
+    try:
+        # Set the model to use
+        mcp_platform.model = map_model_name(model)
+        
+        # Process query through MCP
+        result = await mcp_platform.process_query(prompt)
+        
+        # Track the tools used in this conversation
+        tools_used = []
+        for step in result.get("conversation_steps", []):
+            if step.get("role") == "tool" and "name" in step:
+                tools_used.append(step["name"])
+        
+        return result.get("final_response", "No response generated"), tools_used
+    except Exception as e:
+        print(f"Error processing with MCP: {str(e)}")
+        return f"Error processing with MCP: {str(e)}", []
 
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     """Single API endpoint for all chat modes"""
-    print(f"Processing request - Mode: {request.mode}, Model: {request.model}, Prompt: {request.prompt}")
+    print(f"Processing request - Mode: {request.mode}, Model: {request.model}, Prompt: {request.prompt}, Use MCP: {request.use_mcp}")
     
     try:
+        # Use MCP Platform if requested and available
+        if request.use_mcp:
+            response, tools_used = await process_with_mcp(request.prompt, request.model)
+            return ChatResponse(response=response, node_list=[], mcp_tools_used=tools_used)
+        
+        # Traditional processing modes
         if request.mode == "baseline":
             ai_response = baseline(request.prompt, request.coin_name, request.model)
             source = "".join([str(ele) for ele in ai_response[1] if ele is not None])
@@ -357,6 +442,10 @@ async def chat(request: ChatRequest):
         elif request.mode == "enhanced":
             ai_response = enhanced(request.prompt, request.coin_name, request.model)
             return ChatResponse(response=ai_response[0], node_list=[])
+        
+        elif request.mode == "mcp":
+            response, tools_used = await process_with_mcp(request.prompt, request.model)
+            return ChatResponse(response=response, node_list=[], mcp_tools_used=tools_used)
             
         else:
             raise HTTPException(status_code=400, detail=f"Invalid mode: {request.mode}")
@@ -364,5 +453,20 @@ async def chat(request: ChatRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+# Cleanup function to shut down MCP platform when server stops
+@app.on_event("shutdown")
+async def shutdown_event():
+    """Clean up resources when FastAPI server is shutting down"""
+    global mcp_platform
+    try:
+        await mcp_platform.cleanup()
+        print("MCP Platform resources cleaned up")
+    except Exception as e:
+        print(f"Error during MCP cleanup: {str(e)}")
+
 if __name__ == "__main__":
+    # Initialize MCP platform in the background
+    asyncio.create_task(initialize_mcp())
+    
+    # Start the server
     uvicorn.run(app, host="0.0.0.0", port=8000)

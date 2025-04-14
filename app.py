@@ -105,6 +105,18 @@ def render_graph(input):
         height=300,
     )
 
+# Function to fetch MCP tools from backend
+def fetch_mcp_tools():
+    try:
+        response = requests.get("http://localhost:8000/api/mcp/tools")
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return {"initialized": False, "tools": [], "servers": []}
+    except Exception as e:
+        print(f"Error fetching MCP tools: {str(e)}")
+        return {"initialized": False, "tools": [], "servers": []}
+
 # Set up sidebar date range selection
 st.sidebar.header("Select Date Range")
 end_date = st.sidebar.date_input(
@@ -143,7 +155,8 @@ mode_dict = {
     "Baseline": "baseline",
     "Enhanced (with background knowledge)": "enhanced",
     "Tool-based Search": "tool_search",
-    "Simple Query": "direct"
+    "Simple Query": "direct",
+    "MCP Platform": "mcp"
 }
 
 selected_mode = st.sidebar.selectbox(
@@ -155,6 +168,35 @@ mode = mode_dict[selected_mode]
 # Model selection
 version = st.sidebar.selectbox("Choose a version:", ["3.5", "4o"])
 
+# MCP Platform options
+st.sidebar.header("MCP Platform")
+use_mcp = st.sidebar.checkbox("Use MCP Platform Tools", value=False)
+
+# If MCP is enabled, fetch and display available tools
+if use_mcp:
+    mcp_info = fetch_mcp_tools()
+    
+    if mcp_info["initialized"]:
+        st.sidebar.success(f"MCP Platform is connected with {len(mcp_info['tools'])} tools")
+        
+        # Group tools by server
+        tools_by_server = {}
+        for server in mcp_info["servers"]:
+            tools_by_server[server] = [
+                tool for tool in mcp_info["tools"] 
+                if tool.get("server") == server
+            ]
+        
+        # Create an expander to show the tools
+        with st.sidebar.expander("Available MCP Tools"):
+            for server, tools in tools_by_server.items():
+                st.markdown(f"**Server: {server}**")
+                for tool in tools:
+                    st.markdown(f"- {tool.get('name')}: {tool.get('description')}")
+                st.markdown("---")
+    else:
+        st.sidebar.error("MCP Platform is not initialized")
+
 # Dropzone to input file for Graph Database
 file_input = st.sidebar.file_uploader("Upload your input file", type=["csv"], key="uploaded_file")
 print("fileinput", file_input)
@@ -162,7 +204,6 @@ print("fileinput", file_input)
 # Optimized file reading
 if file_input is not None:
     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",",  header=0)
-    print("iris", iris)
 else:
     iris = None
 
@@ -179,12 +220,23 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
+# Initialize tools used container
+if "tools_used" not in st.session_state:
+    st.session_state.tools_used = []
+
+# Display tools used if any
+if st.session_state.tools_used:
+    with st.expander("MCP Tools Used"):
+        for tool in st.session_state.tools_used:
+            st.markdown(f"- {tool}")
+
 # React to user input
 node_list = []
 
 if prompt := st.chat_input("What would you like to know"):
     print(f"Selected coins: {selected_coins}")
     print(f"Selected mode: {mode}")
+    print(f"Use MCP: {use_mcp}")
     
     # Display user message in chat message container
     st.chat_message("user").markdown(prompt)
@@ -196,7 +248,8 @@ if prompt := st.chat_input("What would you like to know"):
         "prompt": prompt,
         "coin_name": selected_coins,
         "model": version,
-        "mode": mode
+        "mode": mode,
+        "use_mcp": use_mcp
     }
     
     # Make API call to the consolidated backend endpoint
@@ -212,7 +265,19 @@ if prompt := st.chat_input("What would you like to know"):
         response_data = response.json()
         ai_response = response_data["response"]
         node_list = response_data.get("node_list", [])
+        mcp_tools_used = response_data.get("mcp_tools_used", [])
+        
+        # Update tools used if MCP was used
+        if mcp_tools_used:
+            st.session_state.tools_used = mcp_tools_used
+            
+            # Display tools used in this response
+            with st.expander("MCP Tools Used in This Response"):
+                for tool in mcp_tools_used:
+                    st.markdown(f"- {tool}")
+        
         print(f"Node list: {node_list}")
+        print(f"MCP tools used: {mcp_tools_used}")
 
     except Exception as e:
         ai_response = f"Error: Unable to get response from server. {str(e)}"

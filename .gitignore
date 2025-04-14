@@ -6,3 +6,6 @@ node_modules
 __pycache__
 *.pyc
 update_python_ver.sh
+/ai_agent/__pycache__
+/ai_agent/__pycache__
+/ai_agent/__pycache__
