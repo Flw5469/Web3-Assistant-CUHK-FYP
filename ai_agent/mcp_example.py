@@ -6,7 +6,7 @@ import traceback
 import warnings
 from typing import Dict, Any, List
 
-from mcp_platform import MCPPlatform
+from ai_agent.mcp_platform import MCPPlatform
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, 
@@ -107,7 +107,7 @@ async def main():
         # "What information can you provide about Bitcoin?",
         # "Search for the latest news about AI advancements.",
         # "What's the current price of Ethereum?",
-        "Crawl some stock market news and summarize them in a file, cite the source"
+        "Crawl some stock market news and put the crawl result in a file, cite the source"
     ]
     
     try:

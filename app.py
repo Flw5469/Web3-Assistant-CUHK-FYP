@@ -11,6 +11,7 @@ load_dotenv()
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USERNAME = os.getenv("NEO4J_USERNAME", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "staysovryn")
+BACKEND_URL = os.getenv("BACKEND_URL")
 
 def render_graph(input):
     """Render Neo4j graph visualization using Neovis.js"""
@@ -108,7 +109,7 @@ def render_graph(input):
 # Function to fetch MCP tools from backend
 def fetch_mcp_tools():
     try:
-        response = requests.get("http://localhost:8000/api/mcp/tools", timeout=5)
+        response = requests.get(f"{BACKEND_URL}/api/mcp/tools", timeout=5)
         if response.status_code == 200:
             return response.json()
         else:
@@ -134,20 +135,20 @@ if start_date > end_date:
     st.sidebar.error("Error: Start date must be before end date")
 
 # Adding checkboxes for cryptocurrency selection
-st.sidebar.header("Select Cryptocurrencies")
-selected_coins = []
-if st.sidebar.checkbox("Bitcoin"):
-    selected_coins.append("Bitcoin")
-if st.sidebar.checkbox("Tron"):
-    selected_coins.append("Tron")
-if st.sidebar.checkbox("Web3"):
-    selected_coins.append("Web3")
-if st.sidebar.checkbox("Market"):
-    selected_coins.append("Market")
-if st.sidebar.checkbox("Crypto"):
-    selected_coins.append("Crypto")
-if st.sidebar.checkbox("Cardano"):
-    selected_coins.append("Cardano")
+with st.sidebar.expander("Select Cryptocurrencies"):
+    selected_coins = []
+    if st.checkbox("Bitcoin"):
+        selected_coins.append("Bitcoin")
+    if st.checkbox("Tron"):
+        selected_coins.append("Tron")
+    if st.checkbox("Web3"):
+        selected_coins.append("Web3")
+    if st.checkbox("Market"):
+        selected_coins.append("Market")
+    if st.checkbox("Crypto"):
+        selected_coins.append("Crypto")
+    if st.checkbox("Cardano"):
+        selected_coins.append("Cardano")
 
 # Mode selection
 st.sidebar.header("Select Mode")
@@ -157,7 +158,6 @@ mode_dict = {
     "Enhanced (with background knowledge)": "enhanced",
     "Tool-based Search": "tool_search",
     "Simple Query": "direct",
-    "MCP Platform": "mcp"
 }
 
 selected_mode = st.sidebar.selectbox(
@@ -193,7 +193,7 @@ if use_mcp:
             for server, tools in tools_by_server.items():
                 st.markdown(f"**Server: {server}**")
                 for tool in tools:
-                    st.markdown(f"- {tool.get('name')}: {tool.get('description')}")
+                    st.markdown(f"- {tool.get('name')}")
                 st.markdown("---")
     else:
         st.sidebar.error("MCP Platform is not initialized")
@@ -256,7 +256,7 @@ if prompt := st.chat_input("What would you like to know"):
     # Make API call to the consolidated backend endpoint
     try:
         response = requests.post(
-            "http://localhost:8000/api/chat",
+            f"{BACKEND_URL}/api/chat",
             json=payload,
             headers={"Content-Type": "application/json"}
         )

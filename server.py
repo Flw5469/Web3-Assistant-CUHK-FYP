@@ -16,6 +16,7 @@ from langchain_community.graphs import Neo4jGraph
 from langchain_openai import OpenAIEmbeddings
 import os
 from dotenv import load_dotenv
+from contextlib import asynccontextmanager
 
 # Import MCPPlatform
 try:
@@ -28,37 +29,76 @@ except ImportError as e:
 # Load environment variables from .env file
 load_dotenv()
 
+# Initialize global variables for resources
+mcp_platform = None
+mcp_initialized = False
+available_mcp_tools = []
+vector_store = None
+graph = None
+client = None
+emb = None
+
+# Define lifespan context manager for FastAPI
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize resources when the app starts
+    await startup_event()
+    yield
+    # Clean up resources when the app shuts down
+    await shutdown_event()
+
 # Setup Neo4j connection from environment variables
-graph = Neo4jGraph()
+def setup_graph():
+    global graph
+    graph = Neo4jGraph()
 
 # Initialize OpenAI client from environment variables
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL")
-)
-
-# Initialize embeddings
-emb = OpenAIEmbeddings(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL")
-)
-
-# Initialize MCP Platform if available
-mcp_platform = None
-if mcp_available:
-    try:
-        mcp_platform = MCPPlatform()
-        print("MCP Platform initialized successfully")
-    except Exception as e:
-        print(f"Error initializing MCP Platform: {e}")
-        mcp_available = False
+def setup_openai():
+    global client, emb
+    client = OpenAI(
+        api_key=os.getenv("OPENAI_API_KEY"),
+        base_url=os.getenv("OPENAI_BASE_URL")
+    )
+    
+    # Initialize embeddings
+    emb = OpenAIEmbeddings(
+        api_key=os.getenv("OPENAI_API_KEY"),
+        base_url=os.getenv("OPENAI_BASE_URL")
+    )
 
 # Constants
 LIMIT = 2
 
-# Track MCP platform status
-mcp_initialized = False
-available_mcp_tools = []
+async def startup_event():
+    """Initialize resources when the application starts up"""
+    global mcp_platform, vector_store, graph, client, emb
+    
+    # Setup Neo4j and OpenAI
+    setup_graph()
+    setup_openai()
+    
+    # Load background knowledge
+    load_background()
+    
+    # Initialize MCP Platform if available
+    if mcp_available:
+        try:
+            mcp_platform = MCPPlatform()
+            print("MCP Platform initialized successfully")
+            await initialize_mcp()
+        except Exception as e:
+            print(f"Error initializing MCP Platform: {e}")
+
+async def shutdown_event():
+    """Clean up resources when FastAPI server is shutting down"""
+    global mcp_platform, mcp_available
+    
+    if mcp_available and mcp_platform is not None:
+        try:
+            await mcp_platform.cleanup()
+            print("MCP Platform resources cleaned up")
+        except Exception as e:
+            print(f"Error during MCP cleanup: {str(e)}")
 
 async def initialize_mcp():
     """Initialize the MCP platform and connect to all configured servers"""
@@ -81,23 +121,39 @@ async def initialize_mcp():
 
 def load_background():
     """Load background knowledge from CSV file into vector store"""
-    df = pd.read_csv('context_qa2.csv', encoding="unicode_escape")
-    questions = df["Question"].to_list()
-    answers = df["Answer"].to_list()
-    backgrounds = [Document(page_content=str(question)+"\n"+str(answer)) 
-                  for question, answer in zip(questions, answers)] 
-    index = faiss.IndexFlatL2(len(emb.embed_query("hello world")))
-    vector_store = FAISS(
-        embedding_function=emb,
-        index=index,
-        docstore=InMemoryDocstore(),
-        index_to_docstore_id={},
-    )
-    uuids = [str(uuid4()) for _ in range(len(backgrounds))]
-    vector_store.add_documents(documents=backgrounds, ids=uuids)
-    return vector_store
-
-vector_store = load_background()
+    global vector_store, emb
+    
+    # Make sure embeddings are initialized
+    if emb is None:
+        setup_openai()
+        
+    try:
+        df = pd.read_csv('context_qa2.csv', encoding="unicode_escape")
+        questions = df["Question"].to_list()
+        answers = df["Answer"].to_list()
+        backgrounds = [Document(page_content=str(question)+"\n"+str(answer)) 
+                      for question, answer in zip(questions, answers)] 
+        index = faiss.IndexFlatL2(len(emb.embed_query("hello world")))
+        vector_store = FAISS(
+            embedding_function=emb,
+            index=index,
+            docstore=InMemoryDocstore(),
+            index_to_docstore_id={},
+        )
+        uuids = [str(uuid4()) for _ in range(len(backgrounds))]
+        vector_store.add_documents(documents=backgrounds, ids=uuids)
+        return vector_store
+    except Exception as e:
+        print(f"Error loading background knowledge: {str(e)}")
+        # Create empty vector store if loading fails
+        index = faiss.IndexFlatL2(len(emb.embed_query("hello world")))
+        vector_store = FAISS(
+            embedding_function=emb,
+            index=index,
+            docstore=InMemoryDocstore(),
+            index_to_docstore_id={},
+        )
+        return vector_store
 
 def background_retrival(vector_store, query):
     """Retrieve background information from the vector store"""
@@ -351,8 +407,8 @@ def tool_search_wrapper(input, coin_list = None, model = "3.5") -> Tuple[str, li
     baseline_answer = normalQuery(complete_query, model)
     return (baseline_answer[0], source_list, node_list)
 
-# Initialize FastAPI app
-app = FastAPI()
+# Initialize FastAPI app with lifespan
+app = FastAPI(lifespan=lifespan)
 
 # Enable CORS
 app.add_middleware(
@@ -383,8 +439,6 @@ class MCPToolsResponse(BaseModel):
 @app.get("/api/mcp/tools", response_model=MCPToolsResponse)
 async def get_mcp_tools():
     """Get available MCP tools and server status"""
-    global mcp_initialized, available_mcp_tools, mcp_available, mcp_platform
-    
     # Check if MCP is available
     if not mcp_available or mcp_platform is None:
         return MCPToolsResponse(
@@ -469,10 +523,6 @@ async def chat(request: ChatRequest):
         elif request.mode == "enhanced":
             ai_response = enhanced(request.prompt, request.coin_name, request.model)
             return ChatResponse(response=ai_response[0], node_list=[])
-        
-        elif request.mode == "mcp":
-            response, tools_used = await process_with_mcp(request.prompt, request.model)
-            return ChatResponse(response=response, node_list=[], mcp_tools_used=tools_used)
             
         else:
             raise HTTPException(status_code=400, detail=f"Invalid mode: {request.mode}")
@@ -480,30 +530,6 @@ async def chat(request: ChatRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Cleanup function to shut down MCP platform when server stops
-@app.on_event("shutdown")
-async def shutdown_event():
-    """Clean up resources when FastAPI server is shutting down"""
-    global mcp_platform, mcp_available
-    
-    if mcp_available and mcp_platform is not None:
-        try:
-            await mcp_platform.cleanup()
-            print("MCP Platform resources cleaned up")
-        except Exception as e:
-            print(f"Error during MCP cleanup: {str(e)}")
-
 if __name__ == "__main__":
-    # Create and run an async function to initialize MCP and start the server
-    async def startup():
-        # Initialize MCP platform if available
-        if mcp_available and mcp_platform is not None:
-            await initialize_mcp()
-        
-        # Use uvicorn programmatically with lifespan="on"
-        config = uvicorn.Config(app, host="0.0.0.0", port=8000, lifespan="on")
-        server = uvicorn.Server(config)
-        await server.serve()
-    
-    # Run the async startup function
-    asyncio.run(startup())
+    # Use uvicorn programmatically
+    uvicorn.run(app, host="0.0.0.0", port=8000)

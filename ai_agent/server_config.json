@@ -2,21 +2,21 @@
   "servers": [
     {
       "name": "File System Server",
-      "path": "./server/file_system_server.js",
+      "path": "ai_agent/server/file_system_server.js",
       "type": "node",
       "description": "Secure file system access service",
       "args": ["./fileSystemDirectory"]
     },
     {
       "name": "Firecrawl Server",
-      "path": "./server/firecrawlTool.js",
+      "path": "ai_agent/server/firecrawlTool.js",
       "type": "node",
       "description": "firecrawl server for web crawling",
       "args": [""]
     },
     {
       "name": "brave-search",
-      "path": "server/braveSearch.js",
+      "path": "ai_agent/server/braveSearch.js",
       "type": "node",
       "description": "Brave Search API service"
     }
