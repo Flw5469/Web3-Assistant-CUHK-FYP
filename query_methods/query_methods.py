@@ -8,7 +8,6 @@
 # import pandas as pd
 # from langchain_core.documents import Document
 # from langchain_community.graphs import Neo4jGraph
-# from langchain_openai import OpenAIEmbeddings
 # import models
 # import numpy 
 # import os
@@ -32,6 +31,8 @@
 #     api_key=os.getenv("OPENAI_API_KEY"),
 #     base_url=os.getenv("OPENAI_BASE_URL")
 # )
+# from langchain_openai import OpenAIEmbeddings
+
 # emb = OpenAIEmbeddings(base_url=os.getenv("OPENAI_BASE_URL"))
 
 # def get_model_value(model_name):

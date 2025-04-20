@@ -37,7 +37,7 @@ class context_store(tool):
   emb:OpenAIEmbeddings
   store:FAISS
 
-  def init(self, emb, store = None):
+  def __init__(self, emb, store = None):
     self.emb = emb
     self.store = load_background(emb)
 

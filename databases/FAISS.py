@@ -30,7 +30,7 @@ class FAISS_store():
   emb:OpenAIEmbeddings
   store: FAISS
 
-  def init(self, emb:OpenAIEmbeddings):
+  def __init__(self, emb:OpenAIEmbeddings):
     self.emb = emb
     self.store = FAISS.load_local("faiss_index_with_metadata", emb, allow_dangerous_deserialization=True)
 

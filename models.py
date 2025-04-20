@@ -12,6 +12,9 @@ def make_client(dict_value:tuple):
 def make_client_from_name(model_name):
   return make_client(model_list[model_name])
 
+def get_model_name(model_name_key):
+  return model_list[model_name_key][2]
+
 # client = make_client(model_list['deepseek'])
 
 # answer = client.chat.completions.create(
@@ -21,3 +24,14 @@ def make_client_from_name(model_name):
 #   ])
 
 # print(answer)
+
+if __name__ == "__main__":
+  model_obj = make_client_from_name("3.5")
+  ans = model_obj.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+      {"role": "user", "content": "how is the weather?"}
+    ],
+    timeout = 20
+  )
+  print(ans)

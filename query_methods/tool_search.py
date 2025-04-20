@@ -1,7 +1,7 @@
 from openai import OpenAI
 from query_methods.baseline import baseline
 from query_methods.get_current_price import get_current_price_wrapper
-from query_methods.normalQuery import normalQuery
+from query_methods.normal_query import normal_query
 from interface import model_object, query_result_object, tool
 import json
 
@@ -28,7 +28,7 @@ def tool_search(query, coin_list, tool_dict:dict[tool]) -> query_result_object:
         result_object += news_info
 
     elif query_type == "general":
-        general_info = normalQuery(subquery_text)
+        general_info = normal_query(subquery_text)
         result_object.string[0] += f"{general_info}\n"
         # Removed extending source_list and node_list because context_and_community_retrival returns a string.
 
@@ -114,6 +114,6 @@ def tool_search_wrapper(original_query,model:model_object, coin_list=None) -> qu
     print("complete query: ",complete_query)
 
     # This baseline should eventually convert to pure LLM operation.
-    result_object.string = normalQuery(complete_query, model).string
+    result_object.string = normal_query(complete_query, model).string
 
     return result_object

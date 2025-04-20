@@ -24,34 +24,16 @@ os.environ["OLLAMA_BASE_URL"] = os.getenv("OLLAMA_BASE_URL")
 
 
 
-
-
-# def community_retrival(query:str, result)->str:
-#   return graph.query(f"""match (n:__Community__)--(m) where m.id=\"{result[0]["entityName"]}\" return n.summary, n.id""")
-
-# def context_and_community_retrival(query:str, emb:OpenAIEmbeddings)->str:
-#   value = emb.embed_query(query)
-#   result = graph.query(f"""WITH {value} AS queryEmbedding
-#   MATCH (e:`__Entity__`)
-#   WITH e, gds.similarity.cosine(e.embedding, queryEmbedding) AS similarity
-#   WHERE similarity IS NOT NULL
-#   RETURN e.id AS entityName, similarity, e.description AS description
-#   ORDER BY similarity DESC
-#   LIMIT 5""")
-#   community_result = community_retrival(query,result)
-#   return f"""
-# In general: {community_result[0]['n.summary']}
-# In specific: {result[0]["entityName"]}: \n {result[0]['description']}
-# """
-
 class neo4j_store(tool):
 
   emb = None
   graph = None
+  vector = None
 
-  def init(self, graph, emb):
+  def __init__(self, graph, vector, emb):
     self.emb = emb
     self.graph = graph
+    self.vector = vector
 
   def query(self, query_text:str, filter = []) -> query_result_object:
     result = []
@@ -60,8 +42,8 @@ class neo4j_store(tool):
     result_node   = []
     value = self.emb.embed_query(query_text)
 
-    filter_statement = f", {filter} AS filter_coin_list" if filter else ""
-    filter_statement2 =  "AND ANY(value IN filter_coin_list WHERE value IN e.coin_name)" if filter else ""
+    # filter_statement = f", {filter} AS filter_coin_list" if filter else ""
+    # filter_statement2 =  "AND ANY(value IN filter_coin_list WHERE value IN e.coin_name)" if filter else ""
 
     result = self.graph.query(f"""WITH {value} AS queryEmbedding{filter_statement}
     MATCH (e:`Document`)

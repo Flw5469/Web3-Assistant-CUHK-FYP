@@ -1,0 +1,25 @@
+# Python cache directories n cache directories
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+
+# Environment variables
+.env
+
+# Database files
+*.db
+
+# Pickle files
+*.pkl
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+
+# Environment variables
+.env
+
+# Database files
+*.db
+
+# Pickle files
+*.pkl

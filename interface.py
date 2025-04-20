@@ -5,7 +5,7 @@ class query_result_object:
   source = []
   node   = []
 
-  def init(self, string, source, node):
+  def __init__(self, string, source, node):
     self.string = string
     self.source = source
     self.node = node
@@ -18,7 +18,7 @@ class query_result_object:
 # query is must-have, other (eg community search for graph db) is extra
 class tool:
   # databases are only initalized / connected in main, only an reference of the object will be passed inside here.
-  def init():
+  def __init__():
     pass
   
   def query(query_text:str) -> query_result_object:
@@ -27,6 +27,6 @@ class tool:
 class model_object:
   client : OpenAI
   model_name : str
-  def init(self, client, model_name):
+  def __init__(self, client, model_name):
     self.client = client
     self.model_name = model_name
