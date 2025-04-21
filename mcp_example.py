@@ -107,9 +107,9 @@ async def main():
     # Example queries to demonstrate tool use
     example_queries = [
         # "What information can you provide about Bitcoin?",
-        # "Search for the latest news about AI advancements.",
+        "Search for the latest news about AI advancements and put the search result in a file, cite the source",
         # "What's the current price of Ethereum?",
-        "Crawl some stock market news and put the crawl result in a file, cite the source"
+        # "Crawl some stock market news and put the crawl result in a file, cite the source"
     ]
     
     try:
