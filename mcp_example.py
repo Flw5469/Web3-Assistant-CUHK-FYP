@@ -6,6 +6,8 @@ import traceback
 import warnings
 from typing import Dict, Any, List
 
+# Add the parent directory to the Python path
+sys.path.append('.')
 from ai_agent.mcp_platform import MCPPlatform
 
 # Configure logging
