@@ -16,11 +16,13 @@ NEO4J_USERNAME = os.getenv("NEO4J_USERNAME", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "staysovryn")
 BACKEND_URL = os.getenv("BACKEND_URL")
 
-# Initialize state variables
+# Initialize global variables
 chat_history = []
 tools_used = []
 intermediate_results = []
 uploaded_file_info = None
+mcp_tool_options = []
+crypto_options = []
 
 def render_graph(input):
     """Generate Neo4j graph visualization HTML using Neovis.js"""
@@ -190,7 +192,7 @@ def format_intermediate_results(results):
     return html_output
 
 # Process user query and get AI response
-def process_query(prompt, model, mode, selected_coins, uploaded_file=None):
+def process_query(prompt, model, mode, selected_coins, filtered_tools=None, uploaded_file=None):
     global chat_history, tools_used, intermediate_results, uploaded_file_info
     
     try:
@@ -212,8 +214,11 @@ def process_query(prompt, model, mode, selected_coins, uploaded_file=None):
                 "model": model,
                 "use_mcp": True,
                 "file_content": file_content,
-                "file_name": file_name
+                "file_name": file_name,
+                "filter_tools": filtered_tools if filtered_tools and len(filtered_tools) > 0 else None
             }
+            
+            print(f"Sending payload with filter_tools: {filtered_tools if filtered_tools and len(filtered_tools) > 0 else None}")
         else:
             # Use traditional modes (baseline, enhanced, etc.)
             payload = {
@@ -275,11 +280,53 @@ def process_query(prompt, model, mode, selected_coins, uploaded_file=None):
         chat_history.append({"role": "assistant", "content": error_message})
         return chat_history, "", "", ""
 
+# Process function to handle the coin checkboxes and tool filters
+def process_with_coins(prompt, model, mode, *args, uploaded_file=None):
+    # Extract coin checkboxes from the args
+    # The number of coin checkboxes is determined by len(crypto_options)
+    num_crypto_options = len(crypto_options)
+    checkbox_values = args[:num_crypto_options]
+    
+    # Extract tool filter checkboxes from the remaining args
+    tool_filter_values = args[num_crypto_options:]
+    
+    # Process coin selections
+    selected_coins = [crypto_options[i] for i, value in enumerate(checkbox_values) if value]
+    
+    # Process tool filters - Only include tools that are NOT checked
+    # This means we're filtering OUT these tools
+    filtered_tools = []
+    
+    # Check if we have the right number of tool values
+    if len(tool_filter_values) > 0 and len(mcp_tool_options) > 0:
+        # Include only tools that are unchecked (to be filtered out)
+        for i, value in enumerate(tool_filter_values):
+            if i < len(mcp_tool_options):  # Safety check
+                if not value:  # If unchecked
+                    filtered_tools.append(mcp_tool_options[i])
+    
+    print(f"Filtered tools (to be excluded): {filtered_tools}")
+    
+    # Call the main process function
+    return process_query(prompt, model, mode, selected_coins, filtered_tools, uploaded_file)
+
+# Handler for Select All button
+def select_all_tools():
+    return [True] * len(mcp_tool_options)
+
+# Handler for Deselect All button
+def deselect_all_tools():
+    return [False] * len(mcp_tool_options)
+
 # Main Gradio App
 def create_app():
     # Get MCP information
     mcp_info = fetch_mcp_tools()
     is_mcp_initialized = mcp_info["initialized"]
+    
+    # Store available tools globally
+    global mcp_tool_options
+    mcp_tool_options = [tool.get("name") for tool in mcp_info.get("tools", [])]
     
     # Define mode options
     mode_dict = {
@@ -291,6 +338,7 @@ def create_app():
     }
     
     # Crypto options
+    global crypto_options
     crypto_options = ["Bitcoin", "Tron", "Web3", "Market", "Crypto", "Cardano"]
     
     # Model options
@@ -378,7 +426,7 @@ def create_app():
                     label="Choose a version"
                 )
                 
-                # MCP Platform info
+                # MCP Platform info and tool filtering
                 gr.Markdown("#### MCP Platform")
                 if is_mcp_initialized:
                     gr.Markdown(f"✅ MCP Platform is connected with {len(mcp_info['tools'])} tools")
@@ -393,8 +441,34 @@ def create_app():
                                 tools_by_server_html += f"<li>{tool.get('name')}</li>"
                             tools_by_server_html += "</ul><hr>"
                     
-                    with gr.Accordion("Available MCP Tools", open=False):
-                        gr.HTML(tools_by_server_html)
+                    # Tool filtering UI
+                    with gr.Accordion("Filter MCP Tools", open=False):
+                        gr.Markdown("### Tool Selection")
+                        gr.Markdown("✅ **Checked tools will be used** in processing your query")
+                        gr.Markdown("❌ **Unchecked tools will be excluded**")
+                        
+                        tool_filter_checkboxes = []
+                        
+                        # Create two columns for better layout
+                        with gr.Row():
+                            # Left column
+                            with gr.Column():
+                                # First half of tools
+                                half_point = len(mcp_tool_options) // 2
+                                for tool in mcp_tool_options[:half_point]:
+                                    tool_filter_checkboxes.append(gr.Checkbox(label=tool, value=True))
+                            
+                            # Right column
+                            with gr.Column():
+                                # Second half of tools
+                                for tool in mcp_tool_options[half_point:]:
+                                    tool_filter_checkboxes.append(gr.Checkbox(label=tool, value=True))
+                        
+                        # Select/Deselect All buttons
+                        with gr.Row():
+                            select_all_btn = gr.Button("Select All Tools", size="sm")
+                            deselect_all_btn = gr.Button("Exclude All Tools", size="sm")
+                    
                 else:
                     gr.Markdown("❌ MCP Platform is not initialized")
                 
@@ -402,11 +476,6 @@ def create_app():
                 file_input = gr.File(label="Upload your input file", file_types=[".csv"])
                 upload_btn = gr.Button("Upload File to Backend", variant="secondary")
                 file_status = gr.Markdown("No file uploaded")
-        
-        # Process function to handle the coin checkboxes
-        def process_with_coins(prompt, model, mode, *checkbox_values, uploaded_file=None):
-            selected_coins = [crypto_options[i] for i, value in enumerate(checkbox_values) if value]
-            return process_query(prompt, model, mode, selected_coins, uploaded_file)
         
         # Handle form submission
         submit_event = send_btn.click(
@@ -416,6 +485,7 @@ def create_app():
                 model_dropdown,  # model
                 mode_dropdown,  # mode
                 *coin_checkboxes,  # each checkbox as a separate input
+                *tool_filter_checkboxes,  # tool filter checkboxes
                 file_input  # uploaded_file
             ],
             outputs=[
@@ -433,6 +503,18 @@ def create_app():
             outputs=[file_status]
         )
         
+        # Handle Select All button click
+        select_all_btn.click(
+            fn=select_all_tools,
+            outputs=tool_filter_checkboxes
+        )
+        
+        # Handle Deselect All button click
+        deselect_all_btn.click(
+            fn=deselect_all_tools,
+            outputs=tool_filter_checkboxes
+        )
+        
         # Clear the message box after sending
         submit_event.then(lambda: "", None, msg)
         
@@ -444,6 +526,7 @@ def create_app():
                 model_dropdown,
                 mode_dropdown,
                 *coin_checkboxes,
+                *tool_filter_checkboxes,
                 file_input
             ],
             outputs=[
@@ -472,28 +555,20 @@ def upload_file_to_backend(file):
         return "No file selected. Please select a file first."
     
     try:
-        # For Gradio File component, file is a FileData object with .path attribute
-        file_path = file.name
+        # Upload file to backend
+        files = {'file': (file.name, file)}
+        response = requests.post(
+            f"{BACKEND_URL}/api/upload",
+            files=files
+        )
+        response.raise_for_status()
         
-        # Prepare the file for upload
-        with open(file_path, 'rb') as f:
-            file_name = os.path.basename(file_path)
-            files = {'file': (file_name, f, 'text/csv')}
-            
-            # Upload file to backend
-            response = requests.post(
-                f"{BACKEND_URL}/api/upload",
-                files=files
-            )
-            response.raise_for_status()
-            
-            # Store file info in session state
-            global uploaded_file_info
-            uploaded_file_info = response.json()
-            
-            return f"✅ File '{file_name}' uploaded successfully! File will be used for the next query."
+        # Store file info in session state
+        global uploaded_file_info
+        uploaded_file_info = response.json()
+        
+        return f"✅ File '{file.name}' uploaded successfully! File will be used for the next query."
     except Exception as e:
-        print(f"Error uploading file: {str(e)}")
         return f"❌ Error uploading file: {str(e)}"
 
 if __name__ == "__main__":

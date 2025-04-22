@@ -139,6 +139,7 @@ class ChatRequest(BaseModel):
     use_mcp: bool = True
     file_content: Optional[str] = None
     file_name: Optional[str] = None
+    filter_tools: Optional[List[str]] = None
 
 class ChatResponse(BaseModel):
     response: str
@@ -151,8 +152,17 @@ class MCPToolsResponse(BaseModel):
     tools: List[Dict[str, Any]]
     servers: List[str]
 
-async def process_with_mcp(prompt: str, model: str) -> Tuple[str, List[str], List[Dict]]:
-    """Process a query using MCP Platform"""
+async def process_with_mcp(prompt: str, model: str, filter_tools: List[str] = None) -> Tuple[str, List[str], List[Dict]]:
+    """Process a query using MCP Platform
+    
+    Parameters:
+    prompt (str): The user's prompt
+    model (str): The model name to use
+    filter_tools (List[str], optional): List of tool names to exclude from use
+    
+    Returns:
+    Tuple[str, List[str], List[Dict]]: Response text, tools used, and intermediate results
+    """
     global mcp_initialized, mcp_platform, mcp_available
     
     # Check if MCP is available at all
@@ -326,16 +336,29 @@ async def chat(request: ChatRequest):
     """Single API endpoint for all chat modes"""
     print(f"Processing request - Model: {request.model}, Prompt: {request.prompt}")
     
+    # Log filter tools if provided
+    if request.filter_tools and len(request.filter_tools) > 0:
+        print(f"Tools to be excluded: {request.filter_tools}")
+    else:
+        print("No tools being excluded - using all available tools")
+    
     try:
         # Process with MCP Platform
-        response, tools_used, intermediate_results = await process_with_mcp(request.prompt, request.model)
+        response, tools_used, intermediate_results = await process_with_mcp(
+            request.prompt, 
+            request.model, 
+            request.filter_tools
+        )
+        
         return ChatResponse(
             response=response, 
             node_list=[], 
+            knowledge_graph=None,
             mcp_tools_used=tools_used, 
             intermediate_results=intermediate_results
         )
     except Exception as e:
+        print(f"Error in chat endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/upload")
