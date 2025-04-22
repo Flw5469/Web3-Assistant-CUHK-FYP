@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel
 from typing import List, Optional, Tuple, Dict, Any
 import uvicorn
@@ -137,6 +137,8 @@ class ChatRequest(BaseModel):
     prompt: str
     model: str = "3.5"
     use_mcp: bool = True
+    file_content: Optional[str] = None
+    file_name: Optional[str] = None
 
 class ChatResponse(BaseModel):
     response: str
@@ -334,6 +336,32 @@ async def chat(request: ChatRequest):
             intermediate_results=intermediate_results
         )
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/upload")
+async def upload_file(file: UploadFile = File(...)):
+    """Handle file upload from frontend"""
+    try:
+        # Read file content
+        content = await file.read()
+        
+        # Convert bytes to string (assuming CSV content)
+        content_str = content.decode('utf-8')
+        
+        # Log the first few lines of the file for debugging
+        preview_lines = content_str.split("\n")[:5]
+        print(f"File upload successful: {file.filename}")
+        print(f"File preview (first 5 lines):")
+        for line in preview_lines:
+            print(line)
+
+        return {
+            "status": "success",
+            "file_name": file.filename,
+            "file_content": content_str
+        }
+    except Exception as e:
+        print(f"Error processing file upload: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":

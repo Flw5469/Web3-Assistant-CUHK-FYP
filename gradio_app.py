@@ -20,6 +20,7 @@ BACKEND_URL = os.getenv("BACKEND_URL")
 chat_history = []
 tools_used = []
 intermediate_results = []
+uploaded_file_info = None
 
 def render_graph(input):
     """Generate Neo4j graph visualization HTML using Neovis.js"""
@@ -189,12 +190,19 @@ def format_intermediate_results(results):
     return html_output
 
 # Process user query and get AI response
-def process_query(prompt, model, mode, selected_coins, use_file, uploaded_file=None):
-    global chat_history, tools_used, intermediate_results
+def process_query(prompt, model, mode, selected_coins, uploaded_file=None):
+    global chat_history, tools_used, intermediate_results, uploaded_file_info
     
     try:
         # Add user message to chat history
         chat_history.append({"role": "user", "content": prompt})
+        
+        # Get file content from global state if available
+        file_content = None
+        file_name = None
+        if hasattr(globals(), 'uploaded_file_info') and uploaded_file_info:
+            file_content = uploaded_file_info.get('file_content')
+            file_name = uploaded_file_info.get('file_name')
         
         # Prepare the payload based on mode
         if mode == "MCP":
@@ -202,7 +210,9 @@ def process_query(prompt, model, mode, selected_coins, use_file, uploaded_file=N
             payload = {
                 "prompt": prompt,
                 "model": model,
-                "use_mcp": True
+                "use_mcp": True,
+                "file_content": file_content,
+                "file_name": file_name
             }
         else:
             # Use traditional modes (baseline, enhanced, etc.)
@@ -211,7 +221,9 @@ def process_query(prompt, model, mode, selected_coins, use_file, uploaded_file=N
                 "coin_name": selected_coins,
                 "model": model,
                 "mode": mode,
-                "use_mcp": False
+                "use_mcp": False,
+                "file_content": file_content,
+                "file_name": file_name
             }
         
         # Make API call to the backend endpoint
@@ -388,12 +400,13 @@ def create_app():
                 
                 # File upload
                 file_input = gr.File(label="Upload your input file", file_types=[".csv"])
-                use_file = gr.Checkbox(label="Use uploaded file", value=False)
+                upload_btn = gr.Button("Upload File to Backend", variant="secondary")
+                file_status = gr.Markdown("No file uploaded")
         
         # Process function to handle the coin checkboxes
-        def process_with_coins(prompt, model, mode, *checkbox_values, use_file=False, uploaded_file=None):
+        def process_with_coins(prompt, model, mode, *checkbox_values, uploaded_file=None):
             selected_coins = [crypto_options[i] for i, value in enumerate(checkbox_values) if value]
-            return process_query(prompt, model, mode, selected_coins, use_file, uploaded_file)
+            return process_query(prompt, model, mode, selected_coins, uploaded_file)
         
         # Handle form submission
         submit_event = send_btn.click(
@@ -403,7 +416,6 @@ def create_app():
                 model_dropdown,  # model
                 mode_dropdown,  # mode
                 *coin_checkboxes,  # each checkbox as a separate input
-                use_file,  # use_file
                 file_input  # uploaded_file
             ],
             outputs=[
@@ -412,6 +424,13 @@ def create_app():
                 tools_used_html,  # tools_used_html
                 graph_display  # graph_html
             ]
+        )
+        
+        # Handle file upload button click
+        upload_btn.click(
+            fn=upload_file_to_backend,
+            inputs=[file_input],
+            outputs=[file_status]
         )
         
         # Clear the message box after sending
@@ -425,7 +444,6 @@ def create_app():
                 model_dropdown,
                 mode_dropdown,
                 *coin_checkboxes,
-                use_file,
                 file_input
             ],
             outputs=[
@@ -447,6 +465,36 @@ def create_app():
         )
     
     return app
+
+# Handle file upload separately
+def upload_file_to_backend(file):
+    if file is None:
+        return "No file selected. Please select a file first."
+    
+    try:
+        # For Gradio File component, file is a FileData object with .path attribute
+        file_path = file.name
+        
+        # Prepare the file for upload
+        with open(file_path, 'rb') as f:
+            file_name = os.path.basename(file_path)
+            files = {'file': (file_name, f, 'text/csv')}
+            
+            # Upload file to backend
+            response = requests.post(
+                f"{BACKEND_URL}/api/upload",
+                files=files
+            )
+            response.raise_for_status()
+            
+            # Store file info in session state
+            global uploaded_file_info
+            uploaded_file_info = response.json()
+            
+            return f"✅ File '{file_name}' uploaded successfully! File will be used for the next query."
+    except Exception as e:
+        print(f"Error uploading file: {str(e)}")
+        return f"❌ Error uploading file: {str(e)}"
 
 if __name__ == "__main__":
     app = create_app()
