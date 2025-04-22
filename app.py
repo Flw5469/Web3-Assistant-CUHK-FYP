@@ -332,141 +332,132 @@ if prompt := st.chat_input("What would you like to know?"):
             "use_mcp": False
         }
     
-    # Create a placeholder for the assistant's response
-    with st.chat_message("assistant"):
-        response_placeholder = st.empty()
-        with response_placeholder.container():
-            with st.spinner("Thinking..."):
-                # Make API call to the backend endpoint
-                try:
-                    response = requests.post(
-                        f"{BACKEND_URL}/api/chat",
-                        json=payload,
-                        headers={"Content-Type": "application/json"}
-                    )
-                    response.raise_for_status()  # Raise exception for bad status codes
-                    
-                    print("response", response)
-                    # Extract the response and tool information
-                    response_data = response.json()
-                    ai_response = response_data["response"]
-                    mcp_tools_used = response_data.get("mcp_tools_used", [])
-                    
-                    # Get node_list if available in the response
-                    node_list = response_data.get("node_list", [])
-                    
-                    # Clear previous intermediate results before adding new ones
-                    st.session_state.intermediate_results = []
-                    
-                    # Update tools used
-                    if mcp_tools_used:
-                        st.session_state.tools_used = mcp_tools_used
-                    
-                    # Update intermediate results if available
-                    if 'intermediate_results' in response_data and response_data['intermediate_results']:
-                        st.session_state.intermediate_results = response_data['intermediate_results']
-                        
-                except Exception as e:
-                    ai_response = f"Error: Unable to get response from server. {str(e)}"
+    # Make API call to the backend endpoint
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/api/chat",
+            json=payload,
+            headers={"Content-Type": "application/json"}
+        )
+        response.raise_for_status()  # Raise exception for bad status codes
+        
+        print("response", response)
+        # Extract the response and tool information
+        response_data = response.json()
+        ai_response = response_data["response"]
+        mcp_tools_used = response_data.get("mcp_tools_used", [])
+        
+        # Get node_list if available in the response
+        node_list = response_data.get("node_list", [])
+        
+        # Render graph if node list is not empty
+        if node_list:
+            try:
+                render_graph(f"MATCH (n)-[r]-(m) WHERE n.id IN {node_list} RETURN n,r,m LIMIT 50")
+            except Exception as e:
+                st.error(f"Error rendering graph: {str(e)}")
+                print(f"Graph rendering error: {str(e)}")
+        
+        # Update tools used
+        if mcp_tools_used:
+            st.session_state.tools_used = mcp_tools_used
+            
+            # Display tools used in this response
+            with st.expander("MCP Tools Used in This Response"):
+                # Simply list the tools used
+                for tool in mcp_tools_used:
+                    st.markdown(f"- {tool}")
+        
+        # Update intermediate results if available
+        if 'intermediate_results' in response_data and response_data['intermediate_results']:
+            st.session_state.intermediate_results = response_data['intermediate_results']
+            
+            # Display intermediate results for this response
+            with st.expander("Tool Execution Results for This Response"):
+                # Group results by step number for better organization
+                step_results = {}
+                for result in response_data['intermediate_results']:
+                    step_num = result.get('step', 0)
+                    if step_num not in step_results:
+                        step_results[step_num] = []
+                    step_results[step_num].append(result)
                 
-                # Replace the spinner with the actual response
-                response_placeholder.markdown(ai_response)
+                # Display results grouped by step
+                for step_num in sorted(step_results.keys()):
+                    step_container = st.container()
+                    with step_container:
+                        st.subheader(f"Step {step_num}")
+                        
+                        # Process each result in this step
+                        for result in step_results[step_num]:
+                            # Create a container for each result with a border
+                            result_container = st.container()
+                            with result_container:
+                                col1, col2 = st.columns([3, 1])
+                                with col1:
+                                    st.markdown(f"**Tool: {result['tool']}**")
+                                with col2:
+                                    if 'timestamp' in result:
+                                        st.markdown(f"<small>{result['timestamp']}</small>", unsafe_allow_html=True)
+                                
+                                # Display arguments in a collapsible section if available
+                                if 'arguments' in result:
+                                    with st.expander("Arguments"):
+                                        st.code(result['arguments'], language="json")
+                                
+                                # Display result
+                                st.markdown("**Result:**")
+                                if 'content' in result:
+                                    content = result['content']
+                                    # Check if it's a Title/Description format to display nicely
+                                    if "Title:" in content and "Description:" in content:
+                                        # Extract title and description for nicer formatting
+                                        try:
+                                            # For Web3 News format
+                                            if "Title: Web3 News" in content:
+                                                # Extract content within <strong> tags if present
+                                                title_match = re.search(r"Title: ([^\n]+)", content)
+                                                title = title_match.group(1) if title_match else "Web3 News"
+                                                
+                                                # Look for strong tags content
+                                                strong_content = re.search(r"<strong>(.*?)</strong>", content)
+                                                if strong_content:
+                                                    highlight = strong_content.group(1)
+                                                    st.markdown(f"### {title}")
+                                                    st.markdown(f"**{highlight}**")
+                                                else:
+                                                    # Just use the content as is with markdown
+                                                    st.markdown(content)
+                                            else:
+                                                st.markdown(content)
+                                        except Exception as e:
+                                            # If extraction fails, display the original content
+                                            st.markdown(content)
+                                    # Try to detect if content is JSON for better display
+                                    elif content.strip().startswith('{') or content.strip().startswith('['):
+                                        try:
+                                            parsed_json = json.loads(content)
+                                            st.json(parsed_json)
+                                        except:
+                                            # If JSON parsing fails, display as text
+                                            st.text_area("", content, height=150)
+                                    else:
+                                        # Regular text, display in a text area
+                                        st.text_area("", content, height=150)
+                                else:
+                                    st.warning("No content available for this tool result.")
+                        
+                        # Add a visual separator after each step
+                        st.markdown("---")
+        
+        print(f"MCP tools used: {mcp_tools_used}")
+
+    except Exception as e:
+        ai_response = f"Error: Unable to get response from server. {str(e)}"
+    
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(ai_response)
     
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": ai_response})
-    
-    # Render graph if node list is not empty
-    if 'node_list' in locals() and node_list:
-        try:
-            render_graph(f"MATCH (n)-[r]-(m) WHERE n.id IN {node_list} RETURN n,r,m LIMIT 50")
-        except Exception as e:
-            st.error(f"Error rendering graph: {str(e)}")
-            print(f"Graph rendering error: {str(e)}")
-    
-    # Display tools used in this response
-    if 'mcp_tools_used' in locals() and mcp_tools_used:
-        with st.expander("MCP Tools Used in This Response"):
-            # Simply list the tools used
-            for tool in mcp_tools_used:
-                st.markdown(f"- {tool}")
-    
-    # Display intermediate results for this response
-    if 'response_data' in locals() and 'intermediate_results' in response_data and response_data['intermediate_results']:
-        with st.expander("Tool Execution Results for This Response"):
-            # Group results by step number for better organization
-            step_results = {}
-            for result in response_data['intermediate_results']:
-                step_num = result.get('step', 0)
-                if step_num not in step_results:
-                    step_results[step_num] = []
-                step_results[step_num].append(result)
-            
-            # Display results grouped by step
-            for step_num in sorted(step_results.keys()):
-                step_container = st.container()
-                with step_container:
-                    st.subheader(f"Step {step_num}")
-                    
-                    # Process each result in this step
-                    for result in step_results[step_num]:
-                        # Create a container for each result with a border
-                        result_container = st.container()
-                        with result_container:
-                            col1, col2 = st.columns([3, 1])
-                            with col1:
-                                st.markdown(f"**Tool: {result['tool']}**")
-                            with col2:
-                                if 'timestamp' in result:
-                                    st.markdown(f"<small>{result['timestamp']}</small>", unsafe_allow_html=True)
-                            
-                            # Display arguments in a collapsible section if available
-                            if 'arguments' in result:
-                                with st.expander("Arguments"):
-                                    st.code(result['arguments'], language="json")
-                            
-                            # Display result
-                            st.markdown("**Result:**")
-                            if 'content' in result:
-                                content = result['content']
-                                # Check if it's a Title/Description format to display nicely
-                                if "Title:" in content and "Description:" in content:
-                                    # Extract title and description for nicer formatting
-                                    try:
-                                        # For Web3 News format
-                                        if "Title: Web3 News" in content:
-                                            # Extract content within <strong> tags if present
-                                            title_match = re.search(r"Title: ([^\n]+)", content)
-                                            title = title_match.group(1) if title_match else "Web3 News"
-                                            
-                                            # Look for strong tags content
-                                            strong_content = re.search(r"<strong>(.*?)</strong>", content)
-                                            if strong_content:
-                                                highlight = strong_content.group(1)
-                                                st.markdown(f"### {title}")
-                                                st.markdown(f"**{highlight}**")
-                                            else:
-                                                # Just use the content as is with markdown
-                                                st.markdown(content)
-                                        else:
-                                            st.markdown(content)
-                                    except Exception as e:
-                                        # If extraction fails, display the original content
-                                        st.markdown(content)
-                                # Try to detect if content is JSON for better display
-                                elif content.strip().startswith('{') or content.strip().startswith('['):
-                                    try:
-                                        parsed_json = json.loads(content)
-                                        st.json(parsed_json)
-                                    except:
-                                        # If JSON parsing fails, display as text
-                                        st.text_area("", content, height=150)
-                                else:
-                                    # Regular text, display in a text area
-                                    st.text_area("", content, height=150)
-                            else:
-                                st.warning("No content available for this tool result.")
-                    
-                            # Add a visual separator after each step
-                            st.markdown("---")
-            
-    print(f"MCP tools used: {mcp_tools_used if 'mcp_tools_used' in locals() else []}")

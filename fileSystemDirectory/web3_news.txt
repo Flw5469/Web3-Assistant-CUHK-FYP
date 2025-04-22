@@ -1,0 +1,10 @@
+1. Title: Web3 News by Cointelegraph
+Description: In the realm of Web3, trust is established through cryptographic algorithms, ensuring secure transactions and interactions. Smart contracts—self-executing agreements written in code—automate processes without the need for intermediaries, enhancing efficiency and reducing costs.
+URL: https://cointelegraph.com/tags/web3
+
+2. Title: Web3 News & Insights - Blockworks
+Description: Web3 is the third generation of the internet. where decentralized apps enable a more user-driven experience. Stay up to date on Web 3 with Blockworks.
+URL: https://blockworks.co/category/web3
+
+3. Title: New Web3 AI Alliance: Aethir Launches AI Unbundled - Bitcoinsensus
+Description: Beyond Aethir and Injective partnership, the company brings a whole new Web3 AI alliance: Aethir launches AI Unbundled, together 0G Labs, Biconomy, ChainGPT, GEODNET, IoTeX, Oasis Prot
