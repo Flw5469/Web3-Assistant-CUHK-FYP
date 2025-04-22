@@ -271,9 +271,9 @@ def create_app():
     
     # Define mode options
     mode_dict = {
-        "Baseline": "baseline",
-        "Enhanced (with background knowledge)": "enhanced",
-        "Tool-based Search": "tool_search",
+        # "Baseline": "baseline",
+        # "Enhanced (with background knowledge)": "enhanced",
+        # "Tool-based Search": "tool_search",
         "Simple Query": "direct",
         "MCP": "mcp"
     }
@@ -319,9 +319,7 @@ def create_app():
                 
                 with gr.Accordion("Tool Execution Details", open=False):
                     intermediate_results_html = gr.HTML()
-                
-                with gr.Accordion("MCP Tools Used", open=False):
-                    tools_used_html = gr.HTML()
+                    tools_used_html = gr.HTML(label="Tools Used")
             
             # Sidebar with controls
             with gr.Column(scale=1):

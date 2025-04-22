@@ -109,6 +109,17 @@ async def main():
         # Basic Web3 Info Scraping
         "search and scrape some web3 news in both markdown and raw HTML formats",
         
+        # Deep Search with Multiple Sources
+        "deep search for recent developments in AI and blockchain, crawl multiple sources and compile a detailed report",
+        
+        # Generate LLM Text with Citations
+        "search for information about quantum computing advances, then generate a technical summary with proper citations",
+        
+        # Targeted Deep Search with Format Options
+        "perform a deep search about DeFi protocols, extract content in both markdown and HTML, focus on technical details",
+        
+        # Combined Search and Analysis
+        "search and analyze the latest crypto market trends, generate an analytical report with data from multiple sources"
     ]
     
     try:
