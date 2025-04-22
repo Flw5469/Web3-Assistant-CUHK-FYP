@@ -318,6 +318,166 @@ def select_all_tools():
 def deselect_all_tools():
     return [False] * len(mcp_tool_options)
 
+# Function to render an example knowledge graph
+def render_example_graph():
+    """Helper function to render an example knowledge graph with static HTML"""
+    print("Rendering example knowledge graph")
+    
+    # Create a static HTML visualization that doesn't require Neo4j connection
+    html_content = """
+    <html>
+    <head>
+        <title>Example Knowledge Graph</title>
+        <style type="text/css">
+            #exampleGraph {
+                width: 100%;
+                height: 300px;
+                border: 1px solid lightgray;
+                font: 16pt arial;
+                position: relative;
+                background-color: #f9f9f9;
+            }
+            
+            .node {
+                position: absolute;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            
+            .entity {
+                background-color: #4285f4;
+            }
+            
+            .document {
+                background-color: #34a853;
+            }
+            
+            .relationship {
+                position: absolute;
+                border-top: 2px solid #ccc;
+                transform-origin: 0 0;
+                z-index: -1;
+            }
+            
+            .relationship-label {
+                position: absolute;
+                background-color: #ffffff;
+                padding: 2px 5px;
+                border-radius: 3px;
+                font-size: 12px;
+                color: #666;
+                text-align: center;
+            }
+            
+            .graph-info {
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #f0f0f0;
+                border-radius: 5px;
+            }
+        </style>
+        
+        <script>
+            // Simple JavaScript to draw lines between nodes after they're positioned
+            window.onload = function() {
+                const nodes = document.querySelectorAll('.node');
+                const relationships = [
+                    {from: 'doc1', to: 'entity1', label: 'MENTIONS'},
+                    {from: 'doc1', to: 'entity2', label: 'MENTIONS'},
+                    {from: 'doc1', to: 'entity3', label: 'MENTIONS'},
+                    {from: 'doc2', to: 'entity1', label: 'MENTIONS'},
+                    {from: 'doc2', to: 'entity4', label: 'MENTIONS'},
+                    {from: 'entity2', to: 'entity3', label: 'RELATED_TO'},
+                ];
+                
+                // Draw relationships
+                relationships.forEach(rel => {
+                    drawRelationship(
+                        document.getElementById(rel.from), 
+                        document.getElementById(rel.to), 
+                        rel.label
+                    );
+                });
+            };
+            
+            function drawRelationship(node1, node2, label) {
+                const container = document.getElementById('exampleGraph');
+                
+                // Get centers of each node
+                const rect1 = node1.getBoundingClientRect();
+                const rect2 = node2.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                const x1 = rect1.left + rect1.width/2 - containerRect.left;
+                const y1 = rect1.top + rect1.height/2 - containerRect.top;
+                const x2 = rect2.left + rect2.width/2 - containerRect.left;
+                const y2 = rect2.top + rect2.height/2 - containerRect.top;
+                
+                // Create line
+                const line = document.createElement('div');
+                line.className = 'relationship';
+                
+                // Calculate line length and angle
+                const length = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+                const angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
+                
+                // Position and rotate line
+                line.style.width = length + 'px';
+                line.style.left = x1 + 'px';
+                line.style.top = y1 + 'px';
+                line.style.transform = 'rotate(' + angle + 'deg)';
+                
+                // Create and position label
+                const labelElem = document.createElement('div');
+                labelElem.className = 'relationship-label';
+                labelElem.textContent = label;
+                labelElem.style.left = (x1 + x2) / 2 - 30 + 'px';
+                labelElem.style.top = (y1 + y2) / 2 - 10 + 'px';
+                
+                container.appendChild(line);
+                container.appendChild(labelElem);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="exampleGraph">
+            <!-- Document Nodes -->
+            <div id="doc1" class="node document" style="left: 50px; top: 50px;">Doc 1</div>
+            <div id="doc2" class="node document" style="left: 50px; top: 180px;">Doc 2</div>
+            
+            <!-- Entity Nodes -->
+            <div id="entity1" class="node entity" style="left: 200px; top: 120px;">Bitcoin</div>
+            <div id="entity2" class="node entity" style="left: 320px; top: 50px;">Crypto</div>
+            <div id="entity3" class="node entity" style="left: 320px; top: 180px;">Market</div>
+            <div id="entity4" class="node entity" style="left: 200px; top: 230px;">Tron</div>
+        </div>
+        
+        <div class="graph-info">
+            <p><strong>Example Knowledge Graph</strong> - This is a static visualization showing how documents connect to entities within the Neo4j database.</p>
+            <p>In a real query, you would see the actual documents and entities extracted from your data, visualized in a similar format but interactive.</p>
+        </div>
+    </body>
+    </html>
+    """
+    
+    return html_content
+
+# Function to toggle the example graph display
+def toggle_example_graph(button_text, graph_html):
+    """Toggle the example graph display on/off"""
+    if "Show" in button_text:
+        # Currently showing "Show Example Knowledge Graph" button - so show the graph
+        return "Hide Example Knowledge Graph", render_example_graph()
+    else:
+        # Currently showing "Hide Example Knowledge Graph" button - so hide the graph
+        return "Show Example Knowledge Graph", ""
+
 # Main Gradio App
 def create_app():
     # Get MCP information
@@ -375,12 +535,17 @@ def create_app():
                     send_btn = gr.Button("Send", variant="primary")
                 
                 # Graph visualization area (if provided)
-                graph_display = gr.HTML(label="Knowledge Graph", visible=False)
+                gr.Markdown("### Knowledge Graph")
+                graph_display = gr.HTML(visible=True, elem_id="graph-display")
                 
+                # Tool execution details
                 with gr.Accordion("Tool Execution Details", open=False):
                     intermediate_results_html = gr.HTML()
                     tools_used_html = gr.HTML(label="Tools Used")
             
+                # Example graph button
+                with gr.Row():
+                    example_graph_btn = gr.Button("Show Example Knowledge Graph", variant="secondary")
             # Sidebar with controls
             with gr.Column(scale=1):
                 gr.Markdown("### Settings")
@@ -536,17 +701,13 @@ def create_app():
                 graph_display
             ]
         ).then(lambda: "", None, msg)
-        
-        # Update graph display visibility
-        def update_graph_visibility(graph_html):
-            return gr.update(visible=bool(graph_html))
-        
-        submit_event.then(
-            fn=update_graph_visibility,
-            inputs=[graph_display],
-            outputs=[graph_display]
-        )
     
+    # Example graph button click
+        example_graph_btn.click(
+            fn=toggle_example_graph,
+            inputs=[example_graph_btn, graph_display],
+            outputs=[example_graph_btn, graph_display]
+        )
     return app
 
 # Handle file upload separately

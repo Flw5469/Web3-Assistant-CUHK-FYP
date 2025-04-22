@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 import pandas as pd
 import json
 import re
+import networkx as nx
+import plotly.graph_objects as go
 
 # Load environment variables for backend connection
 load_dotenv()
@@ -17,97 +19,24 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "staysovryn")
 BACKEND_URL = os.getenv("BACKEND_URL")
 
 def render_graph(input):
-    """Render Neo4j graph visualization using Neovis.js"""
-    return components.html(
-        f"""
-        <html>
-<head>
-    <title>Neovis.js Simple Example</title>
-    <style type="text/css">
-        html, body {{
-            font: 16pt arial;
-        }}
+    # Define the heads, relations, and tails
+    head = ['drugA', 'drugB', 'drugC', 'drugD', 'drugA', 'drugC', 'drugD', 'drugE', 'gene1', 'gene2','gene3', 'gene4', 'gene50', 'gene2', 'gene3', 'gene4']
+    relation = ['treats', 'treats', 'treats', 'treats', 'inhibits', 'inhibits', 'inhibits', 'inhibits', 'associated', 'associated', 'associated', 'associated', 'associated', 'interacts', 'interacts', 'interacts']
+    tail = ['fever', 'hepatitis', 'bleeding', 'pain', 'gene1', 'gene2', 'gene4', 'gene20', 'obesity', 'heart_attack', 'hepatitis', 'bleeding', 'cancer', 'gene1', 'gene20', 'gene50']
 
-        #viz {{
-            width: 700px;
-            height: 300px;
-            border: 1px solid lightgray;
-            font: 22pt arial;
-        }}
+    # Create a dataframe
+    df = pd.DataFrame({'head': head, 'relation': relation, 'tail': tail})
 
-    </style>
+    # Create a graph
+    G = nx.Graph()
+    for _, row in df.iterrows():
+        G.add_edge(row['head'], row['tail'], label=row['relation'])
 
-    <!-- FIXME: load from dist -->
-    <script src="https://unpkg.com/neovis.js@2.0.2"></script>
+    # Create a layout
+    layout = nx.spring_layout(G)
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-		// define config car
-		// instantiate nodevis object
-		// draw
-
-		var viz;
-
-		function draw() {{
-			var config = {{
-				containerId: "viz",
-				neo4j: {{
-					serverUrl: "{NEO4J_URI}",
-					serverUser: "{NEO4J_USERNAME}",
-					serverPassword: "{NEO4J_PASSWORD}"
-				}},
-				labels: {{
-          "__Entity__":{{
-            label:"id"
-          }},
-          "*":{{
-            label:"*"          
-          }},
-				}},
-				relationships: {{
-					"*": {{
-            label:"description",
-						value: "id"
-					}}
-				}},
-				initialCypher: "{input}"
-			}};
-
-			viz = new NeoVis.default(config);
-			viz.render();
-			console.log(viz);
-
-		}}
-    </script>
-</head>
-<body onload="draw()">
-<div id="viz"></div>
-
-</body>
-
-<script>
-	$("#reload").click(function () {{
-		var cypher = $("#cypher").val();
-		if (cypher.length > 3) {{
-			viz.renderWithCypher(cypher);
-		}} else {{
-			console.log("reload");
-			viz.reload();
-		}}
-	}});
-
-	$("#stabilize").click(function () {{
-		viz.stabilize();
-	}})
-</script>
-</html>
-        """,
-        height=300,
-    )
+    # Create a figure
+    fig = go.Figure()
 
 # Function to fetch MCP tools from backend
 def fetch_mcp_tools():
