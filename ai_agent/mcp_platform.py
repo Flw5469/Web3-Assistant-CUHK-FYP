@@ -33,7 +33,7 @@ class MCPPlatform:
             api_key=os.getenv("OPENAI_API_KEY"),
             base_url=os.getenv("OPENAI_BASE_URL")
         )
-        
+
         # DeepSeek client setup if available
         self.deepseek_client = None
         if os.getenv("DEEPSEEK_API_KEY") and os.getenv("DEEPSEEK_BASE_URL"):
@@ -167,10 +167,41 @@ class MCPPlatform:
         
         # Call the tool
         try:
+            print("tool_name",tool_name,"args",args,"\n")
+
             result = await client.execute_tool(tool_name, args)
+            original_length = len(str(result))
             
+            # Set up base directory
+            fileSystemDirectory = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "fileSystemDirectory")
+            
+            # Handle fire_crawl and fire_scrape tools specially
+            if tool_name == "firecrawl_scrape":
+                target_dir = os.path.join(fileSystemDirectory, "scrape")
+                if not os.path.exists(target_dir):
+                    os.makedirs(target_dir)
+                with open(os.path.join(target_dir, f"{tool_name}.txt"), "w") as f:
+                    f.write(str(result))
+            elif tool_name == "firecrawl_crawl":
+                target_dir = os.path.join(fileSystemDirectory, "crawl") 
+                if not os.path.exists(target_dir):
+                    os.makedirs(target_dir)
+                with open(os.path.join(target_dir, f"{tool_name}.txt"), "w") as f:
+                    f.write(str(result))
+
+            result = str(result)[:1000]
+
             # Convert to JSON-serializable format
             serializable_result = self._make_serializable(result)
+            
+            if len(str(result)) < original_length:
+                serializable_result = {
+                    "result": serializable_result,
+                    "note": f"{tool_name} called successfully, but result was truncated due to length"
+                }
+
+            # print("serializable_result",serializable_result,"\n")
+            
             return serializable_result
         except Exception as e:
             logger.error(f"Error calling tool '{tool_name}': {str(e)}")
@@ -246,6 +277,7 @@ class MCPPlatform:
                         tools=available_tools,
                         tool_choice="auto"
                     )
+
             except Exception as e:
                 error_msg = f"Error calling language model: {str(e)}"
                 logger.error(error_msg)
@@ -279,7 +311,6 @@ class MCPPlatform:
             # If no tool calls, we're done
             if not assistant_message.tool_calls:
                 break
-            
             # Process each tool call
             for tool_call in assistant_message.tool_calls:
                 function_name = tool_call.function.name
@@ -313,7 +344,7 @@ class MCPPlatform:
                         "name": function_name,
                         "result": tool_result
                     })
-                    
+                    print("conversation_steps",conversation_steps,"\n")
                     # Add tool result to messages for next LLM call
                     # Make sure it's serializable for the response
                     serialized_result = json.dumps(tool_result)
@@ -342,7 +373,7 @@ class MCPPlatform:
                         "name": function_name,
                         "content": f"Error: {str(e)}"
                     })
-        
+
         # Get final response - the last assistant message
         final_response = next((step["content"] for step in reversed(conversation_steps) 
                             if step["role"] == "assistant"), "No response generated")
@@ -407,9 +438,8 @@ async def main():
         tools = platform.get_all_tools()
         print(f"Available tools: {len(tools)}")
         
-        result = await platform.process_query("What's the weather like in New York?")
+        result = await platform.process_query("search and crawl some information of bitcoin price")
         print(f"Final response: {result['final_response']}")
-    
     except Exception as e:
         print(f"Error: {str(e)}")
     

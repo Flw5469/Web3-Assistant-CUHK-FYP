@@ -184,16 +184,26 @@ def get_client():
 async def main():
     client = get_client()
     try:
-        await client.connect_to_server("server/braveSearch.js", "node")
+        
+        await client.connect_to_server(os.path.join(os.path.dirname(os.path.abspath(__file__)), "server", "firecrawlTool.js"), "node")
         print("Connected to server successfully\n")
         print("Available tools:", client.tools)
         print("\n")
-        result = await client.execute_tool("brave_web_search", {
-            "query": "What is the capital of France?", 
-            "count": 10, 
-            "offset": 0
+        scrape_result = await client.execute_tool("firecrawl_scrape", {
+            "url": "https://mendable.ai", 
+            # Optional parameters:
+            "formats": ["markdown", "rawHtml"]
+            # "onlyMainContent": True
         })
-        print("Tool execution result:", result)
+        # crawl_result = await client.execute_tool("firecrawl_crawl", {
+        #     "url": "https://mendable.ai", 
+        #     # Optional parameters:
+        #     # "formats": ["markdown", "rawHtml"]
+        #     # "onlyMainContent": True
+        # })
+        # Print first 300 bytes of each result
+        print("First 5000 bytes of scrape result:\n", str(scrape_result)[:5000])
+        # print("First 5000 bytes of crawl result:\n", str(crawl_result)[:5000])
     except Exception as e:
         print(f"Error during test: {str(e)}")
     finally:

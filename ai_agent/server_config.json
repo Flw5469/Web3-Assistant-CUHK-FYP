@@ -8,13 +8,6 @@
       "args": ["./fileSystemDirectory"]
     },
     {
-      "name": "Firecrawl Server",
-      "path": "ai_agent/server/firecrawlTool.js",
-      "type": "node",
-      "description": "firecrawl server for web crawling",
-      "args": [""]
-    },
-    {
       "name": "brave-search",
       "path": "ai_agent/server/braveSearch.js",
       "type": "node",
