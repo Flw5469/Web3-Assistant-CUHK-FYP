@@ -19,6 +19,12 @@
       "path": "ai_agent/server/braveSearch.js",
       "type": "node",
       "description": "Brave Search API service"
+    },
+    {
+      "name": "KAG MCP",
+      "path": "ai_agent/server/kag_mcp.py",
+      "type": "python",
+      "description": "KAG MCP service, provide reasoning and logic to answer domain-specific questions"
     }
   ],
   "default_server": "File System Server"

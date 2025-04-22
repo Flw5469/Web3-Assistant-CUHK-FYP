@@ -185,24 +185,30 @@ async def main():
     client = get_client()
     try:
         
-        await client.connect_to_server(os.path.join(os.path.dirname(os.path.abspath(__file__)), "server", "firecrawlTool.js"), "node")
+        # await client.connect_to_server(os.path.join(os.path.dirname(os.path.abspath(__file__)), "server", "firecrawlTool.js"), "node")
+        await client.connect_to_server(os.path.join(os.path.dirname(os.path.abspath(__file__)), "server", "kag_mcp.py"), "python")
         print("Connected to server successfully\n")
         print("Available tools:", client.tools)
-        print("\n")
-        scrape_result = await client.execute_tool("firecrawl_scrape", {
-            "url": "https://mendable.ai", 
+        kag_result = await client.execute_tool("query_knowledge_base", {
+            "instruction": "What is the Genesis block in the context of Bitcoin?", 
             # Optional parameters:
-            "formats": ["markdown", "rawHtml"]
-            # "onlyMainContent": True
         })
-        # crawl_result = await client.execute_tool("firecrawl_crawl", {
+        print(kag_result)
+        # print("\n")
+        # scrape_result = await client.execute_tool("firecrawl_scrape", {
         #     "url": "https://mendable.ai", 
         #     # Optional parameters:
-        #     # "formats": ["markdown", "rawHtml"]
+        #     "formats": ["markdown", "rawHtml"]
         #     # "onlyMainContent": True
         # })
-        # Print first 300 bytes of each result
-        print("First 5000 bytes of scrape result:\n", str(scrape_result)[:5000])
+        # # crawl_result = await client.execute_tool("firecrawl_crawl", {
+        # #     "url": "https://mendable.ai", 
+        # #     # Optional parameters:
+        # #     # "formats": ["markdown", "rawHtml"]
+        # #     # "onlyMainContent": True
+        # # })
+        # # Print first 300 bytes of each result
+        # print("First 5000 bytes of scrape result:\n", str(scrape_result)[:5000])
         # print("First 5000 bytes of crawl result:\n", str(crawl_result)[:5000])
     except Exception as e:
         print(f"Error during test: {str(e)}")

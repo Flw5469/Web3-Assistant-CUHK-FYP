@@ -1,6 +1,7 @@
 from typing import Any
 import httpx
 import asyncio
+import logging
 from mcp.server.fastmcp import FastMCP
 import json
 
@@ -13,6 +14,9 @@ DEFAULT_SESSION_ID = 2
 DEFAULT_PROJECT_ID = 1
 DEFAULT_USER_ID = 111111
 
+# Disable httpx logging
+logging.getLogger("httpx").setLevel(logging.WARNING)
+
 async def make_kag_request(method: str, endpoint: str, json_data: dict = None) -> dict[str, Any] | None:
     """Make a request to the KAG API with proper error handling."""
     headers = {
@@ -20,13 +24,13 @@ async def make_kag_request(method: str, endpoint: str, json_data: dict = None) -
     }
     url = f"{BASE_URL}{endpoint}"
     
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(transport=httpx.AsyncHTTPTransport(retries=1)) as client:
         try:
             if method == "POST":
                 response = await client.post(url, json=json_data, headers=headers, timeout=30.0)
             else:
                 response = await client.get(url, headers=headers, timeout=30.0)
-            response.raise_for_status()
+            # response.raise_for_status()
             return response.json()
         except Exception as e:
             print(f"Error making KAG request: {str(e)}")
@@ -61,14 +65,12 @@ async def query_knowledge_base(
     project_id: int = DEFAULT_PROJECT_ID,
     user_id: int = DEFAULT_USER_ID
 ) -> str:
-    """Query the knowledge base with a natural language instruction.
+    """Query the knowledge base using a natural language instruction, require logic and reasoning to answer.
 
-    Args:
-        instruction: The natural language query
-        type_: Query type (default: "NL" for Natural Language)
-        session_id: Session ID (default: 2)
-        project_id: Project ID (default: 1)
-        user_id: User ID (default: 111111)
+    The KAG tool call (Knowledge Augmented Generation) allows users to interact with a structured knowledge base by submitting queries in plain language. It interprets the intent of the instruction, retrieves relevant information, and generates precise, contextually appropriate responses. Ideal for extracting facts, generating explanations, or answering domain-specific questions.
+
+        Args:
+            instruction: The natural language query (e.g., "Explain the benefits of decentralized finance").
     """
     # Submit the query
     payload = {
@@ -95,28 +97,54 @@ async def query_knowledge_base(
         # Parse the result message
         result_message_str = result_data["result"]["resultMessage"]
         result_message = json.loads(result_message_str)
-        nodes = result_message["nodes"]
         
-        # Get the final answer (node with id "0")
-        ai_response_node = next((node for node in nodes if node["id"] == "0"), None)
-        if not ai_response_node or not ai_response_node["answer"].strip():
-            return "No answer provided by the knowledge base."
-        
-        # Format the response
-        response = f"""
+        # Check if 'nodes' exists in the response
+        if "nodes" in result_message:
+            nodes = result_message["nodes"]
+            
+            # Get the final answer (node with id "0")
+            ai_response_node = next((node for node in nodes if node["id"] == "0"), None)
+            if not ai_response_node or not ai_response_node["answer"].strip():
+                return "No answer provided by the knowledge base."
+            
+            # Format the response
+            response = f"""
 AI Response:
 {ai_response_node['answer'].strip()}
 
 Detailed Node List:
 {'-'*80}"""
-        
-        for node in nodes:
-            response += format_node(node)
             
-        return response
+            for node in nodes:
+                response += format_node(node)
+                
+            return response
+        else:
+            # If no 'nodes' key exists, try to extract the answer directly from the result_message
+            if "think" in result_message:
+                ai_response = result_message["think"]
+            elif "answer" in result_message:
+                ai_response = result_message["answer"]
+            elif isinstance(result_message, str):
+                ai_response = result_message
+            else:
+                ai_response = "Response structure doesn't contain a recognizable answer field."
+                
+            return f"""
+AI Response:
+{ai_response}
+
+Note: No detailed node list available in the response.
+"""
         
     except Exception as e:
-        return f"Error processing response: {str(e)}"
+        # Print the raw result message for debugging if possible
+        debug_info = ""
+        try:
+            debug_info = f"\n\nRaw result message (first 500 chars):\n{result_message_str[:500]}..." if len(result_message_str) > 500 else f"\n\nRaw result message:\n{result_message_str}"
+        except:
+            pass
+        return f"Error processing response: {str(e)}{debug_info}"
 
 if __name__ == "__main__":
     print("Starting MCP KAG Server...")
