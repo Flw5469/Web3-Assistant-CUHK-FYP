@@ -9,3 +9,6 @@ update_python_ver.sh
 /ai_agent/__pycache__
 /ai_agent/__pycache__
 /ai_agent/__pycache__
+/storage.db
+ai_agent/__pycache__/client.cpython-312.pyc
+ai_agent/__pycache__/mcp_platform.cpython-312.pyc

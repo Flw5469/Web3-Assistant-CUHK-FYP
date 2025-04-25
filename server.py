@@ -146,6 +146,7 @@ class ChatResponse(BaseModel):
     node_list: Optional[list] = None
     mcp_tools_used: Optional[List[str]] = None
     intermediate_results: Optional[List[Dict]] = None
+    graph_string: str = ""
 
 class MCPToolsResponse(BaseModel):
     initialized: bool
@@ -180,7 +181,7 @@ async def process_with_mcp(prompt: str, model: str, filter_tools: List[str] = No
         mcp_platform.model = map_model_name(model)
         
         # Process query through MCP
-        result = await mcp_platform.process_query(prompt)
+        result = await mcp_platform.process_query(prompt, filter_tools)
         
         # Debug log the conversation steps
         print("\n===== CONVERSATION STEPS STRUCTURE =====")
@@ -302,7 +303,7 @@ async def process_with_mcp(prompt: str, model: str, filter_tools: List[str] = No
                 result_preview = tool_result['content'][:200] + "..." if len(tool_result['content']) > 200 else tool_result['content']
                 log_tool_result(step_counter, tool_name, result_preview)
         
-        return result.get("final_response", "No response generated"), tools_used, intermediate_results
+        return result.get("final_response", "No response generated"), tools_used, intermediate_results, result.get("graph_string", "")
     except Exception as e:
         print(f"Error processing with MCP: {str(e)}")
         return f"Error processing with MCP: {str(e)}", [], []
@@ -344,7 +345,7 @@ async def chat(request: ChatRequest):
     
     try:
         # Process with MCP Platform
-        response, tools_used, intermediate_results = await process_with_mcp(
+        response, tools_used, intermediate_results, graph_string = await process_with_mcp(
             request.prompt, 
             request.model, 
             request.filter_tools
@@ -353,7 +354,7 @@ async def chat(request: ChatRequest):
         return ChatResponse(
             response=response, 
             node_list=[], 
-            knowledge_graph=None,
+            graph_string=graph_string,
             mcp_tools_used=tools_used, 
             intermediate_results=intermediate_results
         )

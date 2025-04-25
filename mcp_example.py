@@ -26,7 +26,8 @@ async def process_query(platform: MCPPlatform, query: str):
     try:
         # Run the query through the platform
         result = await platform.process_query(query)
-        
+        logger.info(f"result: {result}")
+
         # Print the result in a simplified format
         print("\nQuery Result:")
         
@@ -96,43 +97,31 @@ async def safe_cleanup(platform):
         print(f"Non-critical error during cleanup: {type(e).__name__}")
     print("Example completed")
 
+import asyncio
+
 async def main():
-    """Run the example queries."""
+    """Run interactive query processor."""
     platform = MCPPlatform()
     
     # Initialize the platform with necessary tools
     print("Initializing servers...")
     await platform.initialize_all_servers()
     
-    # Example queries to demonstrate tool use
-    example_queries = [
-        # Basic Web3 Info Scraping
-        "search and scrape some web3 news in both markdown and raw HTML formats",
-        
-        # Deep Search with Multiple Sources
-        "deep search for recent developments in AI and blockchain, crawl multiple sources and compile a detailed report",
-        
-        # Generate LLM Text with Citations
-        "search for information about quantum computing advances, then generate a technical summary with proper citations",
-        
-        # Targeted Deep Search with Format Options
-        "perform a deep search about DeFi protocols, extract content in both markdown and HTML, focus on technical details",
-        
-        # Combined Search and Analysis
-        "search and analyze the latest crypto market trends, generate an analytical report with data from multiple sources"
-    ]
-    
     try:
-        # Process each query in sequence
-        for i, query in enumerate(example_queries):
-            print(f"\n===== Query {i+1}: {query} =====")
+        print("\n===== Enter your queries (type 'exit' to quit) =====")
+        while True:
+            query = input("\nEnter query: ")
+            if query.lower() == 'exit':
+                break
+            
+            print(f"\n===== Processing: {query} =====")
             await process_query(platform, query)
     finally:
         # Use a dedicated cleanup function that handles all errors
         await safe_cleanup(platform)
 
-def run_example():
-    """Run the example with proper error handling."""
+def run_interactive():
+    """Run the interactive query processor with proper error handling."""
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
@@ -142,12 +131,5 @@ def run_example():
         print(f"Details: {str(e)}")
 
 if __name__ == "__main__":
-    run_example()
+    run_interactive()
     print("Program terminated")
-
-# Example queries:
-# - What's the weather in New York?
-# - Create a file with investment strategies, cite sources
-# - Search for recent news about artificial intelligence
-# - get me some information about the stock market
-# - crawl some stock market news and summarize them in a file, cite the source

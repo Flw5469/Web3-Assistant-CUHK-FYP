@@ -64,7 +64,7 @@ class MCPClient:
             # Initialize and get tools
             await self.session.initialize()
             response = await self.session.list_tools()
-            self.tools = [{"name": tool.name, "description": tool.description} for tool in response.tools]
+            self.tools = [{"name": tool.name, "description": tool.description, "inputSchema": tool.inputSchema} for tool in response.tools]
             self.connected = True
             
             # Store server info

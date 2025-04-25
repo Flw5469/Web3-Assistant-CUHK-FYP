@@ -15,7 +15,7 @@ if docker ps -a --format '{{.Names}}' | grep -q "^neo4j_w_crypto_data\$"; then
 else
     # Run Neo4j container
     docker run -d --name neo4j_w_crypto_data \
-      -p 7474:7474 -p 7687:7687 \
+      -p 7475:7474 -p 7688:7687 \
       -e NEO4J_AUTH=neo4j/staysovryn \
       -e NEO4J_dbms_security_procedures_unrestricted=gds.*,apoc.* \
       -v neo4j_data:/data \
@@ -27,7 +27,8 @@ else
 fi
 
 # Copy data and plugins into the container
-docker exec neo4j_w_crypto_data sh -c "cp -r /data_copy/* /data && cp -r /plugins_copy/* /plugins && rm -rf /data_copy /plugins_copy"
+docker exec neo4j_w_crypto_data sh -c "cp -r /plugins_copy/* /plugins && rm -rf /data_copy /plugins_copy"
+# docker exec neo4j_w_crypto_data sh -c "cp -r /data_copy/* /data && cp -r /plugins_copy/* /plugins && rm -rf /data_copy /plugins_copy"
 
 # Restart Neo4j container
 docker restart neo4j_w_crypto_data

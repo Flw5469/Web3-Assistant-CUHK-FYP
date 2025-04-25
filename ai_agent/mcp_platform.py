@@ -19,6 +19,23 @@ logger = logging.getLogger("MCP_Platform")
 asyncio_logger = logging.getLogger("asyncio")
 asyncio_logger.setLevel(logging.CRITICAL)
 
+def handle_result(tool_result):
+        logger.info(f"tool result: {tool_result}")
+        """
+        Take MCP tool output and output 1. graph_string, 2.serialized_result
+        """
+        try:
+            # Try to convert tool_result to a dictionary if it's not already
+            #if isinstance(tool_result, dict):
+            result = tool_result['content'][0]['text']
+            result =  json.loads(result)
+            result = result.get('graph', ""), result.get('text', "")
+            logger.info(f"parsed result: {result}")
+            return json.dumps(result[0]), result[1]
+        except Exception as e:
+            logger.error(f"Error handling tool result: {e}")
+            return "", json.dumps(tool_result)
+
 class MCPPlatform:
     """A unified platform that manages multiple MCP clients and routes tool calls."""
     
@@ -206,24 +223,25 @@ class MCPPlatform:
         except Exception as e:
             logger.error(f"Error calling tool '{tool_name}': {str(e)}")
             raise
-    
-    async def process_query(self, query, max_iterations=5):
+     
+    async def process_query(self, query, excluded_tool_list = None, max_iterations=5):
         """Process a user query with available tools using various LLMs."""
         # Get latest tools
         tools = await self.refresh_all_tools()
-        
+
         # Format tools for LLM
         available_tools = []
         for tool in tools:
-            available_tools.append({
-                "type": "function",
-                "function": {
-                    "name": tool["name"],
-                    "description": tool["description"],
-                    "parameters": {"type": "object", "properties": {}}
-                }
-            })
-        
+            if not excluded_tool_list or tool['name'] not in excluded_tool_list:
+              available_tools.append({
+                  "type": "function",
+                  "function": {
+                      "name": tool["name"],
+                      "description": tool["description"],
+                      "parameters": tool["inputSchema"]
+                  }
+              })
+        print("available_tools",available_tools,"\n")
         # Setup initial conversation
         messages = [
             {"role": "system", "content": "You are a helpful assistant with access to various tools."},
@@ -231,6 +249,7 @@ class MCPPlatform:
         ]
         
         conversation_steps = [{"role": "user", "content": query}]
+        graph_string = ""
         
         # Process in a loop until no more tool calls or max iterations reached
         for iteration in range(max_iterations):
@@ -277,7 +296,6 @@ class MCPPlatform:
                         tools=available_tools,
                         tool_choice="auto"
                     )
-
             except Exception as e:
                 error_msg = f"Error calling language model: {str(e)}"
                 logger.error(error_msg)
@@ -311,10 +329,11 @@ class MCPPlatform:
             # If no tool calls, we're done
             if not assistant_message.tool_calls:
                 break
+            
             # Process each tool call
             for tool_call in assistant_message.tool_calls:
                 function_name = tool_call.function.name
-                
+                logger.info(f"Tool CALLS ARE: =>>>>>{tool_call}")
                 # Parse arguments - ensure proper JSON
                 try:
                     if isinstance(tool_call.function.arguments, str):
@@ -344,11 +363,20 @@ class MCPPlatform:
                         "name": function_name,
                         "result": tool_result
                     })
-                    print("conversation_steps",conversation_steps,"\n")
+                    
                     # Add tool result to messages for next LLM call
                     # Make sure it's serializable for the response
-                    serialized_result = json.dumps(tool_result)
                     
+                    #This line is put into handle_result
+                    #serialized_result = json.dumps(tool_result)
+
+                    current_graph_string, serialized_result = handle_result(tool_result)
+                    if current_graph_string!="":
+                        graph_string = current_graph_string
+
+                    logger.info(f"serialized_result: {serialized_result}")
+                    logger.info(f"graph_string: {graph_string}")
+
                     messages.append({
                         "role": "tool",
                         "tool_call_id": tool_call.id,
@@ -373,14 +401,15 @@ class MCPPlatform:
                         "name": function_name,
                         "content": f"Error: {str(e)}"
                     })
-
+        
         # Get final response - the last assistant message
         final_response = next((step["content"] for step in reversed(conversation_steps) 
                             if step["role"] == "assistant"), "No response generated")
         
         return {
             "conversation_steps": conversation_steps,
-            "final_response": final_response
+            "final_response": final_response,
+            "graph_string": graph_string,
         }
         
     async def cleanup(self):
@@ -438,7 +467,7 @@ async def main():
         tools = platform.get_all_tools()
         print(f"Available tools: {len(tools)}")
         
-        result = await platform.process_query("search and crawl some information of bitcoin price")
+        result = await platform.process_query("Search the uploaded foiles, answer me how many applicatinos is the SEC currently reviewing for pXRP ETFS?")
         print(f"Final response: {result['final_response']}")
     except Exception as e:
         print(f"Error: {str(e)}")

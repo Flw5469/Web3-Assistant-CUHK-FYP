@@ -8,6 +8,7 @@ import pandas as pd
 import json
 import re
 import html
+import traceback
 
 # Load environment variables for backend connection
 load_dotenv()
@@ -26,91 +27,168 @@ crypto_options = []
 
 def render_graph(input):
     """Generate Neo4j graph visualization HTML using Neovis.js"""
-    html_content = f"""
-    <html>
-    <head>
-        <title>Neovis.js Simple Example</title>
-        <style type="text/css">
-            html, body {{
-                font: 16pt arial;
-            }}
+    try:
+        # Escape any user input for security
+        safe_input = html.escape(input)
+        
+        html_content = f"""
+        <html>
+        <head>
+            <title>Neovis.js Simple Example</title>
+            <style type="text/css">
+                html, body {{
+                    font: 16pt arial;
+                    margin: 0;
+                    padding: 0;
+                }}
 
-            #viz {{
-                width: 100%;
-                height: 300px;
-                border: 1px solid lightgray;
-                font: 22pt arial;
-            }}
-        </style>
+                #viz {{
+                    width: 100%;
+                    height: 300px;
+                    border: 1px solid lightgray;
+                    font: 22pt arial;
+                    background-color: #f9f9f9;
+                }}
+                
+                .viz-status {{
+                    padding: 10px;
+                    margin-top: 5px;
+                    background-color: #f0f0f0;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    color: #666;
+                }}
+            </style>
 
-        <!-- FIXME: load from dist -->
-        <script src="https://unpkg.com/neovis.js@2.0.2"></script>
+            <!-- Load required libraries -->
+            <script src="https://unpkg.com/neovis.js@2.0.2"></script>
+            <script
+                    src="https://code.jquery.com/jquery-3.2.1.min.js"
+                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                    crossorigin="anonymous"></script>
 
-        <script
-                src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
+            <script type="text/javascript">
+                // define config car
+                // instantiate nodevis object
+                // draw
 
-        <script type="text/javascript">
-            // define config car
-            // instantiate nodevis object
-            // draw
+                var viz;
 
-            var viz;
-
-            function draw() {{
-                var config = {{
-                    containerId: "viz",
-                    neo4j: {{
-                        serverUrl: "{NEO4J_URI}",
-                        serverUser: "{NEO4J_USERNAME}",
-                        serverPassword: "{NEO4J_PASSWORD}"
-                    }},
-                    labels: {{
-              "__Entity__":{{
-                label:"id"
-              }},
-              "*":{{
-                label:"*"          
-              }},
-                    }},
-                    relationships: {{
-                        "*": {{
-                label:"description",
-                            value: "id"
+                function draw() {{
+                    var config = {{
+                        containerId: "viz",
+                        neo4j: {{
+                            serverUrl: "{NEO4J_URI}",
+                            serverUser: "{NEO4J_USERNAME}",
+                            serverPassword: "{NEO4J_PASSWORD}"
+                        }},
+                        labels: {{
+                          "__Entity__":{{
+                            label:"id",
+                            caption: "id",
+                            size: "size",
+                            community: "community"
+                          }},
+                          "*":{{
+                            label:"*",
+                            caption: "id"          
+                          }},
+                        }},
+                        relationships: {{
+                            "*": {{
+                                label:"description",
+                                caption: "description",
+                                value: "id",
+                                thickness: "weight"
+                            }}
+                        }},
+                        initialCypher: "{safe_input}",
+                        visConfig: {{
+                            nodes: {{
+                                shape: 'circle',
+                                physics: true,
+                            }},
+                            edges: {{
+                                smooth: {{
+                                    enabled: true,
+                                    type: "dynamic"
+                                }}
+                            }}
                         }}
-                    }},
-                    initialCypher: "{input}"
-                }};
+                    }};
 
-                viz = new NeoVis.default(config);
-                viz.render();
-                console.log(viz);
-            }}
-        </script>
-    </head>
-    <body onload="draw()">
-    <div id="viz"></div>
-    </body>
-
-    <script>
-        $("#reload").click(function () {{
-            var cypher = $("#cypher").val();
-            if (cypher.length > 3) {{
-                viz.renderWithCypher(cypher);
-            }} else {{
-                console.log("reload");
-                viz.reload();
-            }}
-        }});
-
-        $("#stabilize").click(function () {{
-            viz.stabilize();
-        }})
-    </script>
-    </html>
-    """
-    return html_content
+                    try {{
+                        viz = new NeoVis.default(config);
+                        viz.render();
+                        console.log(viz);
+                        
+                        // Add event listeners
+                        viz.registerOnEvent("completed", (e) => {{
+                            document.getElementById("viz-status").innerHTML = "Graph visualization completed";
+                            // Check if we have any nodes
+                            if (viz.nodes.length === 0) {{
+                                document.getElementById("viz-status").innerHTML = "No nodes found in the graph. Try a different query.";
+                            }}
+                        }});
+                        
+                        viz.registerOnEvent("error", (e) => {{
+                            document.getElementById("viz-status").innerHTML = "Error rendering graph: " + e.message;
+                        }});
+                    }} catch(err) {{
+                        document.getElementById("viz-status").innerHTML = "Error initializing graph: " + err.message;
+                        console.error(err);
+                    }}
+                }}
+            </script>
+        </head>
+        <body onload="draw()">
+            <div id="viz"></div>
+            <div id="viz-status" class="viz-status">Loading graph visualization...</div>
+            
+            <div style="margin-top: 10px; padding: 10px; border-radius: 5px; background-color: #f0f0f0;">
+                <p><strong>Knowledge Graph</strong> - Showing entities and relationships from the database.</p>
+                <p>The graph is interactive - you can click and drag nodes, zoom in/out, and hover for more information.</p>
+            </div>
+        </body>
+        </html>
+        """
+        return html_content
+    except Exception as e:
+        # Return a fallback HTML with error message
+        error_message = str(e)
+        return f"""
+        <html>
+        <head>
+            <style>
+                .error-container {{
+                    padding: 15px;
+                    background-color: #ffdddd;
+                    border-left: 6px solid #f44336;
+                    margin-bottom: 15px;
+                }}
+                .fallback-graph {{
+                    width: 100%;
+                    height: 300px;
+                    border: 1px solid lightgray;
+                    background-color: #f9f9f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="error-container">
+                <p><strong>Error rendering graph:</strong> {html.escape(error_message)}</p>
+            </div>
+            <div class="fallback-graph">
+                <p>Unable to render graph visualization</p>
+                <p>Please try again with a different query</p>
+            </div>
+        </body>
+        </html>
+        """
 
 # Function to fetch MCP tools from backend
 def fetch_mcp_tools():
@@ -170,19 +248,42 @@ def format_intermediate_results(results):
             # Display content
             html_output += '<div><strong>Result:</strong></div>'
             
-            # Check content type for formatting
-            if content.strip().startswith('{') or content.strip().startswith('['):
-                try:
-                    # Try to format as JSON
-                    parsed_json = json.loads(content)
-                    formatted_json = json.dumps(parsed_json, indent=2)
-                    html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(formatted_json)}</pre>'
-                except:
-                    # Fall back to plain text
-                    html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(content)}</pre>'
-            else:
-                # Regular text
-                html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(content)}</pre>'
+            # Check content type for formatting with improved error handling
+            try:
+                # First check if content is a JSON string
+                if isinstance(content, str) and (content.strip().startswith('{') or content.strip().startswith('[')):
+                    try:
+                        # Try to parse as JSON
+                        parsed_json = json.loads(content)
+                        formatted_json = json.dumps(parsed_json, indent=2)
+                        html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(formatted_json)}</pre>'
+                    except json.JSONDecodeError:
+                        # Not valid JSON, display as is
+                        html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(content)}</pre>'
+                # Check if content is already a dict or list
+                elif isinstance(content, (dict, list)):
+                    # Handle nested structure similar to the provided code
+                    if isinstance(content, dict):
+                        # Try to access content.text path
+                        if 'content' in content and isinstance(content['content'], dict) and 'text' in content['content']:
+                            html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(content["content"]["text"])}</pre>'
+                        # Try to access text directly
+                        elif 'text' in content:
+                            html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(content["text"])}</pre>'
+                        else:
+                            # Default to JSON
+                            formatted_json = json.dumps(content, indent=2)
+                            html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(formatted_json)}</pre>'
+                    else:
+                        # For lists
+                        formatted_json = json.dumps(content, indent=2)
+                        html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(formatted_json)}</pre>'
+                else:
+                    # Regular text
+                    html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">{html.escape(str(content))}</pre>'
+            except Exception as e:
+                # Fallback for any display errors
+                html_output += f'<pre style="background-color: #f5f5f5; padding: 10px; border-radius: 5px; max-height: 200px; overflow-y: auto;">Error displaying result: {html.escape(str(e))}</pre>'
             
             html_output += '</div>'
             
@@ -261,6 +362,7 @@ def process_query(prompt, model, mode, selected_coins, filtered_tools=None, uplo
                 graph_html = render_graph(f"MATCH (n)-[r]-(m) WHERE n.id IN {node_list} RETURN n,r,m LIMIT 50")
             except Exception as e:
                 print(f"Graph rendering error: {str(e)}")
+                graph_html = f"<div class='error-container' style='padding: 15px; background-color: #ffdddd; border-left: 6px solid #f44336; margin-bottom: 15px;'><p><strong>Error rendering graph:</strong> {str(e)}</p></div>"
         
         # Add assistant response to chat history
         chat_history.append({"role": "assistant", "content": ai_response})
@@ -275,8 +377,14 @@ def process_query(prompt, model, mode, selected_coins, filtered_tools=None, uplo
         
         return chat_history, formatted_results, tools_used_html, graph_html
         
+    except requests.exceptions.RequestException as e:
+        error_message = f"Error: Unable to connect to server. {str(e)}"
+        chat_history.append({"role": "assistant", "content": error_message})
+        return chat_history, "", "", ""
     except Exception as e:
-        error_message = f"Error: Unable to get response from server. {str(e)}"
+        error_message = f"Error: {type(e).__name__} - {str(e)}"
+        print(f"Exception in process_query: {error_message}")
+        traceback.print_exc()
         chat_history.append({"role": "assistant", "content": error_message})
         return chat_history, "", "", ""
 
@@ -321,152 +429,260 @@ def deselect_all_tools():
 # Function to render an example knowledge graph
 def render_example_graph():
     """Helper function to render an example knowledge graph with static HTML"""
-    print("Rendering example knowledge graph")
-    
-    # Create a static HTML visualization that doesn't require Neo4j connection
-    html_content = """
-    <html>
-    <head>
-        <title>Example Knowledge Graph</title>
-        <style type="text/css">
-            #exampleGraph {
-                width: 100%;
-                height: 300px;
-                border: 1px solid lightgray;
-                font: 16pt arial;
-                position: relative;
-                background-color: #f9f9f9;
-            }
-            
-            .node {
-                position: absolute;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                line-height: 60px;
-                text-align: center;
-                color: white;
-                font-weight: bold;
-                font-size: 14px;
-            }
-            
-            .entity {
-                background-color: #4285f4;
-            }
-            
-            .document {
-                background-color: #34a853;
-            }
-            
-            .relationship {
-                position: absolute;
-                border-top: 2px solid #ccc;
-                transform-origin: 0 0;
-                z-index: -1;
-            }
-            
-            .relationship-label {
-                position: absolute;
-                background-color: #ffffff;
-                padding: 2px 5px;
-                border-radius: 3px;
-                font-size: 12px;
-                color: #666;
-                text-align: center;
-            }
-            
-            .graph-info {
-                margin-top: 10px;
-                padding: 10px;
-                background-color: #f0f0f0;
-                border-radius: 5px;
-            }
-        </style>
+    try:
+        print("Rendering example knowledge graph")
         
-        <script>
-            // Simple JavaScript to draw lines between nodes after they're positioned
-            window.onload = function() {
-                const nodes = document.querySelectorAll('.node');
-                const relationships = [
-                    {from: 'doc1', to: 'entity1', label: 'MENTIONS'},
-                    {from: 'doc1', to: 'entity2', label: 'MENTIONS'},
-                    {from: 'doc1', to: 'entity3', label: 'MENTIONS'},
-                    {from: 'doc2', to: 'entity1', label: 'MENTIONS'},
-                    {from: 'doc2', to: 'entity4', label: 'MENTIONS'},
-                    {from: 'entity2', to: 'entity3', label: 'RELATED_TO'},
-                ];
+        # Create a static HTML visualization that doesn't require Neo4j connection
+        html_content = """
+        <html>
+        <head>
+            <title>Example Knowledge Graph</title>
+            <style type="text/css">
+                html, body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                }
                 
-                // Draw relationships
-                relationships.forEach(rel => {
-                    drawRelationship(
-                        document.getElementById(rel.from), 
-                        document.getElementById(rel.to), 
-                        rel.label
-                    );
-                });
-            };
+                #exampleGraph {
+                    width: 100%;
+                    height: 300px;
+                    border: 1px solid lightgray;
+                    font: 16pt arial;
+                    position: relative;
+                    background-color: #f9f9f9;
+                    overflow: hidden;
+                }
+                
+                .node {
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    text-align: center;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 14px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                    transition: transform 0.2s ease;
+                    cursor: pointer;
+                }
+                
+                .node:hover {
+                    transform: scale(1.1);
+                    z-index: 10;
+                }
+                
+                .entity {
+                    background-color: #4285f4;
+                }
+                
+                .document {
+                    background-color: #34a853;
+                }
+                
+                .relationship {
+                    position: absolute;
+                    border-top: 2px solid #999;
+                    transform-origin: 0 0;
+                    z-index: -1;
+                }
+                
+                .relationship-label {
+                    position: absolute;
+                    background-color: #ffffff;
+                    padding: 2px 5px;
+                    border-radius: 3px;
+                    font-size: 12px;
+                    color: #666;
+                    text-align: center;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                }
+                
+                .graph-info {
+                    margin-top: 10px;
+                    padding: 10px;
+                    background-color: #f0f0f0;
+                    border-radius: 5px;
+                    font-size: 14px;
+                }
+            </style>
             
-            function drawRelationship(node1, node2, label) {
-                const container = document.getElementById('exampleGraph');
+            <script>
+                // Simple JavaScript to draw lines between nodes after they're positioned
+                window.onload = function() {
+                    const nodes = document.querySelectorAll('.node');
+                    const relationships = [
+                        {from: 'doc1', to: 'entity1', label: 'MENTIONS'},
+                        {from: 'doc1', to: 'entity2', label: 'MENTIONS'},
+                        {from: 'doc1', to: 'entity3', label: 'MENTIONS'},
+                        {from: 'doc2', to: 'entity1', label: 'MENTIONS'},
+                        {from: 'doc2', to: 'entity4', label: 'MENTIONS'},
+                        {from: 'entity2', to: 'entity3', label: 'RELATED_TO'},
+                    ];
+                    
+                    try {
+                        // Draw relationships
+                        relationships.forEach(rel => {
+                            drawRelationship(
+                                document.getElementById(rel.from), 
+                                document.getElementById(rel.to), 
+                                rel.label
+                            );
+                        });
+                        
+                        // Add interactivity
+                        nodes.forEach(node => {
+                            node.addEventListener('click', function() {
+                                // Highlight connected relationships
+                                const nodeId = this.id;
+                                const connectedRels = relationships.filter(
+                                    rel => rel.from === nodeId || rel.to === nodeId
+                                );
+                                
+                                // Reset all nodes and relationships
+                                document.querySelectorAll('.relationship').forEach(
+                                    el => el.style.borderTop = '2px solid #999'
+                                );
+                                nodes.forEach(n => n.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)');
+                                
+                                // Highlight this node
+                                this.style.boxShadow = '0 0 10px rgba(255,215,0,1)';
+                                
+                                // Highlight connected relationships
+                                connectedRels.forEach(rel => {
+                                    const selector = `[data-from="${rel.from}"][data-to="${rel.to}"]`;
+                                    const relElement = document.querySelector(selector);
+                                    if (relElement) {
+                                        relElement.style.borderTop = '3px solid #ff9900';
+                                    }
+                                    
+                                    // Also highlight connected nodes
+                                    const connectedNode = (rel.from === nodeId) ? 
+                                        document.getElementById(rel.to) : 
+                                        document.getElementById(rel.from);
+                                    if (connectedNode) {
+                                        connectedNode.style.boxShadow = '0 0 8px rgba(66,133,244,0.8)';
+                                    }
+                                });
+                            });
+                        });
+                    } catch (err) {
+                        console.error('Error initializing example graph:', err);
+                        document.getElementById('graphStatus').innerHTML = 
+                            'Error initializing example graph: ' + err.message;
+                    }
+                };
                 
-                // Get centers of each node
-                const rect1 = node1.getBoundingClientRect();
-                const rect2 = node2.getBoundingClientRect();
-                const containerRect = container.getBoundingClientRect();
+                function drawRelationship(node1, node2, label) {
+                    if (!node1 || !node2) {
+                        console.error('Cannot draw relationship: node not found');
+                        return;
+                    }
+                    
+                    const container = document.getElementById('exampleGraph');
+                    
+                    // Get centers of each node
+                    const rect1 = node1.getBoundingClientRect();
+                    const rect2 = node2.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    const x1 = rect1.left + rect1.width/2 - containerRect.left;
+                    const y1 = rect1.top + rect1.height/2 - containerRect.top;
+                    const x2 = rect2.left + rect2.width/2 - containerRect.left;
+                    const y2 = rect2.top + rect2.height/2 - containerRect.top;
+                    
+                    // Create line
+                    const line = document.createElement('div');
+                    line.className = 'relationship';
+                    line.setAttribute('data-from', node1.id);
+                    line.setAttribute('data-to', node2.id);
+                    
+                    // Calculate line length and angle
+                    const length = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+                    const angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
+                    
+                    // Position and rotate line
+                    line.style.width = length + 'px';
+                    line.style.left = x1 + 'px';
+                    line.style.top = y1 + 'px';
+                    line.style.transform = 'rotate(' + angle + 'deg)';
+                    
+                    // Create and position label
+                    const labelElem = document.createElement('div');
+                    labelElem.className = 'relationship-label';
+                    labelElem.textContent = label;
+                    labelElem.style.left = (x1 + x2) / 2 - 30 + 'px';
+                    labelElem.style.top = (y1 + y2) / 2 - 10 + 'px';
+                    
+                    container.appendChild(line);
+                    container.appendChild(labelElem);
+                }
+            </script>
+        </head>
+        <body>
+            <div id="exampleGraph">
+                <!-- Document Nodes -->
+                <div id="doc1" class="node document" style="left: 50px; top: 50px;">Doc 1</div>
+                <div id="doc2" class="node document" style="left: 50px; top: 180px;">Doc 2</div>
                 
-                const x1 = rect1.left + rect1.width/2 - containerRect.left;
-                const y1 = rect1.top + rect1.height/2 - containerRect.top;
-                const x2 = rect2.left + rect2.width/2 - containerRect.left;
-                const y2 = rect2.top + rect2.height/2 - containerRect.top;
-                
-                // Create line
-                const line = document.createElement('div');
-                line.className = 'relationship';
-                
-                // Calculate line length and angle
-                const length = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
-                const angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
-                
-                // Position and rotate line
-                line.style.width = length + 'px';
-                line.style.left = x1 + 'px';
-                line.style.top = y1 + 'px';
-                line.style.transform = 'rotate(' + angle + 'deg)';
-                
-                // Create and position label
-                const labelElem = document.createElement('div');
-                labelElem.className = 'relationship-label';
-                labelElem.textContent = label;
-                labelElem.style.left = (x1 + x2) / 2 - 30 + 'px';
-                labelElem.style.top = (y1 + y2) / 2 - 10 + 'px';
-                
-                container.appendChild(line);
-                container.appendChild(labelElem);
-            }
-        </script>
-    </head>
-    <body>
-        <div id="exampleGraph">
-            <!-- Document Nodes -->
-            <div id="doc1" class="node document" style="left: 50px; top: 50px;">Doc 1</div>
-            <div id="doc2" class="node document" style="left: 50px; top: 180px;">Doc 2</div>
+                <!-- Entity Nodes -->
+                <div id="entity1" class="node entity" style="left: 200px; top: 120px;">Bitcoin</div>
+                <div id="entity2" class="node entity" style="left: 320px; top: 50px;">Crypto</div>
+                <div id="entity3" class="node entity" style="left: 320px; top: 180px;">Market</div>
+                <div id="entity4" class="node entity" style="left: 200px; top: 230px;">Tron</div>
+            </div>
             
-            <!-- Entity Nodes -->
-            <div id="entity1" class="node entity" style="left: 200px; top: 120px;">Bitcoin</div>
-            <div id="entity2" class="node entity" style="left: 320px; top: 50px;">Crypto</div>
-            <div id="entity3" class="node entity" style="left: 320px; top: 180px;">Market</div>
-            <div id="entity4" class="node entity" style="left: 200px; top: 230px;">Tron</div>
-        </div>
+            <div id="graphStatus" style="text-align: center; padding: 5px; font-style: italic;"></div>
+            
+            <div class="graph-info">
+                <p><strong>Example Knowledge Graph</strong> - This visualization shows how documents connect to entities within the Neo4j database.</p>
+                <p>In a real query, you would see actual documents and entities extracted from your data, visualized with interactive features.</p>
+                <p><small>Try clicking on nodes to see connections highlighted.</small></p>
+            </div>
+        </body>
+        </html>
+        """
         
-        <div class="graph-info">
-            <p><strong>Example Knowledge Graph</strong> - This is a static visualization showing how documents connect to entities within the Neo4j database.</p>
-            <p>In a real query, you would see the actual documents and entities extracted from your data, visualized in a similar format but interactive.</p>
-        </div>
-    </body>
-    </html>
-    """
-    
-    return html_content
+        return html_content
+    except Exception as e:
+        # Return a fallback HTML with error message
+        error_message = str(e)
+        print(f"Error rendering example graph: {error_message}")
+        return f"""
+        <html>
+        <head>
+            <style>
+                .error-container {{
+                    padding: 15px;
+                    background-color: #ffdddd;
+                    border-left: 6px solid #f44336;
+                    margin-bottom: 15px;
+                }}
+                .fallback-graph {{
+                    width: 100%;
+                    height: 300px;
+                    border: 1px solid lightgray;
+                    background-color: #f9f9f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class="error-container">
+                <p><strong>Error rendering example graph:</strong> {html.escape(error_message)}</p>
+            </div>
+            <div class="fallback-graph">
+                <p>Unable to render example graph visualization</p>
+                <p>Please try refreshing the page</p>
+            </div>
+        </body>
+        </html>
+        """
 
 # Function to toggle the example graph display
 def toggle_example_graph(button_text, graph_html):
@@ -522,7 +738,7 @@ def create_app():
                     value=chat_history,
                     elem_id="chatbot",
                     height=500,
-                    avatar_images=("👤", "🤖"),
+                    # avatar_images=("👤", "🤖"),
                     type="messages"
                 )
                 

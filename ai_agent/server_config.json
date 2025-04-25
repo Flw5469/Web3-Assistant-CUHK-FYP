@@ -1,6 +1,12 @@
 {
   "servers": [
     {
+      "name": "graph_search",
+      "path": "ai_agent/server/graph_search.py",
+      "type": "python",
+      "description": "A server of Graph database and vector database for crypto news and dictionary"
+    },
+    {
       "name": "File System Server",
       "path": "ai_agent/server/file_system_server.js",
       "type": "node",
@@ -27,5 +33,5 @@
       "description": "KAG MCP service, provide reasoning and logic to answer domain-specific questions"
     }
   ],
-  "default_server": "File System Server"
+  "default_server": "graph_search"
 }
